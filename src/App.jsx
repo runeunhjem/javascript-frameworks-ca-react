@@ -1,9 +1,4 @@
-import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "./styles/theme";
-import { GlobalStyle } from "./styles/GlobalStyles";
-import ThemeSwitch from "./components/ThemeSwitch";
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
 import ContactPage from "./pages/ContactPage";
@@ -15,22 +10,8 @@ import { CartProvider } from "./CartContext";
 import "./index.css";
 
 function App() {
-  const [theme, setTheme] = useState("light");
-
-  const toggleTheme = () => {
-    setTheme((curr) => (curr === "light" ? "dark" : "light"));
-    console.log("Theme toggled");
-  };
-
   return (
     <Router>
-      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-        <GlobalStyle />
-        <div>
-          {/* <h1>Hello, world!</h1> */}
-          <ThemeSwitch toggleTheme={toggleTheme} />
-        </div>
-      </ThemeProvider>
       <CartProvider>
         {" "}
         {/* Wrap routes with CartProvider */}

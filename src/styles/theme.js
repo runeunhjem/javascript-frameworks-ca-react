@@ -1,11 +1,11 @@
 export const lightTheme = {
-  body: "#FFFFFF",
-  text: "#000000",
-  // Add more colors or theme-specific properties
+  body: "var(--color-gray-light)",
+  text: "var(--color-black)",
+  // Buttons, links, and other UI elements
 };
 
 export const darkTheme = {
-  body: "#121212",
-  text: "#FFFFFF",
-  // Add more colors or theme-specific properties
+  body: "var(--color-gray-dark)",
+  text: "var(--color-white)",
+  // Buttons, links, and other UI elements
 };

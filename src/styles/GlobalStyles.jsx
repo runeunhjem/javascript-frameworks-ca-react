@@ -37,9 +37,11 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: "Roboto", sans-serif;
   }
-  
+
   body {
     background-color: ${(props) => props.theme.body};
     color: ${(props) => props.theme.text};
+    font-size: var(--font-size-small);
+    min-height: 100vh;
   }
 `;

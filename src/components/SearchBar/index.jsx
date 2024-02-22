@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContext"; // Adjust the import path as necessary
@@ -27,11 +26,15 @@ function SearchBar() {
     for (let i = 1; i <= 5; i++) {
       stars.push(
         <span key={i} className={`star ${i <= rating ? "bi-star-fill" : "bi-star"}`}>
-          {i <= rating ? "★" : "☆"} {/* Adjusted for better visual representation */}
         </span>
       );
     }
     return <div className="search-result-rating">{stars}</div>;
+  };
+
+  const handleProductClick = (productId) => {
+    setSearchTerm(""); // Clear the search term
+    navigate(`/product/${productId}`); // Navigate to the product page
   };
 
   return (
@@ -50,7 +53,7 @@ function SearchBar() {
       </div>
       <div className="search-results">
         {filteredProducts.map((product) => (
-          <div key={product.id} className="search-result-item" onClick={() => navigate(`/product/${product.id}`)}>
+          <div key={product.id} className="search-result-item" onClick={() => handleProductClick(product.id)}>
             <img
               src={product.image ? product.image.url : "https://via.placeholder.com/50"}
               alt={product.image && product.title ? product.image.alt : "Product image unavailable"}
@@ -80,23 +83,5 @@ function SearchBar() {
     </div>
   );
 }
-
-SearchBar.propTypes = {
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string,
-      tags: PropTypes.arrayOf(PropTypes.string),
-      image: PropTypes.shape({
-        url: PropTypes.string,
-        alt: PropTypes.string,
-      }),
-      price: PropTypes.number.isRequired,
-      discountedPrice: PropTypes.number,
-      rating: PropTypes.number,
-    })
-  ),
-};
 
 export default SearchBar;

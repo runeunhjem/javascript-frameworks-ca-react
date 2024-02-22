@@ -34,7 +34,8 @@ function ProductCard({ product }) {
     for (let i = 1; i <= 5; i++) {
       if (i <= Math.floor(roundedRating)) {
         stars.push(<i key={i} className="star bi bi-star-fill" aria-hidden="true"></i>);
-      } else if (i === Math.ceil(roundedRating) && roundedRating % 1 !== 0) {
+      }
+      else if (i === Math.ceil(roundedRating) && roundedRating % 1 !== 0) {
         stars.push(<i key={i} className="star bi bi-star-half" aria-hidden="true"></i>);
       } else {
         stars.push(<i key={i} className="star bi bi-star" aria-hidden="true"></i>);

@@ -113,11 +113,9 @@
 
 .star,
 .star-half,
+.bi-star,
 .bi-star-fill {
   color: var(--color-gold-search); /* Gold color for stars */
-}
-.bi-star {
-  color: var(--color-gold-search); /* Gray color for stars */
 }
 
 .search-result-rating {

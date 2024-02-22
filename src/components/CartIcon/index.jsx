@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../../CartContext";
-
+import { useCart } from "../../contexts/CartContext";
 
 function CartIcon() {
   const { cartItems } = useCart(); // Use the useCart hook to access cart items

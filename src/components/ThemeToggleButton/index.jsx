@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"; // Import PropTypes
 import styled from "styled-components";
+import VisuallyHidden from "../VisuallyHidden"; // Import VisuallyHidden component
 
 // The actual switch that will be hidden and replaced by the Slider below
 const Checkbox = styled.input`
@@ -16,7 +17,7 @@ const Slider = styled.span`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: var(--color-pink-light);
   transition: 0.4s;
   border-radius: 34px;
 
@@ -39,9 +40,11 @@ const Switch = styled.label`
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin-left: 1em;
+  justify-self: flex-end;
 
   ${Checkbox}:checked + ${Slider} {
-    background-color: #2196f3;
+    background-color: var(--color-gray-dark);
   }
 
   ${Checkbox}:checked + ${Slider}:before {
@@ -51,11 +54,15 @@ const Switch = styled.label`
 
 // Exporting the functional component that uses the styled components
 const ThemeSwitch = ({ toggleTheme }) => (
-  <Switch>
-    <Checkbox type="checkbox" onChange={toggleTheme} />
-    <Slider />
-  </Switch>
+  <>
+    <VisuallyHidden htmlFor="theme-switch-checkbox">Toggle theme</VisuallyHidden>
+    <Switch>
+      <Checkbox id="theme-switch-checkbox" type="checkbox" onChange={toggleTheme} />
+      <Slider />
+    </Switch>
+  </>
 );
+
 
 // Define propTypes for ThemeSwitch component
 ThemeSwitch.propTypes = {

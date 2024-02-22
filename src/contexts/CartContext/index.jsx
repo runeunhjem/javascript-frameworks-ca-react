@@ -1,9 +1,10 @@
 import PropTypes from "prop-types"; // Corrected import for PropTypes
 import { createContext, useContext, useState, useEffect } from "react";
-import { load, save } from "../components/StorageUtils"; // Adjusted the import path
+import { load, save } from "../../components/StorageUtils"; // Adjusted the import path
 
 const CartContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {

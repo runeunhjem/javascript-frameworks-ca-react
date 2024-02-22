@@ -6,26 +6,26 @@ import CartPage from "./pages/CartPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Layout from "./components/Layout";
-import { CartProvider } from "./CartContext";
-import "./index.css";
+import { CartProvider } from "./contexts/CartContext";
+import { ProductProvider } from "./contexts/ProductContext";
 
 function App() {
   return (
     <Router>
-      <CartProvider>
-        {" "}
-        {/* Wrap routes with CartProvider */}
-        <Layout>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/product/:productId" element={<ProductPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/success" element={<CheckoutSuccessPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Layout>
-      </CartProvider>
+      <ProductProvider>
+        <CartProvider>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/product/:productId" element={<ProductPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/success" element={<CheckoutSuccessPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Layout>
+        </CartProvider>
+      </ProductProvider>
     </Router>
   );
 }

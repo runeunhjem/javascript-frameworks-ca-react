@@ -1,11 +1,13 @@
 .product-card {
   position: relative;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   padding: 20px;
   margin: 10px;
   width: 300px;
-  height: 650px;
+  /* height: 650px; */
   display: inline-block;
+  font-size: var(--font-size-xsmall);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .image-container {
@@ -67,12 +69,14 @@
 }
 
 .product-title {
-  height: 60px;
+  /* height: 60px; */
   margin-bottom: 0;
+  font-size: var(--font-size-xsmall);
 }
 
 .product-description {
   height: 65px;
+  font-size: var(--font-size-xsmall);
 }
 
 .discounted-price {

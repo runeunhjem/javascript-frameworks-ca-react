@@ -1,17 +1,16 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../CartContext";
-import "./ProductCard.styles.css";
+import { useCart } from "../../contexts/CartContext";
+import "./index.css";
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
   const [isAdded, setIsAdded] = useState(false);
 
-  const imageUrl = product.image ? product.image.url : "https://via.placeholder.com/300";
+  // const imageUrl = product.image ? product.image.url : "https://via.placeholder.com/300";
   const imageAlt = product.image && product.title ? product.title : "";
-
 
   const discountPercentage =
     product.price > product.discountedPrice
@@ -47,7 +46,12 @@ function ProductCard({ product }) {
   return (
     <div className="product-card" aria-label={`Product card for ${product.title}`}>
       <div className="image-container" role="img" aria-label={imageAlt}>
-        <img src={imageUrl} alt={imageAlt} className="product-image" />
+        <img
+          src={product.image ? product.image.url : "https://via.placeholder.com/50"}
+          alt={product.image && product.title ? product.image.alt || product.title : "Product image unavailable"}
+          className="product-image"
+        />
+
         <button
           onClick={handleAddToCart}
           className={`add-to-cart-button ${isAdded ? "added" : ""}`}

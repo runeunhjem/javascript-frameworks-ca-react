@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContext"; // Adjust the import path as necessary
-import "./SearchBar.styles.css";
+import "./index.styled.css";
 
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");

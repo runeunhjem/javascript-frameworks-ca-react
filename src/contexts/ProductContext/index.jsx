@@ -7,6 +7,7 @@ const initialState = {
   loading: true,
   error: null,
   selectedTag: "",
+  searchTerm: "",
 };
 
 // Reducer function to handle state updates
@@ -20,6 +21,8 @@ function productReducer(state, action) {
       return { ...state, loading: false, error: action.payload };
     case "SET_SELECTED_TAG":
       return { ...state, selectedTag: action.payload };
+    case "SET_SEARCH_TERM":
+      return { ...state, searchTerm: action.payload };
     default:
       return state;
   }
@@ -35,6 +38,10 @@ export const useProducts = () => useContext(ProductContext);
 // Context Provider component
 export const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
+  // eslint-disable-next-line no-unused-vars
+  const setSearchTerm = (term) => {
+    dispatch({ type: "SET_SEARCH_TERM", payload: term });
+  };
 
   useEffect(() => {
     dispatch({ type: "FETCH_START" });
@@ -60,6 +67,7 @@ export const ProductProvider = ({ children }) => {
       ...state,
       setProducts: (products) => dispatch({ type: "FETCH_SUCCESS", payload: products }),
       setSelectedTag: (tag) => dispatch({ type: "SET_SELECTED_TAG", payload: tag }),
+      setSearchTerm: (term) => dispatch({ type: "SET_SEARCH_TERM", payload: term }),
     }),
     [state]
   );

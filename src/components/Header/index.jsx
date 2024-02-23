@@ -25,7 +25,6 @@ function Header() {
 
   return (
     <header className="header-container">
-      {/* Remove Link component and use div or any other element for the logo click */}
       <div onClick={handleLogoClick} style={{ cursor: "pointer" }}>
         <img className="header-logo" src="/header-logo-cgg.svg" alt="Illustration of the cgg logo" />
       </div>

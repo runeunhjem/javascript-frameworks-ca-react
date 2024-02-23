@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"; // Import PropTypes
-import "./index.styled.css";
+import "./index.css";
 
 function Reviews({ reviews }) {
   const renderStars = (rating) => {

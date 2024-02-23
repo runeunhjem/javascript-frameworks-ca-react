@@ -56,9 +56,9 @@ function SearchBar() {
           value={localSearchTerm}
           onChange={(e) => setLocalSearchTerm(e.target.value)}
         />
-        <button type="submit">
-          <i className="bi bi-search"></i> {/* Bootstrap search icon */}
-        </button>
+          <button className="searchButton" type="submit">
+            <i className="bi bi-search"></i> {/* Bootstrap search icon */}
+          </button>
       </div>
       {localSearchTerm && (
         <div className="search-results">

@@ -6,7 +6,7 @@ import CartPage from "./pages/CartPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Layout from "./components/Layout";
-import SearchResultsPage from "./pages/SearchResultsPage"; // Ensure this import is correct
+import SearchResultsPage from "./pages/SearchResultsPage";
 import { CartProvider } from "./contexts/CartContext";
 import { ProductProvider } from "./contexts/ProductContext";
 
@@ -22,7 +22,7 @@ function App() {
               <Route path="/cart" element={<CartPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/success" element={<CheckoutSuccessPage />} />
-              <Route path="/search" element={<SearchResultsPage />} /> {/* Add this line */}
+              <Route path="/search" element={<SearchResultsPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Layout>

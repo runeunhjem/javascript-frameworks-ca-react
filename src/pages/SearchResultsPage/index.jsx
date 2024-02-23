@@ -1,4 +1,3 @@
-// SearchResultsPage.js
 import { useMemo } from "react";
 import { useProducts } from "../../contexts/ProductContext";
 import ProductCard from "../../components/ProductCard";

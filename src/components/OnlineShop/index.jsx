@@ -1,29 +1,25 @@
-// import SearchBar from "../SearchBar";
 import ProductCard from "../ProductCard";
-import CategorySelector from "../CategorySelector";
-import { useProducts } from "../../contexts/ProductContext"; // Adjust path as necessary
+import SortAndFilterContainer from "../SortAndFilterContainer"; // Import the new component
+import { useProducts } from "../../contexts/ProductContext"; // Adjust the import path as necessary
 
 function OnlineShop() {
   const { products, loading, error, selectedTag, setSelectedTag } = useProducts();
 
-  // Filter products by selected tag
+  // Calculate filteredProducts based on selectedTag
   const filteredProducts = selectedTag ? products.filter((product) => product.tags.includes(selectedTag)) : products;
 
+  // Early return patterns for loading and error states
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  // Extract unique tags from products for the CategorySelector
+  // Extract unique tags from products for the SortAndFilterContainer
   const tags = Array.from(new Set(products.flatMap((product) => product.tags))).sort();
 
   return (
     <div className="OnlineShop">
-      <h1 className="visually-hidden">Online Shop Products</h1>
-      <div className="sort-and-filter-container">
-        <h2>Products</h2>
-        <CategorySelector selectedTag={selectedTag} setSelectedTag={setSelectedTag} tags={tags} />
-        {/* <SearchBar /> */}
-      </div>
-      <div className="product-cards" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+      <h1 className="visually-hidden">Products</h1>
+      <SortAndFilterContainer selectedTag={selectedTag} setSelectedTag={setSelectedTag} tags={tags} />
+      <div className="product-cards">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

@@ -39,9 +39,9 @@ export const useProducts = () => useContext(ProductContext);
 export const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
   // eslint-disable-next-line no-unused-vars
-  const setSearchTerm = (term) => {
-    dispatch({ type: "SET_SEARCH_TERM", payload: term });
-  };
+  // const setSearchTerm = (term) => {
+  //   dispatch({ type: "SET_SEARCH_TERM", payload: term });
+  // };
 
   useEffect(() => {
     dispatch({ type: "FETCH_START" });

@@ -1,9 +1,9 @@
 :root {
-  /* --color-pink: #a041aa; */
+  --color-pink-dark: #440a4b;
   --color-pink: #800091;
   /* --color-pink-light: #c5bfc5; */
   --color-pink-light: #ccade9;
-  --color-pink-xlight: #f5e6f5;
+  --color-pink-xlight: rgb(245, 230, 245);
   --color-black: #000000;
   --color-white: #ffffff;
   --color-success: #28a745;
@@ -11,7 +11,7 @@
   --color-gold: #ffc107;
   --color-gold-search: #800091;
   --color-gray: #6c757d;
-  --color-gray-light: #f8f9fa;
+  --color-gray-light: #e2e2e2;
   --color-gray-dark: #343a40;
   --color-red: #771313;
 
@@ -48,26 +48,29 @@ footer {
   background-color: var(--color-pink);
   flex-wrap: wrap;
   min-height: 100px;
-  width: 100vw;
+  width: 100%;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 10px;
   font-size: var(--font-size-xsmall);
   color: var(--color-white);
+  border-bottom: 1px solid var(--color-pink-light);
 }
 
 .header-container {
-  background-color: var(--color-pink);
+  /* background-color: var(--color-pink); */
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  padding: 0 20px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
   font-size: calc(10px + 2vmin);
   color: var(--color-white);
-  border-bottom: 1px solid var(--color-pink-light);
 }
 
 .header-logo {
@@ -75,8 +78,14 @@ footer {
   min-height: 30px;
   max-height: 60px;
   pointer-events: none;
-  margin-right: 20px;
+  margin: 15px 20px 0 0;
   filter: drop-shadow(3px 3px 3px rgba(10, 10, 1, 0.5));
+}
+
+.header-content {
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px 0;
 }
 
 .navbar,
@@ -85,6 +94,9 @@ footer {
   flex-direction: row;
   align-items: center;
   list-style: none;
+}
+#navbar {
+  margin: 0 0 6px 0;
 }
 
 .nav-links {
@@ -117,6 +129,13 @@ li:hover {
 #navbar a.active {
   color: var(--color-pink-light);
   text-decoration: underline;
+}
+
+.mode-switch {
+  width: 100%;
+  display: flex;
+  padding: 0 16px 0 0;
+  justify-content: flex-end;
 }
 
 .sort-and-filter-container {

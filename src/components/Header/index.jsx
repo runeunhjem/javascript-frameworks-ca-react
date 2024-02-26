@@ -7,38 +7,57 @@ import { useState } from "react";
 import { darkTheme, lightTheme } from "../../styles/theme";
 import { useProducts } from "../../contexts/ProductContext"; // Import useProducts hook
 import SearchBar from "../SearchBar";
+import "./index.css";
+// import SortAndFilterContainer from "../SortAndFilterContainer";
 
 function Header() {
   const [theme, setTheme] = useState("light");
-  const { setSelectedTag } = useProducts(); // Destructure setSelectedTag from the context
-  const navigate = useNavigate(); // Use useNavigate hook for navigation
+  const [showSearchBar, setShowSearchBar] = useState(true); // State to toggle search bar visibility
+  const [showFilterContainer, setShowFilterContainer] = useState(true); // State to toggle filter container visibility
+  const { setSelectedTag } = useProducts();
+  const navigate = useNavigate();
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
-    console.log("Theme toggled");
   };
 
   const handleLogoClick = () => {
-    setSelectedTag(""); // Reset category selection
-    navigate("/"); // Navigate to homepage
+    setSelectedTag("");
+    navigate("/");
   };
 
+  // Toggle functions for search bar and sort-and-filter-container
+  const toggleSearchBar = () => setShowSearchBar(!showSearchBar);
+  const toggleFilterContainer = () => setShowFilterContainer(!showFilterContainer);
+
   return (
-    <header className="header-container">
-      <div onClick={handleLogoClick} style={{ cursor: "pointer" }}>
-        <img className="header-logo" src="/header-logo-cgg.svg" alt="Illustration of the cgg logo" />
-      </div>
-      <SearchBar />
-      <div className="header-content">
-        <NavBar setSelectedTag={setSelectedTag} />
-        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-          <GlobalStyle />
-          <div>
-            <span>Mode:</span>
-            <ThemeSwitch toggleTheme={toggleTheme} />
+    <header>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyle />
+        <div className="header-container">
+          <div onClick={handleLogoClick} style={{ cursor: "pointer" }}>
+            <img className="header-logo" src="/header-logo-cgg.svg" alt="Illustration of the cgg logo" />
           </div>
-        </ThemeProvider>
-      </div>
+          {showSearchBar && <SearchBar />}
+          <div className="header-content">
+            <NavBar setSelectedTag={setSelectedTag} />
+            <div className="header-content-row2">
+              <div className="search-and-filter-icons">
+                {/* Toggle search bar visibility */}
+                <i className="bi bi-search" onClick={toggleSearchBar}></i>
+                {/* Toggle filter container visibility */}
+                <i className="bi bi-sliders" onClick={toggleFilterContainer}></i>
+              </div>
+              <div className="mode-switch">
+                <i className="bi bi-sun"></i>
+                <ThemeSwitch toggleTheme={toggleTheme} />
+                <i className="bi bi-moon"></i>
+              </div>
+            </div>
+          </div>
+          {/* {showFilterContainer && <SortAndFilterContainer />} */}
+        </div>
+      </ThemeProvider>
     </header>
   );
 }

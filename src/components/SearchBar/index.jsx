@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContext";
 import "./index.css";
+import VisuallyHidden from "../VisuallyHidden";
 
 function SearchBar() {
   // Local state for input value
@@ -27,6 +28,7 @@ function SearchBar() {
   // Handle clicking on a product from lookahead results
   const handleProductClick = (productId) => {
     navigate(`/product/${productId}`);
+    setLocalSearchTerm(""); // Optionally clear the search input after submit
   };
 
   // Handle form submission
@@ -49,16 +51,21 @@ function SearchBar() {
   return (
     <form className="search-bar" onSubmit={handleSearchSubmit}>
       <div className="searchBlock">
+        <VisuallyHidden>
+          <label htmlFor="productSearch">Search for products, categories, or descriptions</label>
+        </VisuallyHidden>
         <input
           id="productSearch"
           type="search"
-          placeholder="Search products, categories or descriptions..."
+          placeholder="Search product, category or description"
           value={localSearchTerm}
           onChange={(e) => setLocalSearchTerm(e.target.value)}
         />
-          <button className="searchButton" type="submit">
-            <i className="bi bi-search"></i> {/* Bootstrap search icon */}
-          </button>
+        <button className="searchButton" type="submit">
+          <i className="bi bi-search">
+            <VisuallyHidden>Search</VisuallyHidden>
+          </i>
+        </button>
       </div>
       {localSearchTerm && (
         <div className="search-results">

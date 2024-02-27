@@ -60,4 +60,8 @@ export const GlobalStyle = createGlobalStyle`
   .product-card {
     box-shadow: ${(props) => props.theme.productCardShadow};
   }
+  input {
+    background-color: ${(props) => props.theme.input};
+    color: ${(props) => props.theme.inputText};
+  }
 `;

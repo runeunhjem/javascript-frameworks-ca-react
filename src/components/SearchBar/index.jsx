@@ -1,55 +1,63 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContext";
 import "./index.css";
 import VisuallyHidden from "../VisuallyHidden";
 
 function SearchBar() {
-  // Local state for input value
   const [localSearchTerm, setLocalSearchTerm] = useState("");
   const navigate = useNavigate();
-  const { products, setSearchTerm } = useProducts(); // Access setSearchTerm from your context
+  const { products, setSearchTerm } = useProducts();
+  const searchBarRef = useRef(null); // Step 2: Create a ref
 
-  // Lookahead search results based on localSearchTerm
   const filteredProducts = useMemo(() => {
     const lowerCaseTerm = localSearchTerm.toLowerCase();
     return localSearchTerm.trim()
-      ? products
-          .filter(
-            (product) =>
-              product.title.toLowerCase().includes(lowerCaseTerm) ||
-              product.description.toLowerCase().includes(lowerCaseTerm) ||
-              product.tags.some((tag) => tag.toLowerCase().includes(lowerCaseTerm))
-          )
-          .slice(0, 25)
-      : []; // Limit to first 25 results
+      ? products.filter(
+          (product) =>
+            product.title.toLowerCase().includes(lowerCaseTerm) ||
+            product.description.toLowerCase().includes(lowerCaseTerm) ||
+            product.tags.some((tag) => tag.toLowerCase().includes(lowerCaseTerm))
+        ).slice(0, 25)
+      : [];
   }, [localSearchTerm, products]);
 
-  // Handle clicking on a product from lookahead results
   const handleProductClick = (productId) => {
     navigate(`/product/${productId}`);
-    setLocalSearchTerm(""); // Optionally clear the search input after submit
+    setLocalSearchTerm("");
   };
 
-  // Handle form submission
   const handleSearchSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
-    setSearchTerm(localSearchTerm); // Update the global search term for fetching search results
-    navigate("/search"); // Navigate to a dedicated search results page
-    setLocalSearchTerm(""); // Optionally clear the search input after submit
+    e.preventDefault();
+    setSearchTerm(localSearchTerm);
+    navigate("/search");
+    setLocalSearchTerm("");
   };
 
-  // Function to render stars based on a rating
+  // Step 3: Add and remove event listener using useEffect
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
+        setLocalSearchTerm(""); // Reset search term, closing the results
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [searchBarRef]); // Empty dependency array means this effect runs only on mount and unmount
+
   const renderStars = (rating) => {
     let stars = [];
     for (let i = 1; i <= 5; i++) {
-      stars.push(<span key={i} className={`star ${i <= rating ? "bi-star-fill" : "bi-star"}`}></span>);
+      stars.push(
+        <span key={i} className={`star ${i <= rating ? "bi-star-fill" : "bi-star"}`}></span>
+      );
     }
     return <div className="search-result-rating">{stars}</div>;
   };
 
   return (
-    <form className="search-bar" onSubmit={handleSearchSubmit}>
+    <form className="search-bar" onSubmit={handleSearchSubmit} ref={searchBarRef}>
       <div className="searchBlock">
         <VisuallyHidden>
           <label htmlFor="productSearch">Search for products, categories, or descriptions</label>

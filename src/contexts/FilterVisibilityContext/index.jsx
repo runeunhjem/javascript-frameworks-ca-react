@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { FilterVisibilityContext } from "./FilterVisibilityContext"; // Adjust the import path as needed
+import { FilterVisibilityContext } from "./FilterVisibilityContext";
 
 export const FilterVisibilityProvider = ({ children }) => {
   const [isFilterVisible, setIsFilterVisible] = useState(false);

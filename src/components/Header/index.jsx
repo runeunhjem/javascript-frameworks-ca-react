@@ -8,14 +8,15 @@ import { darkTheme, lightTheme } from "../../styles/theme";
 import { useProducts } from "../../contexts/ProductContext"; // Import useProducts hook
 import SearchBar from "../SearchBar";
 import "./index.css";
-// import SortAndFilterContainer from "../SortAndFilterContainer";
+import { useFilterVisibility } from "../../contexts/FilterVisibilityContext/FilterVisibilityContext";
 
 function Header() {
   const [theme, setTheme] = useState("light");
   const [showSearchBar, setShowSearchBar] = useState(true); // State to toggle search bar visibility
-  const [showFilterContainer, setShowFilterContainer] = useState(true); // State to toggle filter container visibility
+  // const [showFilterContainer, setShowFilterContainer] = useState(true); // State to toggle filter container visibility
   const { setSelectedTag } = useProducts();
   const navigate = useNavigate();
+  const { toggleFilterVisibility } = useFilterVisibility();
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
@@ -28,7 +29,8 @@ function Header() {
 
   // Toggle functions for search bar and sort-and-filter-container
   const toggleSearchBar = () => setShowSearchBar(!showSearchBar);
-  const toggleFilterContainer = () => setShowFilterContainer(!showFilterContainer);
+  // const toggleFilterContainer = () => setShowFilterContainer(!showFilterContainer);
+  const toggleFilterContainer = () => toggleFilterVisibility();
 
   return (
     <header>

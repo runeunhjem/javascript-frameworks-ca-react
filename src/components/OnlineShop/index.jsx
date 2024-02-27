@@ -1,9 +1,11 @@
 import ProductCard from "../ProductCard";
 import SortAndFilterContainer from "../SortAndFilterContainer"; // Import the new component
 import { useProducts } from "../../contexts/ProductContext"; // Adjust the import path as necessary
+import { useFilterVisibility } from "../../contexts/FilterVisibilityContext/FilterVisibilityContext";
 
 function OnlineShop() {
   const { products, loading, error, selectedTag, setSelectedTag } = useProducts();
+  const { isFilterVisible } = useFilterVisibility();
 
   // Calculate filteredProducts based on selectedTag
   const filteredProducts = selectedTag ? products.filter((product) => product.tags.includes(selectedTag)) : products;
@@ -18,7 +20,7 @@ function OnlineShop() {
   return (
     <div className="OnlineShop">
       <h1 className="visually-hidden">Products</h1>
-      <SortAndFilterContainer selectedTag={selectedTag} setSelectedTag={setSelectedTag} tags={tags} />
+      {isFilterVisible && <SortAndFilterContainer selectedTag={selectedTag} setSelectedTag={setSelectedTag} tags={tags} />}
       <div className="product-cards">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />

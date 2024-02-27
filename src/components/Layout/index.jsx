@@ -1,13 +1,16 @@
 import Header from "../Header";
 import Footer from "../Footer";
 import PropTypes from "prop-types";
+import { FilterVisibilityProvider } from "../../contexts/FilterVisibilityContext";
 
 function Layout({ children }) {
   return (
     <div>
-      <Header />
-      {children}
-      <Footer />
+      <FilterVisibilityProvider>
+        <Header />
+        {children}
+        <Footer />
+      </FilterVisibilityProvider>
     </div>
   );
 }

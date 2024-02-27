@@ -13,7 +13,7 @@
   --color-gray: #6c757d;
   --color-gray-light: #e2e2e2;
   --color-gray-dark: #343a40;
-  --color-red: #771313;
+  --color-red: #d30000;
 
   --font-size-xsmall: calc(0.6rem + 1vmin);
   --font-size-small: calc(0.8rem - 1vmin);
@@ -228,7 +228,7 @@ li:hover {
   margin: 0;
 }
 
-.view-product,
+/* .view-product,
 .add-to-cart {
   width: 100%;
   text-align: center;
@@ -243,15 +243,15 @@ li:hover {
     background-color: var(--color-pink);
     color: var(--color-white);
   }
-}
+} */
 
-.add-to-cart-button:hover {
+/* .add-to-cart-button:hover {
   transform: scale(1.05);
-}
+} */
 
-.image-container {
+/* .image-container {
   overflow: hidden;
-}
+} */
 
 form {
   margin: 0 auto;

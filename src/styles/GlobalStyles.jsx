@@ -16,7 +16,8 @@ export const GlobalStyle = createGlobalStyle`
   --color-gray: #6c757d;
   --color-gray-light: #c5bfc5;
   --color-gray-dark: #343a40;
-  --color-red: #771313;
+  --color-red: #d30000;
+  --color-red-dark: #771313;
 
   --font-size-xsmall: calc(0.6rem + 1vmin);
   --font-size-small: calc(0.8rem + 1vmin);

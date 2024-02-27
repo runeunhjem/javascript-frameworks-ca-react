@@ -67,7 +67,7 @@ function ProductCard({ product }) {
       <p className={`discounted-price ${discountPercentage > 0 ? "" : "invisible"}`}>
         {discountPercentage > 0 ? `Discounted Price: ${(product.discountedPrice / 100).toFixed(2)}` : ""}
       </p>
-      <p className="tags">Tags: {product.tags.map((tag) => tag.charAt(0).toUpperCase() + tag.slice(1)).join(", ")}</p>
+      <p className="tags">Categories: {product.tags.map((tag) => tag.charAt(0).toUpperCase() + tag.slice(1)).join(", ")}</p>
       <div className="rating-container" aria-label={`Rating: ${product.rating} out of 5`}>
         <span className="rating-text">Rating:</span>
         <div className="stars">{renderStars()}</div>

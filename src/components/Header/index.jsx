@@ -1,4 +1,3 @@
-// Import necessary hooks and components
 import { useNavigate, useLocation } from "react-router-dom";
 import NavBar from "../NavBar";
 import { ThemeProvider } from "styled-components";
@@ -50,32 +49,34 @@ function Header() {
   const isHomePage = location.pathname === "/";
 
   return (
-    <header className={`${showSearchBar ? "search-bar-visible" : ""}`}>
+    <>
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyle />
-        <div className="header-container">
-          <div className="logo" onClick={handleLogoClick}>
-            <img className="header-logo" src="/header-logo-cgg.svg" alt="Illustration of the cgg logo" />
-          </div>
-          {showSearchBar && <SearchBar />}
-          <div className="header-content">
-            <NavBar setSelectedTag={setSelectedTag} />
-            <div className="header-content-row2">
-              <div className="search-and-filter-icons">
-                <i className="bi bi-search" onClick={toggleSearchBar}></i>
-                {/* Conditionally render sliders icon only on the homepage */}
-                {isHomePage && <i className="bi bi-sliders" onClick={toggleFilterContainer}></i>}
-              </div>
-              <div className="mode-switch">
-                <i className="bi bi-sun"></i>
-                <ThemeSwitch toggleTheme={toggleTheme} />
-                <i className="bi bi-moon"></i>
+        <header className={`${showSearchBar ? "search-bar-visible" : ""}`}>
+          <div className="header-container">
+            <div className="logo" onClick={handleLogoClick}>
+              <img className="header-logo" src="/header-logo-cgg.svg" alt="Illustration of the cgg logo" />
+            </div>
+            {showSearchBar && <SearchBar />}
+            <div className="header-content">
+              <NavBar setSelectedTag={setSelectedTag} />
+              <div className="header-content-row2">
+                <div className="search-and-filter-icons">
+                  <i className="bi bi-search" onClick={toggleSearchBar}></i>
+                  {/* Conditionally render sliders icon only on the homepage */}
+                  {isHomePage && <i className="bi bi-sliders" onClick={toggleFilterContainer}></i>}
+                </div>
+                <div className="mode-switch">
+                  <i className="bi bi-sun"></i>
+                  <ThemeSwitch toggleTheme={toggleTheme} />
+                  <i className="bi bi-moon"></i>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </header>
       </ThemeProvider>
-    </header>
+    </>
   );
 }
 

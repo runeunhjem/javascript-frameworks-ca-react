@@ -4,6 +4,7 @@ export const lightTheme = {
   // Buttons, links, and other UI elements
   viewProductButton: "var(--color-pink-xlight)",
   productCardShadow: "var(--box-shadow-light)",
+  productCardText: "var(--color-black)",
   input: "var(--color-white)",
   inputText: "var(--color-black)",
 };
@@ -15,6 +16,7 @@ export const darkTheme = {
   // Buttons, links, and other UI elements
   viewProductButton: "var(--color-pink-dark)",
   productCardShadow: "var(--box-shadow-dark)",
+  productCardText: "var(--color-pink-xlight)",
   input: "var(--color-pink-xlight)",
   inputText: "var(--color-black)",
 };

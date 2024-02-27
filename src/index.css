@@ -1,13 +1,11 @@
-:root {
+/* :root {
   --color-pink-dark: #440a4b;
   --color-pink: #800091;
-  /* --color-pink-light: #c5bfc5; */
   --color-pink-light: #ccade9;
   --color-pink-xlight: rgb(245, 230, 245);
   --color-black: #000000;
   --color-white: #ffffff;
   --color-success: #28a745;
-  /* --color-gold: #d8c34e; */
   --color-gold: #ffc107;
   --color-gold-search: #800091;
   --color-gray: #6c757d;
@@ -26,22 +24,22 @@
   --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-bold: 700;
-}
+} */
 
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-}
+} */
 
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 header,
 footer {

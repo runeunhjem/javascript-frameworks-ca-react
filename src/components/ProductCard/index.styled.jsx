@@ -60,11 +60,13 @@ export const ViewProductButton = styled.button`
   text-align: center;
   padding: 10px 20px;
   font-size: calc(1rem);
-  color: var(--color-pink);
-  background-color: var(--color-white);
+  color: ${(props) => props.theme.viewProductButton};
+  background-color: ${(props) => props.theme.productCardText};
   border-radius: 8px;
   border: 1px;
+  /* box-shadow: ${(props) => props.theme.productCardShadow}; */
   box-shadow: 1px 1px 2px 1px var(--color-pink-light);
+
   &:hover {
     background-color: var(--color-pink);
     color: var(--color-white);

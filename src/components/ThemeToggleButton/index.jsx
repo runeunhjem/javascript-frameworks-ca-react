@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"; // Import PropTypes
 import styled from "styled-components";
 import VisuallyHidden from "../VisuallyHidden"; // Import VisuallyHidden component
+import "./index.css"; // Import the CSS file
 
 // The actual switch that will be hidden and replaced by the Slider below
 const Checkbox = styled.input`

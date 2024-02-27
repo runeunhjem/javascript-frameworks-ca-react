@@ -1,4 +1,5 @@
 import { useProducts } from "../../contexts/ProductContext"; // Adjust the import path as necessary
+import "./index.css";
 
 function CategorySelector() {
   const { selectedTag, setSelectedTag, products } = useProducts();

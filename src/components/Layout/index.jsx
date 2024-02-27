@@ -2,13 +2,14 @@ import Header from "../Header";
 import Footer from "../Footer";
 import PropTypes from "prop-types";
 import { FilterVisibilityProvider } from "../../contexts/FilterVisibilityContext";
+import "./index.css";
 
 function Layout({ children }) {
   return (
-    <div>
+    <div className="pageWrapper">
       <FilterVisibilityProvider>
         <Header />
-        {children}
+        <main className="pageBody">{children}</main>
         <Footer />
       </FilterVisibilityProvider>
     </div>

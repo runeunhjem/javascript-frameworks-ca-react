@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import NavBar from "../NavBar";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyle } from "../../styles/GlobalStyles";
+import { GlobalStyle } from "../../styles/GlobalStyle";
 import ThemeSwitch from "../ThemeToggleButton";
 import { useEffect, useState } from "react";
 import { darkTheme, lightTheme } from "../../styles/theme";

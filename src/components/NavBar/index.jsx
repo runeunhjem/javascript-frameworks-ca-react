@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import CartIcon from "../CartIcon";
 import { useProducts } from "../../contexts/ProductContext"; // Adjust the import path as necessary
+import "./index.css";
 
 function NavBar({ itemCount }) {
   const { setSelectedTag } = useProducts(); // Use setSelectedTag from the context

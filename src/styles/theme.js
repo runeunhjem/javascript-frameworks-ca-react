@@ -1,6 +1,7 @@
 export const lightTheme = {
   body: "var(--color-white)",
   text: "var(--color-black)",
+  header: "var(--color-pink)",
   // Buttons, links, and other UI elements
   viewProductButton: "var(--color-pink-xlight)",
   productCardShadow: "var(--box-shadow-light)",

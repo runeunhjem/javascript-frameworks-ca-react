@@ -42,25 +42,65 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Roboto", sans-serif;
   }
 
-  header, footer, .sort-and-filter-container {
-    background-color: ${(props) => props.theme.header};
-    // color: ${(props) => props.theme.text};
-  }
 
   body {
     background-color: ${(props) => props.theme.body};
     color: ${(props) => props.theme.text};
     font-size: var(--font-size-small);
-    min-height: 100vh;
+    height: 100vh;
+  }
+
+  header, footer, .sort-and-filter-container {
+    background-color: ${(props) => props.theme.header};
+    // color: ${(props) => props.theme.text};
+  }
+
+  .pageBody {
+    flex-grow: 1;
+  }
+
+  .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    min-height: 80vh;
+    width: calc(100% - 2vmin);
+    max-width: 1600px;
+  }
+
+  .product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: calc(100% - 2vmin);
+    min-height: 80vh;
   }
 
   .view-product {
     background-color: ${(props) => props.theme.viewProductButton};
     color: ${(props) => props.theme.text};
   }
+
   .product-card {
     box-shadow: ${(props) => props.theme.productCardShadow};
   }
+
   input {
     background-color: ${(props) => props.theme.input};
     color: ${(props) => props.theme.inputText};

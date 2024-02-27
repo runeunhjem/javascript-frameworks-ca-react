@@ -1,6 +1,7 @@
 // SortAndFilterContainer.jsx
 import PropTypes from "prop-types";
 import CategorySelector from "../CategorySelector";
+import "./index.css";
 
 function SortAndFilterContainer({ selectedTag, setSelectedTag, tags }) {
   return (

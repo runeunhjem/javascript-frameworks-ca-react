@@ -1,0 +1,12 @@
+footer {
+  max-width: 100%;
+  color: var(--color-white);
+  background-color: var(--color-pink);
+  font-size: var(--font-size-xsmall);
+}
+
+.copyright {
+  margin: 1em auto;
+  text-align: center;
+  font-size: var(--font-size-xsmall);
+}

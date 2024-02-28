@@ -4,13 +4,13 @@ export const GlobalStyle = createGlobalStyle`
 :root {
   --color-pink-dark: #440a4b;
   --color-pink: #800091;
-  /* --color-pink-light: #c5bfc5; */
   --color-pink-light: #ccade9;
+  --color-pink-lighter: #c5bfc5;
   --color-pink-xlight: #f5e6f5;
   --color-black: #000000;
   --color-white: #ffffff;
   --color-success: #28a745;
-  /* --color-gold: #d8c34e; */
+  --color-gold-light: #d8c34e;
   --color-gold: #ffc107;
   --color-gold-search: #800091;
   --color-gray: #6c757d;
@@ -31,8 +31,11 @@ export const GlobalStyle = createGlobalStyle`
   --font-weight-normal: 400;
   --font-weight-bold: 700;
 
-  --box-shadow-light: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-  --box-shadow-dark: 0 0 5px 0 rgba(245, 230, 245, 0.6);
+  --box-shadow-light: 1px 1px 2px 0px rgba(0, 0, 0, 0.6);
+  --box-shadow-dark: 1px 1px 2px 0px rgba(245, 230, 245, 0.6);
+
+  --card-shadow-light: 2px 2px 8px 0px rgba(0, 0, 0, 0.6);
+  --card-shadow-dark: 2px 2px 8px 0px rgba(245, 230, 245, 0.6);
 }
 
   * {
@@ -48,11 +51,20 @@ export const GlobalStyle = createGlobalStyle`
     color: ${(props) => props.theme.text};
     font-size: var(--font-size-small);
     height: 100vh;
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-pink-light);
+      border-radius: 5px;
+      &:hover {
+        background-color: var(--color-gray);
+      }
+    }
   }
 
   header, footer, .sort-and-filter-container {
     background-color: ${(props) => props.theme.header};
-    // color: ${(props) => props.theme.text};
   }
 
   .pageBody {
@@ -72,15 +84,14 @@ export const GlobalStyle = createGlobalStyle`
   overflow: hidden;
 }
 
-  .main-container {
+  .main-container, .sort-and-filter-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
     margin: 0 auto;
-    min-height: 80vh;
-    width: calc(100% - 2vmin);
-    max-width: 1600px;
+    width: 100%;
   }
 
   .product-cards {
@@ -101,7 +112,7 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow: ${(props) => props.theme.productCardShadow};
   }
 
-  input {
+  input, textarea {
     background-color: ${(props) => props.theme.input};
     color: ${(props) => props.theme.inputText};
   }

@@ -1,47 +1,47 @@
-.reviews-container {
+import styled from "styled-components";
+
+export const ReviewsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100%;
   align-items: flex-start;
   justify-content: flex-start;
-  margin-top: 10px;
-}
+  margin: 0 0 10px 1em;
+`;
 
-.review-card {
+export const ReviewCard = styled.div`
   border: 1px solid #ccc;
   padding: 15px;
   border-radius: 5px;
-  background-color: var(--color-gray-light);
+  background-color: var(--color-white);
   width: 100%;
-}
+`;
 
-.review-header {
+export const ReviewHeader = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-}
+`;
 
-.review-username {
+export const ReviewUsername = styled.span`
   font-weight: bold;
-}
+`;
 
-.review-rating {
+export const ReviewRating = styled.div`
+  display: flex;
+  align-items: center;
   color: var(--color-white);
   padding: 2px 6px;
   border-radius: 5px;
-}
+`;
 
-.review-card .bi {
-  margin-right: 2px;
-}
-
-.stars {
+export const Stars = styled.div`
   display: flex;
   align-items: center;
-}
+`;
 
-.review-description {
+export const ReviewDescription = styled.p`
   font-size: 14px;
   text-align: left;
-}
+`;

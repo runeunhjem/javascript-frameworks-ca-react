@@ -1,22 +1,8 @@
 import PropTypes from "prop-types";
+import * as S from "./index.styled.jsx"; // Adjust the path as needed
 
 function VisuallyHidden({ children }) {
-  return (
-    <div
-      style={{
-        position: "absolute",
-        width: "1px",
-        height: "1px",
-        margin: "-1px",
-        padding: "0",
-        overflow: "hidden",
-        clip: "rect(0, 0, 0, 0)",
-        whiteSpace: "nowrap",
-        border: "0",
-      }}>
-      {children}
-    </div>
-  );
+  return <S.VisuallyHiddenContainer>{children}</S.VisuallyHiddenContainer>;
 }
 
 // Define prop types

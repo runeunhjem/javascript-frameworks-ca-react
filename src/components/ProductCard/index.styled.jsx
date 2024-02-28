@@ -6,10 +6,13 @@ export const Card = styled.div`
   padding: 20px;
   margin: 10px;
   width: 300px;
-  height: 650px;
+  height: 640px;
   display: inline-block;
   font-size: var(--font-size-xsmall);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: ${(props) => props.theme.productCardBackground};
+  box-shadow: ${(props) => props.theme.productCardShadow};
+  border-radius: 5px;
+  border: 1px solid var(--color-pink-light);
 `;
 
 export const ImageContainer = styled.div`
@@ -19,6 +22,11 @@ export const ImageContainer = styled.div`
   height: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
+  &:hover {
+    transition: transform 0.1s ease-in-out;
+    transform: scale(0.98);
+    cursor: pointer;
+  }
 `;
 
 export const ProductImage = styled.img`
@@ -60,12 +68,11 @@ export const ViewProductButton = styled.button`
   text-align: center;
   padding: 10px 20px;
   font-size: calc(1rem);
-  color: ${(props) => props.theme.viewProductButton};
-  background-color: ${(props) => props.theme.productCardText};
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.viewProductButton};
   border-radius: 8px;
   border: 1px;
-  /* box-shadow: ${(props) => props.theme.productCardShadow}; */
-  box-shadow: 1px 1px 2px 1px var(--color-pink-light);
+  box-shadow: ${(props) => props.theme.navLinkShadow};
 
   &:hover {
     background-color: var(--color-pink);

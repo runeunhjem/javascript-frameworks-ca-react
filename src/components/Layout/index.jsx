@@ -1,24 +1,25 @@
+import PropTypes from "prop-types";
 import Header from "../Header";
 import Footer from "../Footer";
-import PropTypes from "prop-types";
 import { FilterVisibilityProvider } from "../../contexts/FilterVisibilityContext";
-import "./index.css";
+import * as S from "./index.styled";
 
-function Layout({ children }) {
+function Layout({ children, toggleTheme }) {
   return (
-    <div className="pageWrapper">
+    <S.PageWrapper>
       <FilterVisibilityProvider>
-        <Header />
-        <main className="pageBody">{children}</main>
+        <Header toggleTheme={toggleTheme} />
+        <S.PageBody>{children}</S.PageBody>
         <Footer />
       </FilterVisibilityProvider>
-    </div>
+    </S.PageWrapper>
   );
 }
 
 // Define prop types
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  toggleTheme: PropTypes.func.isRequired,
 };
 
 export default Layout;

@@ -1,10 +1,10 @@
-import "./index.css";
+import * as S from "./index.styled";
 
 function Footer() {
   return (
-    <footer>
-      <p className="copyright">© 2024 Online Store. All rights reserved.</p>
-    </footer>
+    <S.FooterContainer>
+      <S.CopyrightText>© 2024 CGG. All rights reserved.</S.CopyrightText>
+    </S.FooterContainer>
   );
 }
 

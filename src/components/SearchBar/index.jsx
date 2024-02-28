@@ -1,24 +1,26 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContext";
-import "./index.css";
 import VisuallyHidden from "../VisuallyHidden";
+import * as S from "./index.styled.jsx";
 
 function SearchBar() {
   const [localSearchTerm, setLocalSearchTerm] = useState("");
   const navigate = useNavigate();
   const { products, setSearchTerm } = useProducts();
-  const searchBarRef = useRef(null); // Step 2: Create a ref
+  const searchBarRef = useRef(null);
 
   const filteredProducts = useMemo(() => {
     const lowerCaseTerm = localSearchTerm.toLowerCase();
     return localSearchTerm.trim()
-      ? products.filter(
-          (product) =>
-            product.title.toLowerCase().includes(lowerCaseTerm) ||
-            product.description.toLowerCase().includes(lowerCaseTerm) ||
-            product.tags.some((tag) => tag.toLowerCase().includes(lowerCaseTerm))
-        ).slice(0, 25)
+      ? products
+          .filter(
+            (product) =>
+              product.title.toLowerCase().includes(lowerCaseTerm) ||
+              product.description.toLowerCase().includes(lowerCaseTerm) ||
+              product.tags.some((tag) => tag.toLowerCase().includes(lowerCaseTerm))
+          )
+          .slice(0, 25)
       : [];
   }, [localSearchTerm, products]);
 
@@ -34,7 +36,6 @@ function SearchBar() {
     setLocalSearchTerm("");
   };
 
-  // Step 3: Add and remove event listener using useEffect
   useEffect(() => {
     function handleClickOutside(event) {
       if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
@@ -44,70 +45,65 @@ function SearchBar() {
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [searchBarRef]); // Empty dependency array means this effect runs only on mount and unmount
+  }, [searchBarRef]);
 
   const renderStars = (rating) => {
     let stars = [];
     for (let i = 1; i <= 5; i++) {
-      stars.push(
-        <span key={i} className={`star ${i <= rating ? "bi-star-fill" : "bi-star"}`}></span>
-      );
+      stars.push(<S.Star key={i} className={`star ${i <= rating ? "bi-star-fill" : "bi-star"}`}></S.Star>);
     }
-    return <div className="search-result-rating">{stars}</div>;
+    return <S.SearchResultRating>{stars}</S.SearchResultRating>;
   };
 
   return (
-    <form className="search-bar" onSubmit={handleSearchSubmit} ref={searchBarRef}>
-      <div className="searchBlock">
+    <S.SearchBarContainer onSubmit={handleSearchSubmit} ref={searchBarRef}>
+      <S.SearchBlock>
         <VisuallyHidden>
           <label htmlFor="productSearch">Search for products, categories, or descriptions</label>
         </VisuallyHidden>
-        <input
+        <S.Input
           id="productSearch"
           type="search"
           placeholder="Search product, category or description"
           value={localSearchTerm}
           onChange={(e) => setLocalSearchTerm(e.target.value)}
         />
-        <button className="searchButton" type="submit">
+        <S.SearchButton type="submit">
           <i className="bi bi-search">
             <VisuallyHidden>Search</VisuallyHidden>
           </i>
-        </button>
-      </div>
+        </S.SearchButton>
+      </S.SearchBlock>
       {localSearchTerm && (
-        <div className="search-results">
+        <S.SearchResults>
           {filteredProducts.map((product) => (
-            <div key={product.id} className="search-result-item" onClick={() => handleProductClick(product.id)}>
-              {/* Product details */}
-              <img
+            <S.SearchResultItem key={product.id} onClick={() => handleProductClick(product.id)}>
+              <S.SearchResultImage
                 src={product.image ? product.image.url : "https://via.placeholder.com/50"}
                 alt={product.image && product.title ? product.image.alt : "Product image unavailable"}
-                className="search-result-image"
-                id="search-result-image"
               />
-              <div className="search-result-info">
-                <span className="search-result-title">{product.title}</span>
-                <div className="search-result-price-info">
+              <S.SearchResultInfo>
+                <S.SearchResultTitle>{product.title}</S.SearchResultTitle>
+                <S.SearchResultPriceInfo>
                   {product.discountedPrice < product.price && (
-                    <span className="search-result-discount">
+                    <S.SearchResultDiscount>
                       -{Math.round(((product.price - product.discountedPrice) / product.price) * 100)}%
-                    </span>
+                    </S.SearchResultDiscount>
                   )}
-                  <span className={`search-result-price ${product.discountedPrice < product.price ? "discounted" : ""}`}>
+                  <S.SearchResultPrice className={product.discountedPrice < product.price ? "discounted" : ""}>
                     ${((product.discountedPrice < product.price ? product.discountedPrice : product.price) / 100).toFixed(2)}
-                  </span>
+                  </S.SearchResultPrice>
                   {product.discountedPrice < product.price && (
-                    <span className="search-result-normal-price">${(product.price / 100).toFixed(2)}</span>
+                    <S.SearchResultNormalPrice>${(product.price / 100).toFixed(2)}</S.SearchResultNormalPrice>
                   )}
-                </div>
-                <div className="search-result-rating">{renderStars(Math.round(product.rating))}</div>
-              </div>
-            </div>
+                </S.SearchResultPriceInfo>
+                {renderStars(Math.round(product.rating))}
+              </S.SearchResultInfo>
+            </S.SearchResultItem>
           ))}
-        </div>
+        </S.SearchResults>
       )}
-    </form>
+    </S.SearchBarContainer>
   );
 }
 

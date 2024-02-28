@@ -1,5 +1,5 @@
-import PropTypes from "prop-types"; // Import PropTypes
-import "./index.css";
+import PropTypes from "prop-types";
+import * as S from "./index.styled";
 
 function Reviews({ reviews }) {
   const renderStars = (rating) => {
@@ -7,25 +7,24 @@ function Reviews({ reviews }) {
     for (let i = 1; i <= 5; i++) {
       stars.push(<i key={i} className={`bi ${i <= rating ? "bi-star-fill" : "bi-star"}`} aria-hidden="true"></i>);
     }
-    return <div className="stars">{stars}</div>;
+    return <S.Stars>{stars}</S.Stars>;
   };
 
   return (
-    <div className="reviews-container">
+    <S.ReviewsContainer>
       {reviews.map((review) => (
-        <div key={review.id} className="review-card">
-          <div className="review-header">
-            <span className="review-username">{review.username}</span>
-            <div className="review-rating">{renderStars(review.rating)}</div>
-          </div>
-          <p className="review-description">{review.description}</p>
-        </div>
+        <S.ReviewCard key={review.id}>
+          <S.ReviewHeader>
+            <S.ReviewUsername>{review.username}</S.ReviewUsername>
+            <S.ReviewRating>{renderStars(review.rating)}</S.ReviewRating>
+          </S.ReviewHeader>
+          <S.ReviewDescription>{review.description}</S.ReviewDescription>
+        </S.ReviewCard>
       ))}
-    </div>
+    </S.ReviewsContainer>
   );
 }
 
-// Define the prop types for Reviews
 Reviews.propTypes = {
   reviews: PropTypes.arrayOf(
     PropTypes.shape({

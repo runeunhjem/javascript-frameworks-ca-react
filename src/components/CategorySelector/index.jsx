@@ -1,5 +1,6 @@
+// index.jsx
 import { useProducts } from "../../contexts/ProductContext"; // Adjust the import path as necessary
-import "./index.css";
+import * as S from "./index.styled"; // Import styled components with alias S
 
 function CategorySelector() {
   const { selectedTag, setSelectedTag, products } = useProducts();
@@ -14,24 +15,20 @@ function CategorySelector() {
   }
 
   return (
-    <div className="categories">
-      <label htmlFor="tag-select" className="tag-label visually-hidden">
+    <S.CategoriesContainer>
+      <S.TagLabel htmlFor="tag-select" className="visually-hidden">
         Categories:{" "}
-      </label>
-      <select id="tag-select" value={selectedTag} onChange={(e) => setSelectedTag(e.target.value)}>
+      </S.TagLabel>
+      <S.TagSelect id="tag-select" value={selectedTag} onChange={(e) => setSelectedTag(e.target.value)}>
         <option value="">Categories</option>
         {tags.map((tag) => (
-          // Capitalize the first letter of each word in the tag
           <option key={tag} value={tag}>
             {capitalizeWords(tag)}
           </option>
         ))}
-      </select>
-    </div>
+      </S.TagSelect>
+    </S.CategoriesContainer>
   );
 }
-
-// Remove the propTypes validation for selectedTag, setSelectedTag, and tags
-// as they are no longer passed as props.
 
 export default CategorySelector;

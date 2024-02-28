@@ -44,7 +44,12 @@ function ProductCard({ product }) {
   return (
     <S.Card aria-label={`Product card for ${product.title}`}>
       <S.ImageContainer role="img" aria-label={imageAlt}>
-        <S.ProductImage src={product.image ? product.image.url : "https://via.placeholder.com/300"} alt={imageAlt} />
+        <S.ProductImage
+          onClick={handleNavigate}
+          aria-label={`View ${product.title}`}
+          src={product.image ? product.image.url : "https://via.placeholder.com/300"}
+          alt={imageAlt}
+        />
         <S.AddToCartButton
           onClick={handleAddToCart}
           className={isAdded ? "added" : ""}

@@ -1,15 +1,13 @@
-// SortAndFilterContainer.jsx
 import PropTypes from "prop-types";
 import CategorySelector from "../CategorySelector";
-import "./index.css";
+import * as S from "./index.styled.jsx";
 
 function SortAndFilterContainer({ selectedTag, setSelectedTag, tags }) {
   return (
-    <div className="sort-and-filter-container">
+    <S.SortAndFilterContainerStyled>
       <h2>Sort and Filter</h2>
       <CategorySelector selectedTag={selectedTag} setSelectedTag={setSelectedTag} tags={tags} />
-      {/* Add sorting options here if needed */}
-    </div>
+    </S.SortAndFilterContainerStyled>
   );
 }
 

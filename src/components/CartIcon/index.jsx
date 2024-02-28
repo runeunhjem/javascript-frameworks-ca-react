@@ -1,45 +1,21 @@
+// index.jsx
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
+import * as S from "./index.styled"; // Import styled components with alias S
 
 function CartIcon() {
-  const { cartItems } = useCart(); // Use the useCart hook to access cart items
+  const { cartItems } = useCart();
 
   // Calculate the total number of items in the cart
   const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <div style={{ position: "relative", display: "inline-block", marginRight: "20px" }}>
+    <S.IconContainer>
       <Link to="/cart">
-        {/* 🛒 */}
-        <img
-          src="/cart.svg"
-          alt="Cart icon"
-          className="cart-icon"
-          style={{ width: "30px", height: "30px", filter: "invert(100%)" }}
-        />
-        {itemCount > 0 && (
-          <span
-            style={{
-              position: "absolute",
-              top: "-12px",
-              right: "-20px",
-              height: "22px",
-              width: "22px",
-              backgroundColor: "white",
-              color: "#c92bc1",
-              borderRadius: "50%",
-              padding: "2px 6px",
-              fontSize: "0.75rem",
-              fontWeight: "bold",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}>
-            {itemCount}
-          </span>
-        )}
+        <S.CartImage src="/cart.svg" alt="Cart icon" />
+        {itemCount > 0 && <S.ItemCountBadge>{itemCount}</S.ItemCountBadge>}
       </Link>
-    </div>
+    </S.IconContainer>
   );
 }
 

@@ -37,15 +37,23 @@ function SearchBar() {
   };
 
   useEffect(() => {
-    function handleClickOutside(event) {
+    const handleClickOutside = (event) => {
       if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
         setLocalSearchTerm(""); // Reset search term, closing the results
       }
-    }
+    };
 
+    // Listen for both mousedown and touchstart events
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      // Make sure to remove both event listeners on cleanup
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
   }, [searchBarRef]);
+
 
   const renderStars = (rating) => {
     let stars = [];

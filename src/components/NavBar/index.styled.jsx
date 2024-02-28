@@ -15,20 +15,22 @@ export const NavLinks = styled.ul`
   flex-direction: row;
   align-items: center;
   list-style: none;
-  margin-right: 0.5em;
-  gap: 0.5em;
+  margin-left: 3px;
 `;
 
 export const StyledNavLink = styled(NavLink)`
   color: var(--color-white);
   text-decoration: none;
-  padding: 2px;
+  padding: 2px 0;
   font-size: var(--font-size-xsmall);
 
   &.active {
     color: var(--color-pink-light);
     text-decoration: underline;
     cursor: default;
+  }
+  @media (max-width: 467px) {
+    font-size: var(--font-size-icons);
   }
 `;
 

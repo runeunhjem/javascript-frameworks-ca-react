@@ -65,10 +65,13 @@ export const HeaderContentRow2 = styled.div`
 export const SearchAndFilterIcons = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   max-width: 100%;
   margin: 6px 10px 6px 0;
-  font-size: var(--font-size-icons);
+  font-size: var(--font-size-xsmall);
+  @media (max-width: 791px) {
+    font-size: var(--font-size-icons);
+  }
 `;

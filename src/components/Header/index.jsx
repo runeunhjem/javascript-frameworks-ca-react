@@ -1,27 +1,21 @@
-// Import necessary hooks and components
+import PropTypes from "prop-types";
 import { useNavigate, useLocation } from "react-router-dom";
 import NavBar from "../NavBar";
-import { ThemeProvider } from "styled-components";
-import { GlobalStyle } from "../../styles/GlobalStyles";
-import ThemeSwitch from "../ThemeToggleButton";
+import ThemeSwitch from "../ThemeToggleButton"; // Ensure this component is adjusted to use the prop
 import { useEffect, useState } from "react";
-import { darkTheme, lightTheme } from "../../styles/theme";
-import { useProducts } from "../../contexts/ProductContext";
+import { useProducts } from "../../contexts/ProductContext/useProducts";
 import SearchBar from "../SearchBar";
-import "./index.css";
 import { useFilterVisibility } from "../../contexts/FilterVisibilityContext/FilterVisibilityContext";
+import * as S from "./index.styled";
+import "./index.css";
 
-function Header() {
-  const [theme, setTheme] = useState("light");
+function Header({ toggleTheme }) {
+  // Accept toggleTheme as a prop
   const [showSearchBar, setShowSearchBar] = useState(true);
   const { setSelectedTag } = useProducts();
   const navigate = useNavigate();
-  const location = useLocation(); // Get current route location
+  const location = useLocation();
   const { toggleFilterVisibility } = useFilterVisibility();
-
-  const toggleTheme = () => {
-    setTheme((curr) => (curr === "light" ? "dark" : "light"));
-  };
 
   const handleLogoClick = () => {
     setSelectedTag("");
@@ -33,7 +27,7 @@ function Header() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 790) {
+      if (window.innerWidth < 791) {
         setShowSearchBar(false);
       } else {
         setShowSearchBar(true);
@@ -46,37 +40,37 @@ function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Check if the current route is the homepage
   const isHomePage = location.pathname === "/";
 
   return (
-    <header className={`${showSearchBar ? "search-bar-visible" : ""}`}>
-      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-        <GlobalStyle />
-        <div className="header-container">
-          <div className="logo" onClick={handleLogoClick}>
-            <img className="header-logo" src="/header-logo-cgg.svg" alt="Illustration of the cgg logo" />
-          </div>
-          {showSearchBar && <SearchBar />}
-          <div className="header-content">
-            <NavBar setSelectedTag={setSelectedTag} />
-            <div className="header-content-row2">
-              <div className="search-and-filter-icons">
-                <i className="bi bi-search" onClick={toggleSearchBar}></i>
-                {/* Conditionally render sliders icon only on the homepage */}
-                {isHomePage && <i className="bi bi-sliders" onClick={toggleFilterContainer}></i>}
-              </div>
-              <div className="mode-switch">
-                <i className="bi bi-sun"></i>
-                <ThemeSwitch toggleTheme={toggleTheme} />
-                <i className="bi bi-moon"></i>
-              </div>
+    <S.HeaderContainer className={`${showSearchBar ? "search-bar-visible" : ""}`}>
+      <S.Container>
+        <S.Logo onClick={handleLogoClick}>
+          <S.LogoImage src="/header-logo-cgg.svg" alt="Illustration of the CGG logo" />
+        </S.Logo>
+        {showSearchBar && <SearchBar />}
+        <S.HeaderContent>
+          <NavBar setSelectedTag={setSelectedTag} />
+          <S.HeaderContentRow2>
+            <S.SearchAndFilterIcons>
+              <i className="bi bi-search" onClick={toggleSearchBar}></i>
+              {isHomePage && <i className="bi bi-sliders" onClick={toggleFilterContainer}></i>}
+            </S.SearchAndFilterIcons>
+            <div className="mode-switch">
+              <i className="bi bi-sun"></i>
+              {/* Ensure ThemeSwitch uses the toggleTheme prop effectively */}
+              <ThemeSwitch toggleTheme={toggleTheme} />
+              <i className="bi bi-moon"></i>
             </div>
-          </div>
-        </div>
-      </ThemeProvider>
-    </header>
+          </S.HeaderContentRow2>
+        </S.HeaderContent>
+      </S.Container>
+    </S.HeaderContainer>
   );
 }
+
+Header.propTypes = {
+  toggleTheme: PropTypes.func.isRequired,
+};
 
 export default Header;

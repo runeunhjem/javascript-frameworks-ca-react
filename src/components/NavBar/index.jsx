@@ -1,7 +1,8 @@
+// NavBar/index.jsx
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
 import CartIcon from "../CartIcon";
-import { useProducts } from "../../contexts/ProductContext"; // Adjust the import path as necessary
+import { useProducts } from "../../contexts/ProductContext/useProducts";
+import * as S from "./index.styled"; // Import styled components with alias S
 
 function NavBar({ itemCount }) {
   const { setSelectedTag } = useProducts(); // Use setSelectedTag from the context
@@ -10,21 +11,21 @@ function NavBar({ itemCount }) {
   const handleHomeClick = () => setSelectedTag("");
 
   return (
-    <nav className="navbar" id="navbar">
-      <ul className="nav-links">
-        <li>
+    <S.Navbar id="navbar">
+      <S.NavLinks>
+        <S.ListItem>
           {/* Add onClick handler to reset category selection */}
-          <NavLink to="/" onClick={handleHomeClick}>
+          <S.StyledNavLink to="/" onClick={handleHomeClick}>
             Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/contact">Contact</NavLink>
-        </li>
+          </S.StyledNavLink>
+        </S.ListItem>
+        <S.ListItem>
+          <S.StyledNavLink to="/contact">Contact</S.StyledNavLink>
+        </S.ListItem>
         {/* Other navigation links can be added here */}
-      </ul>
+      </S.NavLinks>
       <CartIcon itemCount={itemCount} />
-    </nav>
+    </S.Navbar>
   );
 }
 

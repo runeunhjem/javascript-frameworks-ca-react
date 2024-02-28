@@ -1,32 +1,40 @@
 import ProductCard from "../ProductCard";
-import SortAndFilterContainer from "../SortAndFilterContainer"; // Import the new component
-import { useProducts } from "../../contexts/ProductContext"; // Adjust the import path as necessary
+import SortAndFilterContainer from "../SortAndFilterContainer";
+import { useProducts } from "../../contexts/ProductContext/useProducts";
 import { useFilterVisibility } from "../../contexts/FilterVisibilityContext/FilterVisibilityContext";
+import * as S from "./index.styled";
+import VisuallyHidden from "../VisuallyHidden";
+import StylishLoader from "../StylishLoader/index.styled";
 
 function OnlineShop() {
   const { products, loading, error, selectedTag, setSelectedTag } = useProducts();
   const { isFilterVisible } = useFilterVisibility();
 
-  // Calculate filteredProducts based on selectedTag
   const filteredProducts = selectedTag ? products.filter((product) => product.tags.includes(selectedTag)) : products;
 
-  // Early return patterns for loading and error states
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <S.LoaderContainer>
+        <S.OnlineShopP>Loading...</S.OnlineShopP>
+        <StylishLoader />
+      </S.LoaderContainer>
+    );
   if (error) return <p>Error: {error}</p>;
 
-  // Extract unique tags from products for the SortAndFilterContainer
   const tags = Array.from(new Set(products.flatMap((product) => product.tags))).sort();
 
   return (
-    <div className="OnlineShop">
-      <h1 className="visually-hidden">Products</h1>
+    <S.OnlineShopContainer>
+      <VisuallyHidden>
+        <S.OnlineShopH1>Products</S.OnlineShopH1>
+      </VisuallyHidden>
       {isFilterVisible && <SortAndFilterContainer selectedTag={selectedTag} setSelectedTag={setSelectedTag} tags={tags} />}
-      <div className="product-cards">
+      <S.ProductCardsContainer>
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
-      </div>
-    </div>
+      </S.ProductCardsContainer>
+    </S.OnlineShopContainer>
   );
 }
 

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useCart } from "../../contexts/CartContext";
+import { useCart } from "../../contexts/CartContext/useCart";
 import "../../../src/index.css";
 import Reviews from "../../components/Reviews";
+import "./index.css";
 
 function ProductPage() {
   const { productId } = useParams();

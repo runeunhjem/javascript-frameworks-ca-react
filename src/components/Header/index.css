@@ -5,27 +5,17 @@
 }
 
 .bi-moon {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-xsmall);
   margin: 0 0 0 8px;
 }
-.bi-search,
-.bi-sliders {
+
+.bi-sun {
   font-size: var(--font-size-small);
-  cursor: pointer;
+  margin: 0 6px 0 0;
 }
 
-.header-content-row2 {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-}
-.search-and-filter-icons {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  max-width: 100%;
-  margin: 6px auto;
+.bi-search,
+.bi-sliders {
+  font-size: var(--font-size-xsmall);
+  cursor: pointer;
 }

@@ -5,17 +5,17 @@
 }
 
 .bi-moon {
-  font-size: var(--font-size-xsmall);
+  /* font-size: var(--font-size-xsmall); */
   margin: 0 0 0 8px;
 }
 
 .bi-sun {
-  font-size: var(--font-size-small);
+  /* font-size: var(--font-size-small); */
   margin: 0 6px 0 0;
 }
 
 .bi-search,
 .bi-sliders {
-  font-size: var(--font-size-xsmall);
+  /* font-size: var(--font-size-xsmall); */
   cursor: pointer;
 }

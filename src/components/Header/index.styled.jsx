@@ -65,9 +65,10 @@ export const HeaderContentRow2 = styled.div`
 export const SearchAndFilterIcons = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   max-width: 100%;
-  margin: 6px auto;
+  margin: 6px 10px 6px 0;
+  font-size: var(--font-size-icons);
 `;

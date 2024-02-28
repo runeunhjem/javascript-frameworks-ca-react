@@ -28,7 +28,7 @@ function Header({ toggleTheme }) {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 791) {
-        setShowSearchBar(false);
+        setShowSearchBar(true);
       } else {
         setShowSearchBar(true);
       }

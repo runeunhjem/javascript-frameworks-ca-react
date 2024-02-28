@@ -19,8 +19,9 @@ export const GlobalStyle = createGlobalStyle`
   --color-red: #d30000;
   --color-red-dark: #771313;
 
+  --font-size-icons: calc(0.6rem + 2vmin);
   --font-size-xsmall: calc(0.6rem + 1vmin);
-  --font-size-small: calc(0.8rem + 1vmin);
+  --font-size-small: calc(0.8rem + 2vmin);
   --font-size-medium: calc(1rem + 1vmin);
   --font-size-large: calc(1.2rem + 1vmin);
   --font-size-xlarge: calc(1.5rem + 1vmin);

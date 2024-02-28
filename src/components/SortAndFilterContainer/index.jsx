@@ -4,10 +4,12 @@ import * as S from "./index.styled.jsx";
 
 function SortAndFilterContainer({ selectedTag, setSelectedTag, tags }) {
   return (
-    <S.SortAndFilterContainerStyled>
-      <h2>Sort and Filter</h2>
-      <CategorySelector selectedTag={selectedTag} setSelectedTag={setSelectedTag} tags={tags} />
-    </S.SortAndFilterContainerStyled>
+    <S.SortAndFilterWrapperStyled>
+      <S.SortAndFilterContainerStyled>
+        <h2>Sort and Filter</h2>
+        <CategorySelector selectedTag={selectedTag} setSelectedTag={setSelectedTag} tags={tags} />
+      </S.SortAndFilterContainerStyled>
+    </S.SortAndFilterWrapperStyled>
   );
 }
 

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useProducts } from "../../contexts/ProductContext";
+import { useProducts } from "../../contexts/ProductContext/useProducts";
 import ProductCard from "../../components/ProductCard";
 
 function SearchResultsPage() {

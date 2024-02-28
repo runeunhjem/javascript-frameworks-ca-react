@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useEffect, useMemo } from "react";
+import { createContext, useReducer, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 
 // Initial state for the context's data
@@ -29,11 +29,11 @@ function productReducer(state, action) {
 }
 
 // Create a context
-const ProductContext = createContext();
+export const ProductContext = createContext();
 
 // Custom hook to use the context
-// eslint-disable-next-line react-refresh/only-export-components
-export const useProducts = () => useContext(ProductContext);
+// export const useProducts = () => useContext(ProductContext);
+
 
 // Context Provider component
 export const ProductProvider = ({ children }) => {

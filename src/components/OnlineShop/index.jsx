@@ -1,11 +1,10 @@
 import ProductCard from "../ProductCard";
 import SortAndFilterContainer from "../SortAndFilterContainer";
-import { useProducts } from "../../contexts/ProductContext";
+import { useProducts } from "../../contexts/ProductContext/useProducts";
 import { useFilterVisibility } from "../../contexts/FilterVisibilityContext/FilterVisibilityContext";
 import * as S from "./index.styled";
 import VisuallyHidden from "../VisuallyHidden";
 import StylishLoader from "../StylishLoader/index.styled";
-
 
 function OnlineShop() {
   const { products, loading, error, selectedTag, setSelectedTag } = useProducts();
@@ -13,12 +12,13 @@ function OnlineShop() {
 
   const filteredProducts = selectedTag ? products.filter((product) => product.tags.includes(selectedTag)) : products;
 
-  if (loading) return (
-    <S.LoaderContainer>
-      <S.OnlineShopP>Loading...</S.OnlineShopP>
-      <StylishLoader />
-    </S.LoaderContainer>
-  );
+  if (loading)
+    return (
+      <S.LoaderContainer>
+        <S.OnlineShopP>Loading...</S.OnlineShopP>
+        <StylishLoader />
+      </S.LoaderContainer>
+    );
   if (error) return <p>Error: {error}</p>;
 
   const tags = Array.from(new Set(products.flatMap((product) => product.tags))).sort();

@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import NavBar from "../NavBar";
 import ThemeSwitch from "../ThemeToggleButton"; // Ensure this component is adjusted to use the prop
 import { useEffect, useState } from "react";
-import { useProducts } from "../../contexts/ProductContext";
+import { useProducts } from "../../contexts/ProductContext/useProducts";
 import SearchBar from "../SearchBar";
 import { useFilterVisibility } from "../../contexts/FilterVisibilityContext/FilterVisibilityContext";
 import * as S from "./index.styled";

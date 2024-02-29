@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   --color-red-dark: #771313;
 
   --font-size-icons: calc(0.6rem + 2vmin);
-  --font-size-xxsmall: calc(1.5rem - 1vmin);
+  --font-size-xxsmall: calc(0.8rem);
   --font-size-xsmall: calc(0.6rem + 1vmin);
   --font-size-small: calc(0.8rem + 2vmin);
   --font-size-medium: calc(1rem + 1vmin);

@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
 
   --font-size-icons: calc(0.6rem + 2vmin);
   --font-size-xxsmall: calc(0.8rem);
+  --font-size-title: calc(1.2rem);
   --font-size-xsmall: calc(0.6rem + 1vmin);
   --font-size-small: calc(0.8rem + 2vmin);
   --font-size-medium: calc(1rem + 1vmin);

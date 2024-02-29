@@ -109,7 +109,7 @@ export const ProductTitle = styled.h2`
   justify-content: center;
   align-items: flex-start;
   margin: 10px 0 0 0;
-  font-size: var(--font-size-xsmall);
+  font-size: var(--font-size-title);
 `;
 
 export const ProductDescription = styled.p`

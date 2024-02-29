@@ -4,20 +4,23 @@ export const SearchBarContainer = styled.form`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   text-align: left;
   width: 100%;
-  max-width: 300px;
-  margin: 15px auto;
+  max-width: 500px;
+  margin: 15px;
   color: var(--color-black);
   height: 30px;
 
   @media (max-width: 791px) {
     position: absolute;
-    bottom: -16px;
+    bottom: -12px;
     left: 0;
-    max-width: 100vw;
+    max-width: 100%;
+    margin: 15px auto;
+    /* width: 100%; */
     z-index: 1000;
+    justify-content: center;
   }
 `;
 
@@ -25,12 +28,17 @@ export const SearchBlock = styled.div`
   display: flex;
   /* border-radius: 5px; */
   flex-wrap: nowrap;
+  border-radius: 5px;
   color: ${(props) => props.theme.input};
   background-color: ${(props) => props.theme.input};
   position: relative;
-  justify-content: flex-start;
-  width: 100%;
-  border: 1px solid var(--color-pink-light);
+  justify-content: center;
+  width: 90%;
+  @media (max-width: 391px) {
+    /* margin-left: 3px; */
+    justify-content: flex-start;
+  }
+  /* border: 1px solid var(--color-pink-light); */
 `;
 
 export const SearchButton = styled.button`
@@ -48,12 +56,22 @@ export const SearchLabel = styled.label`
 `;
 
 export const Input = styled.input`
+  display: flex;
+  text-align: left;
   width: 90%;
   height: 30px;
   text-indent: 6px;
   border: 0;
   &:focus {
     outline: none;
+  }
+  @media (min-width: 791px) {
+    width: 85%;
+  }
+  @media (max-width: 391px) {
+    justify-content: flex-start;
+    width: 85%;
+    margin-left: 4px;
   }
 `;
 

@@ -44,9 +44,13 @@ export const Logo = styled.div`
 `;
 
 export const HeaderContent = styled.div`
-  justify-content: flex-end;
-  align-items: center;
-  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 250px;
+  align-items: flex-start;
+  margin: 14px 0;
 `;
 
 export const IconContainer = styled.div`
@@ -60,6 +64,7 @@ export const HeaderContentRow2 = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
+  width: 100%;
 `;
 
 export const SearchAndFilterIcons = styled.div`
@@ -67,11 +72,26 @@ export const SearchAndFilterIcons = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  gap: 10px;
   width: 100%;
   max-width: 100%;
-  margin: 6px 10px 6px 0;
+  margin: 6px 10px 6px 25px;
   font-size: var(--font-size-xsmall);
-  @media (max-width: 791px) {
+
+  @media (max-width: 567px) {
     font-size: var(--font-size-icons);
+    margin: 6px 10px 6px 28px;
+    gap: 12px;
+  }
+  @media (max-width: 468px) {
+    margin: 6px 10px 6px 24px;
+  }
+  @media (max-width: 412px) {
+    margin: 6px 10px 6px 20px;
+  }
+  @media (max-width: 340px) {
+    font-size: var(--font-size-small);
+    margin: 6px 10px 6px 10px;
+    gap: 16px;
   }
 `;

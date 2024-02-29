@@ -5,6 +5,8 @@ import { NavLink } from "react-router-dom";
 export const Navbar = styled.nav`
   display: flex;
   flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
   list-style: none;
   margin: 0 0 6px 0;
@@ -13,9 +15,11 @@ export const Navbar = styled.nav`
 export const NavLinks = styled.ul`
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
   list-style: none;
   margin-left: 3px;
+  width: 100%;
 `;
 
 export const StyledNavLink = styled(NavLink)`

@@ -10,6 +10,7 @@ export const SearchBarContainer = styled.form`
   max-width: 300px;
   margin: 15px auto;
   color: var(--color-black);
+  height: 30px;
 
   @media (max-width: 791px) {
     position: absolute;
@@ -22,34 +23,41 @@ export const SearchBarContainer = styled.form`
 
 export const SearchBlock = styled.div`
   display: flex;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   flex-wrap: nowrap;
   color: var(--color-white);
   position: relative;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   border: 1px solid var(--color-pink-light);
+  /* border: none; */
+  background-color: white;
 `;
 
 export const SearchButton = styled.button`
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   border: 0;
   background-color: ${(props) => props.theme.input};
 `;
 
 export const Input = styled.input`
-  width: 100%;
+  width: 90%;
   height: 30px;
   text-indent: 6px;
   border: 0;
   &:focus {
     box-shadow: 0 0 0 0;
-    outline: 1px solid var(--color-pink-xlight);
+    /* outline: 1px solid var(--color-pink-xlight); */
+    outline: none;
   }
 `;
 
 export const SearchIcon = styled.i`
   position: absolute;
-  right: 10px;
+  right: 30px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;

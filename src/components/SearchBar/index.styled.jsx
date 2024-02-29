@@ -25,13 +25,12 @@ export const SearchBlock = styled.div`
   display: flex;
   /* border-radius: 5px; */
   flex-wrap: nowrap;
-  color: var(--color-white);
+  color: ${(props) => props.theme.input};
+  background-color: ${(props) => props.theme.input};
   position: relative;
   justify-content: flex-start;
   width: 100%;
   border: 1px solid var(--color-pink-light);
-  /* border: none; */
-  background-color: white;
 `;
 
 export const SearchButton = styled.button`
@@ -43,14 +42,17 @@ export const SearchButton = styled.button`
   background-color: ${(props) => props.theme.input};
 `;
 
+export const SearchLabel = styled.label`
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
+`;
+
 export const Input = styled.input`
   width: 90%;
   height: 30px;
   text-indent: 6px;
   border: 0;
   &:focus {
-    box-shadow: 0 0 0 0;
-    /* outline: 1px solid var(--color-pink-xlight); */
     outline: none;
   }
 `;

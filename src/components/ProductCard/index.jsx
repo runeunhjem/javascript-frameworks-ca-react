@@ -14,6 +14,7 @@ function ProductCard({ product }) {
     product.price > product.discountedPrice
       ? Math.round(((product.price - product.discountedPrice) / product.price) * 100)
       : 0;
+  const hasDiscount = product.discountedPrice < product.price;
 
   const handleNavigate = () => navigate(`/product/${product.id}`);
 
@@ -59,16 +60,16 @@ function ProductCard({ product }) {
         {discountPercentage > 0 && <S.DiscountTag>Save: {discountPercentage}%</S.DiscountTag>}
       </S.ImageContainer>
       <S.ProductTitle>{product.title}</S.ProductTitle>
-      <S.ProductDescription>{product.description}</S.ProductDescription>
-      <S.Price className="normal-price">Normal price: ${(product.price / 100).toFixed(2)}</S.Price>
-      <S.Price className={`discounted-price ${discountPercentage > 0 ? "" : "invisible"}`}>
-        {discountPercentage > 0 ? `Discounted Price: ${(product.discountedPrice / 100).toFixed(2)}` : ""}
-      </S.Price>
-      <S.Tags>Categories: {product.tags.map((tag) => tag.charAt(0).toUpperCase() + tag.slice(1)).join(", ")}</S.Tags>
-      <S.RatingContainer aria-label={`Rating: ${product.rating} out of 5`}>
-        <S.RatingText>Rating:</S.RatingText>
-        <S.Stars>{renderStars()}</S.Stars>
-      </S.RatingContainer>
+      {/* <S.ProductDescription>{product.description}</S.ProductDescription> */}
+      <S.InfoWrapper>
+        <S.RatingContainer aria-label={`Rating: ${product.rating} out of 5`}>
+          <S.Stars>{renderStars()}</S.Stars>
+        </S.RatingContainer>
+        <S.Price $isDiscounted={hasDiscount}>
+          {hasDiscount ? `NOW: $${(product.discountedPrice / 10).toFixed(2)}` : `Price: $${(product.price / 10).toFixed(2)}`}
+        </S.Price>
+      </S.InfoWrapper>
+      {/* <S.Tags>Categories: {product.tags.map((tag) => tag.charAt(0).toUpperCase() + tag.slice(1)).join(", ")}</S.Tags> */}
       <S.ViewProductButton onClick={handleNavigate} aria-label={`View ${product.title}`}>
         View Product
       </S.ViewProductButton>

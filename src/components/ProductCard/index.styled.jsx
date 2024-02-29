@@ -6,7 +6,7 @@ export const Card = styled.div`
   padding: 20px;
   margin: 10px;
   width: 300px;
-  height: 640px;
+  /* height: 640px; */
   display: inline-block;
   font-size: var(--font-size-xsmall);
   background-color: ${(props) => props.theme.productCardBackground};
@@ -19,7 +19,7 @@ export const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 300px;
+  height: 200px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
   &:hover {
@@ -95,12 +95,20 @@ export const DiscountTag = styled.div`
   font-size: 18px;
 `;
 
+export const InfoWrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  height: 60px;
+`;
+
 export const ProductTitle = styled.h2`
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   font-size: var(--font-size-xsmall);
 `;
 
@@ -115,23 +123,20 @@ export const ProductDescription = styled.p`
 `;
 
 export const Price = styled.p`
+  position: absolute;
+  top: 15px;
+  right: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
-  font-size: var(--font-size-xsmall);
-
-  &.normal-price {
-  }
-
-  &.discounted-price {
-    height: 20px;
-    ${(props) =>
-      props.discountPercentage <= 0 &&
-      css`
-        visibility: hidden;
-      `}
-  }
+  /* margin: 10px 0 20px 0; */
+  height: 30px;
+  width: 110px;
+  font-size: var(--font-size-xxsmall);
+  color: ${(props) => (props.$isDiscounted ? "white" : "black")};
+  background-color: ${(props) => (props.$isDiscounted ? "#b10000" : "#add6e2")};
+  /* padding-right: ${(props) => (props.$isDiscounted ? "5px" : "5px")}; */
+  border-radius: ${(props) => (props.$isDiscounted ? "5px" : "5px")};
 `;
 
 export const Tags = styled.p`
@@ -140,6 +145,7 @@ export const Tags = styled.p`
   justify-content: center;
   align-items: flex-start;
   margin: 10px 0;
+  height: 40px;
 `;
 
 export const RatingContainer = styled.div`
@@ -147,12 +153,14 @@ export const RatingContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
+  height: 100%;
 `;
 
 export const Stars = styled.div`
   display: flex;
   align-items: center;
+  height: 100%;
 
   i {
     color: var(--color-gold);

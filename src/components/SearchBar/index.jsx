@@ -67,7 +67,7 @@ function SearchBar() {
     <S.SearchBarContainer onSubmit={handleSearchSubmit} ref={searchBarRef}>
       <S.SearchBlock>
         <VisuallyHidden>
-          <label htmlFor="productSearch">Search for products, categories, or descriptions</label>
+          <S.SearchLabel htmlFor="productSearch">Search for products, categories, or descriptions</S.SearchLabel>
         </VisuallyHidden>
         <S.Input
           id="productSearch"

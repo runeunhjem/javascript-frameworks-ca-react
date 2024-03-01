@@ -133,9 +133,9 @@ function ContactPage() {
                 value={value}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                inputColor={inputStyles[name]}
                 placeholder={`Enter your ${camelCaseToTitle(name)}`}
                 required
+                $inputColor={inputStyles[name]}
               />
             ) : (
               <S.TextArea
@@ -144,7 +144,7 @@ function ContactPage() {
                 value={value}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                inputColor={inputStyles[name]}
+                $inputColor={inputStyles[name]}
                 placeholder="Enter your message"
                 required></S.TextArea>
             )}
@@ -153,7 +153,7 @@ function ContactPage() {
             )}
           </S.FormField>
         ))}
-        <S.SubmitButton className="submitButton" type="submit" isSubmitted={isSubmitted}>
+        <S.SubmitButton className="submitButton" type="submit" $isSubmitted={isSubmitted}>
           {isSubmitted ? "Sent Successfully" : "Send Message"}
         </S.SubmitButton>
       </S.ContactForm>

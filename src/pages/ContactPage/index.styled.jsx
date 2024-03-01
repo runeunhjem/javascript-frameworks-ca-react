@@ -32,16 +32,16 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   padding: 10px;
-  border: 2px solid ${(props) => props.inputColor || "#ccc"};
+  border: 2px solid ${(props) => props.$inputColor || "#ccc"};
   border-radius: 4px;
-  outline-color: ${(props) => props.inputColor};
+  outline-color: ${(props) => props.$inputColor};
 `;
 
 export const TextArea = styled.textarea`
   padding: 10px;
-  border: 2px solid ${(props) => props.inputColor || "#ccc"};
+  border: 2px solid ${(props) => props.$inputColor || "#ccc"};
   border-radius: 4px;
-  outline-color: ${(props) => props.inputColor};
+  outline-color: ${(props) => props.$inputColor};
   resize: vertical;
 `;
 
@@ -53,8 +53,8 @@ export const ValidationMessage = styled.div`
 `;
 
 export const SubmitButton = styled.button`
-  background: ${(props) => (props.isSubmitted ? "var(--color-success)" : props.theme.viewProductButton)};
-  color: ${(props) => (props.isSubmitted ? "var(--color-white)" : props.theme.text)};
+  background: ${(props) => (props.$isSubmitted ? "var(--color-success)" : props.theme.viewProductButton)};
+  color: ${(props) => (props.$isSubmitted ? "var(--color-white)" : props.theme.text)};
   padding: 12px;
   border: none;
   border-radius: 8px;

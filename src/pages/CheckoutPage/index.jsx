@@ -2,7 +2,7 @@ import { useCart } from "../../contexts/CartContext/useCart";
 import { useNavigate } from "react-router-dom";
 import "../../../src/index.css";
 
-function CartPage() {
+function CheckoutPage() {
   const { cartItems, updateItemQuantity, clearCart } = useCart();
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ function CartPage() {
   };
 
   return (
-    <div className="main-container" id="CartPage">
+    <div className="main-container" id="CheckoutPage">
       <h1>Cart</h1>
       <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px" }}>
         {" "}
@@ -74,4 +74,4 @@ function CartPage() {
   );
 }
 
-export default CartPage;
+export default CheckoutPage;

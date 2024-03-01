@@ -6,7 +6,7 @@ import { darkTheme, lightTheme } from "./styles/theme";
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
 import ContactPage from "./pages/ContactPage";
-import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Layout from "./components/Layout";
@@ -33,7 +33,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/product/:productId" element={<ProductPage />} />
-                <Route path="/cart" element={<CartPage />} />
+                <Route path="/cart" element={<CheckoutPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/success" element={<CheckoutSuccessPage />} />
                 <Route path="/search" element={<SearchResultsPage />} />
@@ -53,7 +53,7 @@ export default App;
 // import HomePage from "./pages/HomePage";
 // import ProductPage from "./pages/ProductPage";
 // import ContactPage from "./pages/ContactPage";
-// import CartPage from "./pages/CartPage";
+// import CheckoutPage from "./pages/CheckoutPage";
 // import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 // import NotFoundPage from "./pages/NotFoundPage";
 // import Layout from "./components/Layout";
@@ -70,7 +70,7 @@ export default App;
 //             <Routes>
 //               <Route path="/" element={<HomePage />} />
 //               <Route path="/product/:productId" element={<ProductPage />} />
-//               <Route path="/cart" element={<CartPage />} />
+//               <Route path="/cart" element={<CheckoutPage />} />
 //               <Route path="/contact" element={<ContactPage />} />
 //               <Route path="/success" element={<CheckoutSuccessPage />} />
 //               <Route path="/search" element={<SearchResultsPage />} />

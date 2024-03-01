@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./index.css";
+import * as S from "./index.styled"; // Adjust path as needed
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -11,6 +11,8 @@ function ContactPage() {
   const [touchedFields, setTouchedFields] = useState({});
   const [validationMessages, setValidationMessages] = useState({});
   const [inputStyles, setInputStyles] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
 
   const updateInputStyles = (name, isValid) => {
     setInputStyles((prevStyles) => ({
@@ -68,10 +70,22 @@ function ContactPage() {
 
   const validateFormMessage = (name, value, isValid) => {
     if (value.trim() === "") {
-      return ""; // No message if the field hasn't been touched
+      return `The ${camelCaseToTitle(name)} is required.`;
     }
-    return isValid ? "" : `The ${camelCaseToTitle(name)} must be valid and contain at least 3 characters.`;
+    switch (name) {
+      case "email":
+        return isValid ? "" : "Please enter a valid email address.";
+      case "fullName":
+        return isValid ? "" : "Full name must be at least 3 characters.";
+      case "subject":
+        return isValid ? "" : "Subject must be at least 3 characters.";
+      case "message":
+        return isValid ? "" : "Message must be at least 3 characters.";
+      default:
+        return "";
+    }
   };
+
 
   const camelCaseToTitle = (text) => {
     const result = text.replace(/([A-Z])/g, " $1");
@@ -82,8 +96,19 @@ function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const isFormValid = Object.keys(formData).every((name) => validateField(name, formData[name]));
+
     if (isFormValid) {
       console.log("Form is valid, submitting data:", formData);
+
+      // Indicate form submission success
+      setIsSubmitted(true);
+
+      // Revert the submission status after 1 second
+      setTimeout(() => {
+        setIsSubmitted(false);
+        // Reset the form here if necessary
+      }, 2000);
+
       // Reset the form
       setFormData({ fullName: "", subject: "", email: "", message: "" });
       setInputStyles({});
@@ -92,62 +117,47 @@ function ContactPage() {
     }
   };
 
+
   return (
-    <div className="main-container" id="ContactPage" style={{ padding: "2em", maxWidth: "600px", margin: "auto" }}>
-      <h1 style={{ textAlign: "center", marginBottom: "1em" }}>Contact Us</h1>
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+    <S.MainContainer id="ContactPage">
+      <S.FormTitle>Contact Us</S.FormTitle>
+      <S.ContactForm onSubmit={handleSubmit}>
         {Object.entries(formData).map(([name, value]) => (
-          <div key={name} style={{ display: "flex", flexDirection: "column" }}>
-            <label
-              htmlFor={name} // Link label to input via id
-              style={{ marginBottom: "8px", fontWeight: "bold", textAlign: "left" }}>
-              {camelCaseToTitle(name)}
-            </label>
+          <S.FormField key={name}>
+            <S.Label htmlFor={name}>{camelCaseToTitle(name)}</S.Label>
             {name !== "message" ? (
-              <input
+              <S.Input
                 type={name === "email" ? "email" : "text"}
-                id={name} // Provide an id that matches the htmlFor of the label
+                id={name}
                 name={name}
                 value={value}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                style={{
-                  padding: "10px",
-                  border: `2px solid ${inputStyles[name] || "#ccc"}`,
-                  borderRadius: "4px",
-                  outlineColor: inputStyles[name],
-                }}
+                inputColor={inputStyles[name]}
                 placeholder={`Enter your ${camelCaseToTitle(name)}`}
                 required
               />
             ) : (
-              <textarea
-                id={name} // Provide an id that matches the htmlFor of the label
+              <S.TextArea
+                id={name}
                 name={name}
                 value={value}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                rows="5"
-                style={{
-                  padding: "10px",
-                  border: `2px solid ${inputStyles[name] || "#ccc"}`,
-                  borderRadius: "4px",
-                  outlineColor: inputStyles[name],
-                  resize: "vertical",
-                }}
+                inputColor={inputStyles[name]}
                 placeholder="Enter your message"
-                required></textarea>
+                required></S.TextArea>
             )}
             {touchedFields[name] && validationMessages[name] && (
-              <div style={{ color: "#FF5722", marginTop: "5px" }}>{validationMessages[name]}</div>
+              <S.ValidationMessage>{validationMessages[name]}</S.ValidationMessage>
             )}
-          </div>
+          </S.FormField>
         ))}
-        <button className="submit-button" type="submit">
-          Send Message
-        </button>
-      </form>
-    </div>
+        <S.SubmitButton className="submitButton" type="submit" isSubmitted={isSubmitted}>
+          {isSubmitted ? "Sent Successfully" : "Send Message"}
+        </S.SubmitButton>
+      </S.ContactForm>
+    </S.MainContainer>
   );
 }
 

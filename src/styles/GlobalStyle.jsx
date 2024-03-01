@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
   --color-gray-dark: #343a40;
   --color-red: #d30000;
   --color-red-dark: #771313;
+  --color-price-normal: #add6e2;
 
   --font-size-icons: calc(0.6rem + 2vmin);
   --font-size-xxsmall: calc(0.8rem);
@@ -106,9 +107,21 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 80vh;
   }
 
-  .view-product {
-    background-color: ${(props) => props.theme.viewProductButton};
-    color: ${(props) => props.theme.text};
+  .view-product, .submitButton {
+    width: 100%;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: calc(1rem);
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.viewProductButton};
+  border-radius: 8px;
+  border: 1px;
+  box-shadow: ${(props) => props.theme.navLinkShadow};
+
+  &:hover {
+    background-color: var(--color-pink);
+    color: var(--color-white);
+  }
   }
 
   .product-card {

@@ -70,7 +70,7 @@ function ProductCard({ product }) {
         </S.Price>
       </S.InfoWrapper>
       {/* <S.Tags>Categories: {product.tags.map((tag) => tag.charAt(0).toUpperCase() + tag.slice(1)).join(", ")}</S.Tags> */}
-      <S.ViewProductButton onClick={handleNavigate} aria-label={`View ${product.title}`}>
+      <S.ViewProductButton className="view-product" onClick={handleNavigate} aria-label={`View ${product.title}`}>
         View Product
       </S.ViewProductButton>
     </S.Card>

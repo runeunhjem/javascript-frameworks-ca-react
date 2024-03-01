@@ -133,8 +133,9 @@ export const Price = styled.p`
   height: 30px;
   width: 110px;
   font-size: var(--font-size-xxsmall);
-  color: ${(props) => (props.$isDiscounted ? "white" : "black")};
-  background-color: ${(props) => (props.$isDiscounted ? "#b10000" : "#add6e2")};
+  font-weight: bold;
+  color: ${(props) => (props.$isDiscounted ? props.theme.priceTextDiscounted : props.theme.priceTextNormal)};
+  background-color: ${(props) => (props.$isDiscounted ? props.theme.priceBgDiscounted : props.theme.priceBgNormal)};
   /* padding-right: ${(props) => (props.$isDiscounted ? "5px" : "5px")}; */
   border-radius: ${(props) => (props.$isDiscounted ? "5px" : "5px")};
 `;

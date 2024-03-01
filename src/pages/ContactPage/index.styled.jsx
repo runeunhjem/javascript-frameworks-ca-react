@@ -32,14 +32,14 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   padding: 10px;
-  border: 2px solid ${(props) => props.$inputColor || "#ccc"};
+  border: 2px solid ${(props) => props.$inputColor || props.theme.inputBorderColor};
   border-radius: 4px;
   outline-color: ${(props) => props.$inputColor};
 `;
 
 export const TextArea = styled.textarea`
   padding: 10px;
-  border: 2px solid ${(props) => props.$inputColor || "#ccc"};
+  border: 2px solid ${(props) => props.$inputColor || props.theme.inputBorderColor};
   border-radius: 4px;
   outline-color: ${(props) => props.$inputColor};
   resize: vertical;
@@ -48,28 +48,10 @@ export const TextArea = styled.textarea`
 export const ValidationMessage = styled.div`
   text-align: left;
   font-size: var(--font-size-xsmall);
-  color: #ff5722;
+  color: ${(props) => props.theme.errorMessage};
   margin-top: 5px;
 `;
 
-
-// export const SubmitButton = styled.button`
-// // background: ${(props) => (props.$isSubmitted ? "var(--color-success)" : props.theme.viewProductButton)};
-// background: ${(props) => (props.$isSubmitted ? props.theme.colors.success : props.theme.viewProductButton)};
-// // color: ${(props) => (props.$isSubmitted ? "var(--color-white)" : props.theme.text)};
-//   color: ${(props) => (props.$isSubmitted ? props.theme.colors.white : props.theme.text)};
-//   padding: 12px;
-//   border: none;
-//   border-radius: 8px;
-//   cursor: pointer;
-//   font-size: var(--font-size-xsmall);
-//   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-//   box-shadow: ${(props) => props.theme.navLinkShadow};
-
-//   &:hover {
-//     background-color: ${(props) => !props.$isSubmitted && props.theme.viewProductButtonHover};
-//   }
-// `;
 export const SubmitButton = styled.button`
   background: ${(props) => (props.$isSubmitted ? props.theme.successMessage : props.theme.viewProductButton)};
   color: ${(props) => (props.$isSubmitted ? props.theme.colors.white : props.theme.text)};

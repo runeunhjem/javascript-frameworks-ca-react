@@ -103,7 +103,7 @@ function ContactPage() {
       // Indicate form submission success
       setIsSubmitted(true);
 
-      // Revert the submission status after 1 second
+      // Revert the submission status after 2 seconds
       setTimeout(() => {
         setIsSubmitted(false);
         // Reset the form here if necessary

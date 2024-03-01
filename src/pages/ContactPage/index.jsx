@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ThemeContext } from "styled-components";
 import * as S from "./index.styled"; // Adjust path as needed
 
 function ContactPage() {
+  const theme = useContext(ThemeContext);
   const [formData, setFormData] = useState({
     fullName: "",
     subject: "",
@@ -13,11 +15,10 @@ function ContactPage() {
   const [inputStyles, setInputStyles] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-
   const updateInputStyles = (name, isValid) => {
     setInputStyles((prevStyles) => ({
       ...prevStyles,
-      [name]: isValid ? "#4CAF50" : "#FF5722",
+      [name]: isValid ? theme.successMessage : theme.errorMessage,
     }));
   };
 
@@ -46,7 +47,7 @@ function ContactPage() {
     const isValid = validateField(name, value);
     setInputStyles((prevStyles) => ({
       ...prevStyles,
-      [name]: isValid ? "#4CAF50" : "#FF5722",
+      [name]: isValid ? theme.successMessage : theme.errorMessage,
     }));
     const message = validateFormMessage(name, value, isValid);
     setValidationMessages((prevMessages) => ({
@@ -86,7 +87,6 @@ function ContactPage() {
     }
   };
 
-
   const camelCaseToTitle = (text) => {
     const result = text.replace(/([A-Z])/g, " $1");
     const finalResult = result.charAt(0).toUpperCase() + result.slice(1);
@@ -116,7 +116,6 @@ function ContactPage() {
       setValidationMessages({});
     }
   };
-
 
   return (
     <S.MainContainer id="ContactPage">
@@ -154,7 +153,7 @@ function ContactPage() {
           </S.FormField>
         ))}
         <S.SubmitButton className="submitButton" type="submit" $isSubmitted={isSubmitted}>
-          {isSubmitted ? "Sent Successfully" : "Send Message"}
+          {isSubmitted ? <>Sent Successfully &#x2714;</> : "Send Message"}
         </S.SubmitButton>
       </S.ContactForm>
     </S.MainContainer>

@@ -68,6 +68,11 @@ export const SubmitButton = styled.button`
     background-color: ${(props) => (props.$isSubmitted ? props.theme.successMessage : props.theme.viewProductButtonHover)};
     color: ${(props) => (props.$isSubmitted ? props.theme.colors.white : props.theme.text)};
   }
+
+  &::after {
+    content: "${(props) => (props.$isSubmitted ? "\\2714" : "")}";
+    color: ${(props) => (props.$isSubmitted ? props.theme.colors.white : "transparent")};
+  }
 `;
 
 

@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   --color-success-darkMode: #00a67d;
   --color-gold-light: #d8c34e;
   --color-gold: #ffc107;
-  --color-gold-search: #d3ad02;
+  --color-gold-search: #ceb009;
   --color-gray: #6c757d;
   --color-gray-light: #c5bfc5;
   --color-gray-dark: #343a40;

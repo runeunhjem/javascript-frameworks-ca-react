@@ -61,6 +61,7 @@ export const Input = styled.input`
   width: 90%;
   height: 30px;
   text-indent: 6px;
+  background-color: ${(props) => props.theme.input};
   border: 0;
   &:focus {
     outline: none;
@@ -94,6 +95,7 @@ export const SearchResults = styled.div`
   position: absolute;
   top: 40px;
   max-width: calc(100vw - 1vmin);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 1000;
   &::-webkit-scrollbar {
     width: 10px;
@@ -114,14 +116,14 @@ export const SearchResultItem = styled.div`
   cursor: pointer;
   background-color: ${(props) => props.theme.searchResultBackground};
   box-shadow: ${(props) => props.theme.productCardShadow};
-  margin-bottom: 5px;
+  margin: 0 6px 5px 0;
   font-size: var(--font-size-xsmall);
   transition: all 0.1s ease-in-out;
   &:last-child {
     border-bottom: none;
   }
   &:hover {
-    background-color: var(--color-pink-hover);
+    background-color: ${(props) => props.theme.searchResultBackgroundHover};
     transform: scale(0.98);
   }
 `;
@@ -138,6 +140,7 @@ export const SearchResultImage = styled.img`
 export const SearchResultInfo = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 4px;
 `;
 
 export const SearchResultTitle = styled.span`
@@ -145,29 +148,34 @@ export const SearchResultTitle = styled.span`
   font-weight: bold;
 `;
 
-export const SearchResultDiscount = styled.span`
-  color: var(--color-red-dark);
-  margin-right: 5px;
+export const SearchResultPriceInfo = styled.div`
+  display: flex;
+  flex-direction: column; // Change to column for vertical stacking
+  align-items: flex-start; // Align items to the start
+  gap: 4px; // Optional: adds space between lines
+`;
+
+export const SearchResultNormalPriceAndDiscount = styled.div`
+  display: flex;
+  align-items: baseline; // Keep items aligned properly
 `;
 
 export const SearchResultNormalPrice = styled.span`
-  color: var(--color-red-dark);
-  margin-left: 10px;
+  color: ${(props) => props.theme.priceTextNormal};
   text-decoration: line-through;
+  margin-right: 10px; // Keep some spacing between the normal price and discount
+`;
+
+export const SearchResultDiscount = styled.span`
+  color: ${(props) => props.theme.colors.error};
+  font-weight: bold;
 `;
 
 export const SearchResultPrice = styled.span`
   &.discounted {
-    color: var(--color-black);
-    margin-left: 5px;
+    color: ${(props) => props.theme.colors.error};
+    font-weight: bold;
   }
-`;
-
-export const SearchResultPriceInfo = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2px 0;
 `;
 
 export const Star = styled.span`

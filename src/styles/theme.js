@@ -51,7 +51,8 @@ export const darkTheme = {
   input: "var(--color-pink-xlight)",
   inputText: "var(--color-black)",
   inputBorderColor: "var(--color-pink-light)",
-  searchResultBackground: "var(--color-gray-light)",
+  searchResultBackground: "var(--color-pink-xlight)",
+  searchResultBackgroundHover: "var(--color-pink-hover)",
   errorMessage: "var(--color-red-light)",
   successMessage: "var(--color-success-darkMode)",
 };

@@ -7,19 +7,20 @@ export const GlobalStyle = createGlobalStyle`
   --color-pink-light: #ccade9;
   --color-pink-lighter: #c5bfc5;
   --color-pink-xlight: #f5e6f5;
+  --color-pink-hover: #fdc9fd;
   --color-black: #000000;
   --color-white: #ffffff;
   --color-success: #28a745;
   --color-success-darkMode: #00a67d;
   --color-gold-light: #d8c34e;
   --color-gold: #ffc107;
-  --color-gold-search: #800091;
+  --color-gold-search: #d3ad02;
   --color-gray: #6c757d;
   --color-gray-light: #c5bfc5;
   --color-gray-dark: #343a40;
   --color-red: #d30000;
   --color-red-light: #ff9191;
-  --color-red-dark: #771313;
+  --color-red-dark: #b40101;
   --color-price-normal: #add6e2;
 
   --font-size-icons: calc(0.6rem + 2vmin);

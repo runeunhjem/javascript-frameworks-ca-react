@@ -23,6 +23,7 @@ export const lightTheme = {
   inputText: "var(--color-black)",
   inputBorderColor: "var(--color-gray-light)",
   searchResultBackground: "var(--color-pink-xlight)",
+  searchResultBackgroundHover: "var(--color-pink-hover)",
   errorMessage: "var(--color-red)",
   successMessage: "var(--color-success)",
 };

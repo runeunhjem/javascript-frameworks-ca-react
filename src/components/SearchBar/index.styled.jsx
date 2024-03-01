@@ -115,12 +115,13 @@ export const SearchResultItem = styled.div`
   background-color: ${(props) => props.theme.searchResultBackground};
   box-shadow: ${(props) => props.theme.productCardShadow};
   margin-bottom: 5px;
+  font-size: var(--font-size-xsmall);
   transition: all 0.1s ease-in-out;
   &:last-child {
     border-bottom: none;
   }
   &:hover {
-    background-color: var(--color-pink-light);
+    background-color: var(--color-pink-hover);
     transform: scale(0.98);
   }
 `;
@@ -145,12 +146,12 @@ export const SearchResultTitle = styled.span`
 `;
 
 export const SearchResultDiscount = styled.span`
-  color: var(--color-red);
+  color: var(--color-red-dark);
   margin-right: 5px;
 `;
 
 export const SearchResultNormalPrice = styled.span`
-  color: var(--color-red);
+  color: var(--color-red-dark);
   margin-left: 10px;
   text-decoration: line-through;
 `;

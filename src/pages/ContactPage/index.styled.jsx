@@ -52,14 +52,40 @@ export const ValidationMessage = styled.div`
   margin-top: 5px;
 `;
 
+
+// export const SubmitButton = styled.button`
+// // background: ${(props) => (props.$isSubmitted ? "var(--color-success)" : props.theme.viewProductButton)};
+// background: ${(props) => (props.$isSubmitted ? props.theme.colors.success : props.theme.viewProductButton)};
+// // color: ${(props) => (props.$isSubmitted ? "var(--color-white)" : props.theme.text)};
+//   color: ${(props) => (props.$isSubmitted ? props.theme.colors.white : props.theme.text)};
+//   padding: 12px;
+//   border: none;
+//   border-radius: 8px;
+//   cursor: pointer;
+//   font-size: var(--font-size-xsmall);
+//   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+//   box-shadow: ${(props) => props.theme.navLinkShadow};
+
+//   &:hover {
+//     background-color: ${(props) => !props.$isSubmitted && props.theme.viewProductButtonHover};
+//   }
+// `;
 export const SubmitButton = styled.button`
-  background: ${(props) => (props.$isSubmitted ? "var(--color-success)" : props.theme.viewProductButton)};
-  color: ${(props) => (props.$isSubmitted ? "var(--color-white)" : props.theme.text)};
+  background: ${(props) => (props.$isSubmitted ? props.theme.successMessage : props.theme.viewProductButton)};
+  color: ${(props) => (props.$isSubmitted ? props.theme.colors.white : props.theme.text)};
   padding: 12px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
   font-size: var(--font-size-xsmall);
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   box-shadow: ${(props) => props.theme.navLinkShadow};
+
+  &:hover {
+    background-color: ${(props) => (props.$isSubmitted ? props.theme.successMessage : props.theme.viewProductButtonHover)};
+    color: ${(props) => (props.$isSubmitted ? props.theme.colors.white : props.theme.text)};
+  }
 `;
+
+

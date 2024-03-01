@@ -3,6 +3,11 @@ export const lightTheme = {
   text: "var(--color-black)",
   h2: "var(--color-white)",
   header: "var(--color-pink)",
+  colors: {
+    success: "var(--color-success)",
+    white: "var(--color-white)",
+    error: "var(--color-red)",
+  },
   // Buttons, links, and other UI elements
   viewProductButton: "var(--color-pink-light)",
   viewProductButtonHover: "var(--color-pink)",
@@ -17,6 +22,8 @@ export const lightTheme = {
   input: "var(--color-white)",
   inputText: "var(--color-black)",
   searchResultBackground: "var(--color-pink-xlight)",
+  errorMessage: "var(--color-red)",
+  successMessage: "var(--color-success)",
 };
 
 export const darkTheme = {
@@ -24,6 +31,11 @@ export const darkTheme = {
   text: "var(--color-pink-lighter)",
   h2: "var(--color-pink-lighter)",
   header: "var(--color-pink-dark)",
+  colors: {
+    success: "var(--color-success-darkMode)",
+    white: "var(--color-white)",
+    error: "var(--color-red-light)",
+  },
   // Buttons, links, and other UI elements
   viewProductButton: "var(--color-pink-dark)",
   viewProductButtonHover: "var(--color-pink)",
@@ -37,4 +49,6 @@ export const darkTheme = {
   input: "var(--color-pink-xlight)",
   inputText: "var(--color-black)",
   searchResultBackground: "var(--color-gray-light)",
+  errorMessage: "var(--color-red-light)",
+  successMessage: "var(--color-success-darkMode)",
 };

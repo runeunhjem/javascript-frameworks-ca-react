@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
   --color-black: #000000;
   --color-white: #ffffff;
   --color-success: #28a745;
+  --color-success-darkMode: #00a67d;
   --color-gold-light: #d8c34e;
   --color-gold: #ffc107;
   --color-gold-search: #800091;
@@ -17,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
   --color-gray-light: #c5bfc5;
   --color-gray-dark: #343a40;
   --color-red: #d30000;
+  --color-red-light: #ff9191;
   --color-red-dark: #771313;
   --color-price-normal: #add6e2;
 

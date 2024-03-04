@@ -70,7 +70,7 @@ export const SubmitButton = styled.button`
   }
 
   &::after {
-    content: "${(props) => (props.$isSubmitted ? "\\2714" : "")}";
+    content: "${(props) => (props.$isSubmitted ? " \\2714" : "")}";
     color: ${(props) => (props.$isSubmitted ? props.theme.colors.white : "transparent")};
   }
 `;

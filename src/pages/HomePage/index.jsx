@@ -1,4 +1,4 @@
-import OnlineShop from "../../components/OnlineShop"; // Import the component
+import OnlineShop from "../../components/OnlineShop";
 
 function HomePage() {
   return (

@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
   --color-gray: #6c757d;
   --color-gray-light: #c5bfc5;
   --color-gray-dark: #343a40;
+  --color-gray-dark-hover: #3d454d;
   --color-red: #d30000;
   --color-red-light: #ff9191;
   --color-red-dark: #b40101;

@@ -1,19 +1,20 @@
+// NotFoundPage/index.styled.jsx
 import styled from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
 
-export const SuccessContainer = styled.div`
+export const NotFoundContainer = styled.div`
   text-align: center;
   margin-top: 50px;
   min-height: 60vh;
 `;
 
-export const SuccessTitle = styled.h1`
-  color: ${(props) => props.theme.successMessage};
+export const NotFoundTitle = styled.h1`
+  color: ${(props) => props.theme.errorMessage};
   font-size: var(--font-size-xlarge);
   padding: 1em;
 `;
 
-export const SuccessMessage = styled.h2`
+export const NotFoundMessage = styled.h2`
   font-size: var(--font-size-large);
   padding: 1em;
 `;

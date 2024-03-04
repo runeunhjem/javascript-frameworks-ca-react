@@ -115,6 +115,7 @@ export const SearchResultItem = styled.div`
   padding: 10px;
   cursor: pointer;
   background-color: ${(props) => props.theme.searchResultBackground};
+  color: ${(props) => props.theme.searchResultText};
   box-shadow: ${(props) => props.theme.productCardShadow};
   margin: 0 6px 5px 0;
   font-size: var(--font-size-xsmall);
@@ -124,6 +125,7 @@ export const SearchResultItem = styled.div`
   }
   &:hover {
     background-color: ${(props) => props.theme.searchResultBackgroundHover};
+    /* color: ${(props) => props.theme.priceTextNormal}; */
     transform: scale(0.98);
   }
 `;
@@ -161,7 +163,7 @@ export const SearchResultNormalPriceAndDiscount = styled.div`
 `;
 
 export const SearchResultNormalPrice = styled.span`
-  color: ${(props) => props.theme.priceTextNormal};
+  color: ${(props) => props.theme.searchResultText};
   text-decoration: line-through;
   margin-right: 10px; // Keep some spacing between the normal price and discount
 `;
@@ -180,6 +182,7 @@ export const SearchResultPrice = styled.span`
 
 export const Star = styled.span`
   color: var(--color-gold-search);
+  padding: 0 2px;
 `;
 
 export const SearchResultRating = styled.div`

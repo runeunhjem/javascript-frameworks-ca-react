@@ -11,6 +11,7 @@ export const lightTheme = {
   // Buttons, links, and other UI elements
   viewProductButton: "var(--color-pink-light)",
   viewProductButtonHover: "var(--color-pink)",
+  viewProductButtonHoverDark: "var(--color-pink-dark)",
   productCardShadow: "var(--card-shadow-light)",
   productCardBackground: "var(--color-white)",
   navLinkShadow: "var(--box-shadow-light)",
@@ -24,6 +25,7 @@ export const lightTheme = {
   inputBorderColor: "var(--color-gray-light)",
   searchResultBackground: "var(--color-pink-xlight)",
   searchResultBackgroundHover: "var(--color-pink-hover)",
+  searchResultText: "var(--color-black)",
   errorMessage: "var(--color-red)",
   successMessage: "var(--color-success)",
 };
@@ -41,6 +43,7 @@ export const darkTheme = {
   // Buttons, links, and other UI elements
   viewProductButton: "var(--color-pink-dark)",
   viewProductButtonHover: "var(--color-pink)",
+  viewProductButtonHoverDark: "var(--color-pink-dark)",
   productCardShadow: "var(--card-shadow-dark)",
   navLinkShadow: "var(--box-shadow-dark)",
   productCardText: "var(--color-pink-xlight)",
@@ -51,8 +54,9 @@ export const darkTheme = {
   input: "var(--color-pink-xlight)",
   inputText: "var(--color-black)",
   inputBorderColor: "var(--color-pink-light)",
-  searchResultBackground: "var(--color-pink-xlight)",
-  searchResultBackgroundHover: "var(--color-pink-hover)",
+  searchResultBackground: "var(--color-gray-dark)",
+  searchResultBackgroundHover: "var(--color-gray-dark-hover)",
+  searchResultText: "var(--color-pink-xlight)",
   errorMessage: "var(--color-red-light)",
   successMessage: "var(--color-success-darkMode)",
 };

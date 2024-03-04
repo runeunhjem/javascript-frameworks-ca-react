@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { ThemeContext } from "styled-components";
-import * as S from "./index.styled"; // Adjust path as needed
+import * as S from "./index.styled";
 
 function ContactPage() {
   const theme = useContext(ThemeContext);
@@ -153,7 +153,7 @@ function ContactPage() {
           </S.FormField>
         ))}
         <S.SubmitButton className="submitButton" type="submit" $isSubmitted={isSubmitted}>
-          {isSubmitted ? <>Sent Successfully &#x2714;</> : "Send Message"}
+          {isSubmitted ? <>Sent Successfully </> : "Send Message"}
         </S.SubmitButton>
       </S.ContactForm>
     </S.MainContainer>

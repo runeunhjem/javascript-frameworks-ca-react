@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext/useCart";
 import Reviews from "../../components/Reviews";
 import * as S from "./index.styled";
+import RenderStars from "../../components/RenderStars";
 
 function ProductPage() {
   const { productId } = useParams();
@@ -53,16 +54,16 @@ function ProductPage() {
           <S.ProductImage src={product.image.url} alt={product.image.alt || product.title} />
         </S.ImageContainer>
         <S.DetailsContainer>
-          <S.ProductTitle>{product.title}</S.ProductTitle>
+          <S.RatingContainer aria-label={`Rating: ${product.rating} out of 5`}>
+            <S.ProductTitle>{product.title}</S.ProductTitle>
+            <RenderStars rating={product.rating} />
+          </S.RatingContainer>
           <S.ProductDescription>{product.description}</S.ProductDescription>
-          {hasDiscount && <S.DiscountInfo>Discount: {discountPercentage.toFixed(2)}%</S.DiscountInfo>}
-          <S.PriceInfo>Price: ${(product.price / 100).toFixed(2)}</S.PriceInfo>
-          {hasDiscount && (
-            <>
-              <S.DiscountedPrice>Now: ${(product.discountedPrice / 100).toFixed(2)}</S.DiscountedPrice>
-            </>
-          )}
-          <S.RatingInfo>Rating: {product.rating} stars</S.RatingInfo>
+          <S.InfoContainer>
+            {hasDiscount && <S.DiscountInfo>Discount: {discountPercentage.toFixed(2)}%</S.DiscountInfo>}
+            <S.PriceInfo $hasDiscount={hasDiscount}>Price: ${(product.price / 100).toFixed(2)}</S.PriceInfo>
+            {hasDiscount && <S.DiscountedPrice>Now: ${(product.discountedPrice / 10).toFixed(2)}</S.DiscountedPrice>}
+          </S.InfoContainer>
           <S.ButtonContainer>
             <S.AddToCartButton onClick={handleAddToCart}>Add to Cart</S.AddToCartButton>
             <S.GoToCheckoutButton onClick={handleGoToCheckout}>Go to Checkout</S.GoToCheckoutButton>
@@ -71,6 +72,9 @@ function ProductPage() {
       </S.ProductDetailsContainer>
       {product.reviews && product.reviews.length > 0 && (
         <S.ProductReviews>
+          <S.RatingInfo>
+            Average Rating: {product.rating} stars based on ({product.reviews.length}) reviews
+          </S.RatingInfo>
           <Reviews reviews={product.reviews} />
         </S.ProductReviews>
       )}

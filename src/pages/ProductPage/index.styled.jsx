@@ -3,9 +3,19 @@ import styled, { css } from "styled-components";
 const buttonStyles = css`
   cursor: pointer;
   border: none;
-  padding: 10px 15px;
-  font-weight: bold;
   transition: background-color 0.3s ease;
+  text-align: center;
+  font-size: var(--font-size-xsmall);
+  padding: 5px 10px;
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.viewProductButton};
+  border-radius: 5px;
+  border: 1px;
+  box-shadow: ${(props) => props.theme.navLinkShadow};
+  &:hover {
+    background-color: var(--color-pink);
+    color: var(--color-white);
+  }
 `;
 
 export const MainContainer = styled.div`
@@ -16,14 +26,23 @@ export const MainContainer = styled.div`
   max-width: 1200px;
   margin: auto;
   padding: 20px;
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
 `;
 
 export const ProductDetailsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   gap: 20px;
   width: 100%;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -31,13 +50,18 @@ export const ImageContainer = styled.div`
   max-width: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    margin-top: 0;
+  }
 `;
 
 export const ProductImage = styled.img`
   width: auto;
   max-width: 100%;
   max-height: 400px;
+  object-fit: contain;
 `;
 
 export const DetailsContainer = styled.div`
@@ -46,11 +70,15 @@ export const DetailsContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   max-width: 50%;
+  max-height: 100%;
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 export const ProductTitle = styled.h1`
-  margin: 0 0 15px;
-  font-size: 1.5rem;
+  margin: 0 0 5px;
+  font-size: var(--font-size-large);
   color: ${({ theme }) => theme.colors.text};
 `;
 
@@ -58,6 +86,12 @@ export const ProductDescription = styled.p`
   margin-bottom: 15px;
   color: ${({ theme }) => theme.colors.textSecondary};
   font-size: 1rem;
+`;
+
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 export const DiscountInfo = styled.p`
@@ -68,12 +102,8 @@ export const DiscountInfo = styled.p`
 export const PriceInfo = styled.span`
   font-size: 1.2rem;
   color: ${({ theme }) => theme.colors.text};
-  ${({ hasDiscount }) =>
-    hasDiscount &&
-    css`
-      text-decoration: line-through;
-      margin-right: 10px;
-    `}
+  text-decoration: ${({ $hasDiscount }) => ($hasDiscount ? "line-through" : "none")};
+  margin-right: 10px;
 `;
 
 export const DiscountedPrice = styled.span`
@@ -82,44 +112,54 @@ export const DiscountedPrice = styled.span`
   color: ${({ theme }) => theme.colors.success};
 `;
 
+export const RatingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  font-size: var(--font-size-xsmall);
+  margin: 0 0 8px;
+  width: 100%;
+`;
+
 export const RatingInfo = styled.div`
   display: flex;
-  align-items: center;
-  margin: 15px 0;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xsmall);
+  margin: 8px auto;
+  /* text-align: left; */
+  width: 100%;
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin: 6px 0;
   gap: 10px;
+  max-width: 100%;
 `;
 
 export const AddToCartButton = styled.button`
   ${buttonStyles}
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primaryDark};
-  }
 `;
 
 export const GoToCheckoutButton = styled.button`
   ${buttonStyles}
-  background-color: ${({ theme }) => theme.colors.secondary};
-  color: ${({ theme }) => theme.colors.white};
-  text-decoration: none;
-  text-align: center;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.secondaryDark};
-  }
 `;
 
 export const ProductReviews = styled.div`
   width: 100%;
   margin-top: 30px;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  @media screen and (max-width: 768px) {
+    padding: 0 2em;
+  }
 `;

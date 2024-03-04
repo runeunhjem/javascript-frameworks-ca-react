@@ -7,7 +7,7 @@ export const ReviewsContainer = styled.div`
   width: 100%;
   align-items: flex-start;
   justify-content: flex-start;
-  margin: 0 0 10px 1em;
+  margin: 0 0 10px 0;
 `;
 
 export const ReviewCard = styled.div`

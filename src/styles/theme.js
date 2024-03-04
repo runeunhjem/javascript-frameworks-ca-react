@@ -7,6 +7,7 @@ export const lightTheme = {
     success: "var(--color-success)",
     white: "var(--color-white)",
     error: "var(--color-red)",
+    text: "var(--color-black)",
   },
   // Buttons, links, and other UI elements
   viewProductButton: "var(--color-pink-light)",
@@ -39,6 +40,7 @@ export const darkTheme = {
     success: "var(--color-success-darkMode)",
     white: "var(--color-white)",
     error: "var(--color-red-light)",
+    text: "var(--color-pink-lighter)",
   },
   // Buttons, links, and other UI elements
   viewProductButton: "var(--color-pink-dark)",

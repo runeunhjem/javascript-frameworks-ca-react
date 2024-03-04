@@ -1,8 +1,0 @@
-.product-details-container {
-  display: flex;
-  flex-direction: row;
-  width: calc(100% - 20px);
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 20px;
-}

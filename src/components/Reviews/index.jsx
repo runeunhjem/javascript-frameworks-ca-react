@@ -3,6 +3,15 @@ import * as S from "./index.styled";
 import RenderStars from "../RenderStars";
 
 function Reviews({ reviews }) {
+  // Check if there are reviews. If not, display a placeholder message.
+  if (!reviews || reviews.length === 0) {
+    return (
+      <S.ReviewsContainer>
+        <p>No reviews yet.</p>
+      </S.ReviewsContainer>
+    );
+  }
+
   return (
     <S.ReviewsContainer>
       {reviews.map((review) => (

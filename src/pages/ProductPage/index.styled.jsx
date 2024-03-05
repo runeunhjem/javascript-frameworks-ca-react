@@ -63,6 +63,8 @@ export const ProductImage = styled.img`
   max-width: 100%;
   max-height: 600px;
   object-fit: cover;
+  border-radius: 5px;
+  box-shadow: ${(props) => props.theme.productCardShadow};
   @media screen and (max-width: 768px) {
     width: 100vw;
   }
@@ -77,8 +79,9 @@ export const DetailsContainer = styled.div`
   max-width: 50%;
   max-height: 100%;
   @media screen and (max-width: 768px) {
+    width: 95%;
     max-width: 100%;
-    margin: 0 1em 0 1em;
+    padding: 0 1em 0 1em;
   }
 `;
 
@@ -101,20 +104,25 @@ export const InfoContainer = styled.div`
 `;
 
 export const DiscountInfo = styled.p`
-  font-size: 1rem;
+  font-size: var(--font-size-xsmall);
   color: ${({ theme }) => theme.colors.error};
 `;
 
 export const PriceInfo = styled.span`
-  font-size: 1.2rem;
+  font-size: var(--font-size-xsmall);
   color: ${({ theme }) => theme.colors.text};
   text-decoration: ${({ $hasDiscount }) => ($hasDiscount ? "line-through" : "none")};
   margin-right: 10px;
 `;
+export const StarAverage = styled.span`
+  font-size: var(--font-size-xsmall);
+  color: ${({ theme }) => theme.colors.text};
+  margin-left: 10px;
+`;
 
 export const DiscountedPrice = styled.span`
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
   color: ${({ theme }) => theme.colors.success};
 `;
 
@@ -164,8 +172,23 @@ export const ProductReviews = styled.div`
   text-align: left;
   flex-wrap: wrap;
   align-items: flex-start;
+  margin: 1em auto;
   @media screen and (max-width: 768px) {
-    width: 90%;
+    width: 95%;
+    max-width: 100%;
+    /* margin: 0 auto; */
+  }
+`;
+
+export const NoReviewsMessage = styled.div`
+  color: ${(props) => props.theme.text};
+  display: flex;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xsmall);
+  margin: 8px auto;
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    width: 95%;
     max-width: 100%;
     /* margin: 0 auto; */
   }
@@ -177,8 +200,9 @@ export const ProductRatingsContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  max-width: 100%;
+  width: 100%;
   max-height: 100%;
+  margin-top: 30px;
   @media screen and (max-width: 768px) {
     width: 90%;
     margin: 0 auto;

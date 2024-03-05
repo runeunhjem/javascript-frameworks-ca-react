@@ -60,7 +60,10 @@ function ProductPage() {
         <S.DetailsContainer>
           <S.RatingContainer aria-label={`Rating: ${product.rating} out of 5`}>
             <S.ProductTitle>{product.title}</S.ProductTitle>
-            <RenderStars rating={product.rating} />
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <RenderStars rating={product.rating} />
+              <S.StarAverage>({product.rating.toFixed(1)} stars)</S.StarAverage>
+            </div>
           </S.RatingContainer>
           <S.ProductDescription>{product.description}</S.ProductDescription>
           <S.InfoContainer>
@@ -75,13 +78,15 @@ function ProductPage() {
         </S.DetailsContainer>
       </S.ProductDetailsContainer>
       <S.ProductRatingsContainer>
-        {product.reviews && product.reviews.length > 0 && (
+        {product.reviews && product.reviews.length > 0 ? (
           <S.ProductReviews>
             <S.RatingInfo>
               Rating: {product.rating} stars based on {product.reviews.length} reviews
             </S.RatingInfo>
             <Reviews reviews={product.reviews} />
           </S.ProductReviews>
+        ) : (
+          <S.NoReviewsMessage>No reviews yet.</S.NoReviewsMessage>
         )}
       </S.ProductRatingsContainer>
     </S.MainContainer>

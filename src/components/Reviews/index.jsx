@@ -1,22 +1,18 @@
 import PropTypes from "prop-types";
 import * as S from "./index.styled";
+import RenderStars from "../RenderStars";
 
 function Reviews({ reviews }) {
-  const renderStars = (rating) => {
-    let stars = [];
-    for (let i = 1; i <= 5; i++) {
-      stars.push(<i key={i} className={`bi ${i <= rating ? "bi-star-fill" : "bi-star"}`} aria-hidden="true"></i>);
-    }
-    return <S.Stars>{stars}</S.Stars>;
-  };
-
   return (
     <S.ReviewsContainer>
       {reviews.map((review) => (
         <S.ReviewCard key={review.id}>
           <S.ReviewHeader>
             <S.ReviewUsername>{review.username}</S.ReviewUsername>
-            <S.ReviewRating>{renderStars(review.rating)}</S.ReviewRating>
+            <S.RatingContainer aria-label={`Rating: ${review.rating} out of 5`}>
+              <RenderStars rating={review.rating} />
+            </S.RatingContainer>
+            <S.ReviewRating>({review.rating} stars)</S.ReviewRating>
           </S.ReviewHeader>
           <S.ReviewDescription>{review.description}</S.ReviewDescription>
         </S.ReviewCard>

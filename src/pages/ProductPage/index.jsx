@@ -70,14 +70,16 @@ function ProductPage() {
           </S.ButtonContainer>
         </S.DetailsContainer>
       </S.ProductDetailsContainer>
-      {product.reviews && product.reviews.length > 0 && (
-        <S.ProductReviews>
-          <S.RatingInfo>
-            Average Rating: {product.rating} stars based on ({product.reviews.length}) reviews
-          </S.RatingInfo>
-          <Reviews reviews={product.reviews} />
-        </S.ProductReviews>
-      )}
+      <S.ProductRatingsContainer>
+        {product.reviews && product.reviews.length > 0 && (
+          <S.ProductReviews>
+            <S.RatingInfo>
+              Rating: {product.rating} stars based on {product.reviews.length} reviews
+            </S.RatingInfo>
+            <Reviews reviews={product.reviews} />
+          </S.ProductReviews>
+        )}
+      </S.ProductRatingsContainer>
     </S.MainContainer>
   );
 }

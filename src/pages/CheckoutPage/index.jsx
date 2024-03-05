@@ -61,14 +61,14 @@ function CheckoutPage() {
                 />
                 <button onClick={() => handleQuantityChange(item, item.quantity + 1)}>+</button>
               </div>
-              <p>Price per item: ${(item.discountedPrice / 100).toFixed(2)}</p>
-              <p>Total: ${((item.discountedPrice * item.quantity) / 100).toFixed(2)}</p>
+              <p>Price per item: ${(item.discountedPrice / 10).toFixed(2)}</p>
+              <p>Total: ${((item.discountedPrice * item.quantity) / 10).toFixed(2)}</p>
             </div>
           </div>
         ))}
       </div>
       <h2>Total Items: {cartItems.reduce((acc, item) => acc + item.quantity, 0)}</h2>
-      <h2>Total: ${(cartItems.reduce((acc, item) => acc + item.discountedPrice * item.quantity, 0) / 100).toFixed(2)}</h2>
+      <h2>Total: ${(cartItems.reduce((acc, item) => acc + item.discountedPrice * item.quantity, 0) / 10).toFixed(2)}</h2>
       <button onClick={handleCheckout}>Checkout</button>
     </div>
   );

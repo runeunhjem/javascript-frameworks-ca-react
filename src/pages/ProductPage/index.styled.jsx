@@ -12,6 +12,7 @@ const buttonStyles = css`
   border-radius: 5px;
   border: 1px;
   box-shadow: ${(props) => props.theme.navLinkShadow};
+  width: 120px;
   &:hover {
     background-color: var(--color-pink);
     color: var(--color-white);
@@ -26,6 +27,9 @@ export const MainContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
 `;
 
 export const ProductDetailsContainer = styled.div`
@@ -70,10 +74,13 @@ export const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
   max-width: 50%;
   max-height: 100%;
   @media screen and (max-width: 768px) {
-    max-width: 90%;
+    width: 90%;
+    max-width: 100%;
+    margin: 0 auto;
   }
 `;
 
@@ -153,13 +160,29 @@ export const GoToCheckoutButton = styled.button`
 
 export const ProductReviews = styled.div`
   width: 100%;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   display: flex;
   justify-content: flex-start;
   text-align: left;
   flex-wrap: wrap;
   align-items: flex-start;
   @media screen and (max-width: 768px) {
-    max-width: 90%;
+    width: 90%;
+    max-width: 100%;
+    /* margin: 0 auto; */
+  }
+`;
+
+export const ProductRatingsContainer = styled.div`
+  flex: 1 1 300px; // Flex-grow, flex-shrink, flex-basis
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 100%;
+  max-height: 100%;
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    margin: 0 auto;
   }
 `;

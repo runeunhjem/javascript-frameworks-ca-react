@@ -24,12 +24,8 @@ export const MainContainer = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  /* margin: auto; */
+  margin: 0 auto;
   padding: 20px;
-  @media screen and (max-width: 768px) {
-    padding: 0;
-    margin: 0;
-  }
 `;
 
 export const ProductDetailsContainer = styled.div`

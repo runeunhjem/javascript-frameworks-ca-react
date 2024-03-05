@@ -61,7 +61,7 @@ function ProductPage() {
           <S.ProductDescription>{product.description}</S.ProductDescription>
           <S.InfoContainer>
             {hasDiscount && <S.DiscountInfo>Discount: {discountPercentage.toFixed(2)}%</S.DiscountInfo>}
-            <S.PriceInfo $hasDiscount={hasDiscount}>Price: ${(product.price / 100).toFixed(2)}</S.PriceInfo>
+            <S.PriceInfo $hasDiscount={hasDiscount}>Price: ${(product.price / 10).toFixed(2)}</S.PriceInfo>
             {hasDiscount && <S.DiscountedPrice>Now: ${(product.discountedPrice / 10).toFixed(2)}</S.DiscountedPrice>}
           </S.InfoContainer>
           <S.ButtonContainer>

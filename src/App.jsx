@@ -38,6 +38,9 @@ function App() {
                 <Route path="/success" element={<CheckoutSuccessPage />} />
                 <Route path="/search" element={<SearchResultsPage />} />
                 <Route path="*" element={<NotFoundPage />} />
+                <Route path="/*" element={<HomePage />} />
+
+                {/* /* /index.html 200 */ }
               </Routes>
             </Layout>
           </CartProvider>

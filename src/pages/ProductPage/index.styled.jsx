@@ -12,7 +12,6 @@ const buttonStyles = css`
   border-radius: 5px;
   border: 1px;
   box-shadow: ${(props) => props.theme.navLinkShadow};
-  width: 120px;
   &:hover {
     background-color: var(--color-pink);
     color: var(--color-white);
@@ -78,9 +77,8 @@ export const DetailsContainer = styled.div`
   max-width: 50%;
   max-height: 100%;
   @media screen and (max-width: 768px) {
-    width: 90%;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 0 1em 0 1em;
   }
 `;
 

@@ -1,8 +1,12 @@
 import { useCart } from "../../contexts/CartContext/useCart";
 import { useNavigate } from "react-router-dom";
 import "../../../src/index.css";
+import { useEffect } from "react";
 
 function CheckoutPage() {
+  useEffect(() => {
+    document.title = "Checkout Page";
+  }, []);
   const { cartItems, updateItemQuantity, clearCart } = useCart();
   const navigate = useNavigate();
 

@@ -1,8 +1,12 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useProducts } from "../../contexts/ProductContext/useProducts";
 import ProductCard from "../../components/ProductCard";
 
 function SearchResultsPage() {
+  useEffect(() => {
+    document.title = "Search results";
+  }, []);
+
   const { products, searchTerm } = useProducts();
 
   const filteredProducts = useMemo(() => {

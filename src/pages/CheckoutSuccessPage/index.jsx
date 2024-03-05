@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import * as S from "./index.styled";
 
 function CheckoutSuccessPage() {
+  useEffect(() => {
+    document.title = "Checkout Success";
+  }, []);
   return (
     <S.SuccessContainer>
       <S.SuccessTitle>Checkout Successful!</S.SuccessTitle>

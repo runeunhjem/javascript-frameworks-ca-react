@@ -1,8 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "styled-components";
 import * as S from "./index.styled";
 
 function ContactPage() {
+  useEffect(() => {
+    document.title = "Contact Page";
+  }, []);
   const theme = useContext(ThemeContext);
   const [formData, setFormData] = useState({
     fullName: "",

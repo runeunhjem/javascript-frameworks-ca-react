@@ -30,6 +30,10 @@ function ProductPage() {
     fetchProduct();
   }, [productId]);
 
+  useEffect(() => {
+    document.title = product ? `${product.title} - Our Store` : "Product not found";
+  }, [product]);
+
   const handleAddToCart = () => {
     if (product) {
       addToCart({ ...product, quantity: 1 });

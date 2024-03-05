@@ -39,8 +39,13 @@ export const ItemImageContainer = styled.div`
 
 export const ItemImage = styled.img`
   width: 100px;
+  box-shadow: ${(props) => props.theme.productCardShadow};
   height: 150px;
   object-fit: cover;
+  @media screen and (min-width: 620px) {
+    width: 50px;
+    height: 75px;
+  }
 `;
 
 export const ItemDetails = styled.div`
@@ -54,33 +59,54 @@ export const ItemDetails = styled.div`
 export const ItemDetailsHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%; // Ensure it spans the entire width of the container
-  align-items: center; // Align items vertically
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
 `;
 
 export const QuantityAndRemoveContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  flex-wrap: wrap; // Allow the items to wrap to the next line
   gap: 10px; // Adjust as needed for spacing
-  flex-grow: 1; // Allows the container to grow as needed
+  flex-grow: 1;
+  margin: 4px auto;
+  @media screen and (max-width: 620px) {
+    justify-content: flex-start;
+  }
 `;
 
 export const ItemTitle = styled.h2`
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-small);
   color: ${(props) => props.theme.colors.text};
+  margin: 6px 8px 3px 0;
 `;
 
 export const QuantityControl = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-right: 3em;
+  @media screen and (max-width: 620px) {
+    margin-right: 0em;
+    justify-content: flex-start;
+  }
 `;
 
 export const QuantityButton = styled.button`
   padding: 5px 10px;
-  margin: 0 5px;
+  /* margin: 0 5px; */
   cursor: pointer;
   border-radius: 4px;
+  border: none;
   background-color: ${(props) => props.theme.viewProductButton};
+  color: ${(props) => props.theme.colors.text};
+  box-shadow: ${(props) => props.theme.navLinkShadow};
+`;
+
+export const QuantityInputLabel = styled.input`
+  font-size: var(--font-size-xsmall);
 `;
 
 export const QuantityInput = styled.input`
@@ -89,32 +115,40 @@ export const QuantityInput = styled.input`
   border-radius: 4px;
   text-align: center;
   background-color: ${(props) => props.theme.searchResultBackground};
+  color: ${(props) => props.theme.colors.text};
 `;
 
 export const PriceDetails = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%; // Use the full width to separate items to the edges
+  width: 100%;
+  gap: 5px;
+  @media screen and (max-width: 620px) {
+    font-size: var(--font-size-xsmall);
+  }
 `;
 
 export const RemoveButton = styled.button`
   padding: 5px 10px;
   cursor: pointer;
   background-color: ${(props) => props.theme.colors.error};
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.removeButtonText};
   border: none;
   border-radius: 4px;
 `;
 
 export const TotalDetails = styled.div`
-  margin-top: 20px;
   align-self: stretch;
+  width: 100%;
+  max-width: 1200px;
   display: flex;
+  margin: 1em auto;
   justify-content: space-between;
-  padding: 0 20px;
-  background-color: #f0f0f0; // Example color, adjust as needed
-  border-radius: 4px; // Optional, for a slight rounded corner effect
+  padding: 1em 20px;
+  background-color: ${(props) => props.theme.searchResultBackground};
+  box-shadow: ${(props) => props.theme.navLinkShadow};
+  border-radius: 4px;
 `;
 
 export const TotalItems = styled.h3`
@@ -129,6 +163,7 @@ export const CheckoutButton = styled.button`
   margin-top: 20px;
   padding: 10px 20px;
   cursor: pointer;
+  font-size: var(--font-size-large);
   background-color: ${(props) => props.theme.colors.success};
   color: ${(props) => props.theme.colors.white};
   border: none;

@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
   --color-pink-hover: #fdc9fd;
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-success: #28a745;
+  --color-success: #22943d;
   --color-success-darkMode: #00a67d;
   --color-gold-light: #d8c34e;
   --color-gold: #ffc107;
@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
   --font-size-xxsmall: calc(0.8rem);
   --font-size-title: calc(1.2rem);
   --font-size-xsmall: calc(0.6rem + 1vmin);
-  --font-size-small: calc(0.8rem + 2vmin);
+  --font-size-small: calc(0.8rem + 1vmin);
   --font-size-medium: calc(1rem + 1vmin);
   --font-size-large: calc(1.2rem + 1vmin);
   --font-size-xlarge: calc(1.5rem + 1vmin);

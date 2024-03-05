@@ -27,6 +27,7 @@ export const lightTheme = {
   searchResultBackground: "var(--color-pink-xlight)",
   searchResultBackgroundHover: "var(--color-pink-hover)",
   searchResultText: "var(--color-black)",
+  removeButtonText: "var(--color-white)",
   errorMessage: "var(--color-red)",
   successMessage: "var(--color-success)",
 };
@@ -59,6 +60,7 @@ export const darkTheme = {
   searchResultBackground: "var(--color-gray-dark)",
   searchResultBackgroundHover: "var(--color-gray-dark-hover)",
   searchResultText: "var(--color-pink-xlight)",
+  removeButtonText: "var(--color-black)",
   errorMessage: "var(--color-red-light)",
   successMessage: "var(--color-success-darkMode)",
 };

@@ -40,7 +40,7 @@ function CheckoutPage() {
           cartItems.map((item) => (
             <S.ItemCard key={item.id}>
               <S.ItemImageContainer onClick={() => navigate(`/product/${item.id}`)}>
-                <S.ItemImage src={item.image.url} alt={item.image.alt || item.title} />
+                <S.ItemImage src={item.image.url} alt={item.image.alt || `Productimage of ${item.title}`} />
               </S.ItemImageContainer>
               <S.ItemDetails>
                 <S.ItemDetailsHeader>
@@ -48,8 +48,26 @@ function CheckoutPage() {
                   <S.QuantityAndRemoveContainer>
                     <S.QuantityControl>
                       <S.QuantityButton onClick={() => handleQuantityChange(item, item.quantity - 1)}>-</S.QuantityButton>
+
+                      {/* Visually hidden label for accessibility */}
+                      <label
+                        htmlFor={`quantity-${item.id}`}
+                        style={{
+                          position: "absolute",
+                          width: "1px",
+                          height: "1px",
+                          margin: "-1px",
+                          padding: "0",
+                          overflow: "hidden",
+                          clip: "rect(0,0,0,0)",
+                          border: "0",
+                        }}>
+                        Quantity
+                      </label>
+
                       <S.QuantityInput
-                        type="text"
+                        id={`quantity-${item.id}`} // Unique ID for each input
+                        type="text" // Change type to "number" for proper validation and semantics
                         min="0"
                         value={item.quantity}
                         onChange={(e) => handleQuantityChange(item, Number(e.target.value))}
@@ -61,7 +79,9 @@ function CheckoutPage() {
                 </S.ItemDetailsHeader>
                 <S.PriceDetails>
                   <span>Price per item: ${(item.discountedPrice / 10 || item.price / 10).toFixed(2)}</span>
-                  <span>Total: ${((item.discountedPrice * item.quantity) / 10 || (item.price * item.quantity) / 10).toFixed(2)}</span>
+                  <span>
+                    Total: ${((item.discountedPrice * item.quantity) / 10 || (item.price * item.quantity) / 10).toFixed(2)}
+                  </span>
                 </S.PriceDetails>
               </S.ItemDetails>
             </S.ItemCard>

@@ -24,10 +24,11 @@ export const MainContainer = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  margin: auto;
+  /* margin: auto; */
   padding: 20px;
   @media screen and (max-width: 768px) {
     padding: 0;
+    margin: 0;
   }
 `;
 
@@ -41,27 +42,31 @@ export const ProductDetailsContainer = styled.div`
   @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: center;
+    width: 100%;
     max-width: 100%;
   }
 `;
 
 export const ImageContainer = styled.div`
-  flex: 1 1 300px; // Flex-grow, flex-shrink, flex-basis
+  flex: 1 1; // Flex-grow, flex-shrink, flex-basis
   max-width: 50%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   @media screen and (max-width: 768px) {
     max-width: 100%;
-    margin-top: 0;
   }
 `;
 
 export const ProductImage = styled.img`
-  width: auto;
+  width: 100%;
+  height: 100%;
   max-width: 100%;
-  max-height: 400px;
-  object-fit: contain;
+  max-height: 600px;
+  object-fit: cover;
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+  }
 `;
 
 export const DetailsContainer = styled.div`
@@ -72,7 +77,7 @@ export const DetailsContainer = styled.div`
   max-width: 50%;
   max-height: 100%;
   @media screen and (max-width: 768px) {
-    max-width: 100%;
+    max-width: 90%;
   }
 `;
 
@@ -117,7 +122,7 @@ export const RatingContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   font-size: var(--font-size-xsmall);
   margin: 0 0 8px;
   width: 100%;
@@ -128,7 +133,6 @@ export const RatingInfo = styled.div`
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-xsmall);
   margin: 8px auto;
-  /* text-align: left; */
   width: 100%;
 `;
 
@@ -160,6 +164,6 @@ export const ProductReviews = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   @media screen and (max-width: 768px) {
-    padding: 0 2em;
+    max-width: 90%;
   }
 `;

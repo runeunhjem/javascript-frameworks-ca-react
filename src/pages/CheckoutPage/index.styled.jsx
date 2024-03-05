@@ -1,106 +1,116 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: ${(props) => props.theme.body};
-  color: ${(props) => props.theme.text};
-`;
-
-export const CartTitle = styled.h1`
-  color: ${(props) => props.theme.header};
-  text-align: center;
-  margin-bottom: 2rem;
-`;
-
-export const CartItem = styled.div`
+  padding: 20px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  background-color: ${(props) => props.theme.productCardBackground};
-  box-shadow: ${(props) => props.theme.productCardShadow};
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
+  width: 100%;
 `;
 
-export const ItemDetails = styled.div`
-  flex-grow: 1;
-  padding: 0 1rem;
+export const Title = styled.h1`
+  margin-bottom: 2rem;
+  font-size: var(--font-size-xxlarge);
+  color: ${(props) => props.theme.colors.text};
+`;
+
+export const ItemsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+`;
+
+export const ItemCard = styled.div`
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid ${(props) => props.theme.colors.inputBorderColor};
+  box-shadow: ${(props) => props.theme.productCardShadow};
+`;
+
+export const ItemImageContainer = styled.div`
+  cursor: pointer;
+  flex-shrink: 0;
 `;
 
 export const ItemImage = styled.img`
-  width: 80px;
-  height: auto;
-  border-radius: 5px;
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
 `;
 
-export const ItemTitle = styled.h3`
-  color: ${(props) => props.theme.text};
-  margin: 0 0 0.5rem 0;
+export const ItemDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 `;
 
-export const ItemPrice = styled.p`
-  color: ${(props) => props.theme.normalPrice};
+export const ItemDetailsHeader = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
-export const ItemQuantityControl = styled.div`
+export const ItemTitle = styled.h2`
+  font-size: var(--font-size-large);
+  color: ${(props) => props.theme.colors.text};
+`;
+
+export const QuantityControl = styled.div`
   display: flex;
   align-items: center;
 `;
 
 export const QuantityButton = styled.button`
-  background-color: ${(props) => props.theme.viewProductButton};
-  color: ${(props) => props.theme.text};
-  border: none;
   padding: 5px 10px;
+  margin: 0 5px;
   cursor: pointer;
-
-  &:hover {
-    background-color: ${(props) => props.theme.header};
-  }
 `;
 
 export const QuantityInput = styled.input`
-  border: 1px solid ${(props) => props.theme.header};
-  text-align: center;
   width: 50px;
-  margin: 0 5px;
-`;
-
-export const CheckoutSection = styled.div`
   text-align: center;
-  margin-top: 2rem;
 `;
 
-export const TotalPrice = styled.h2`
-  color: ${(props) => props.theme.text};
+export const PriceDetails = styled.p`
+  color: ${(props) => props.theme.colors.text};
+`;
+
+export const RemoveButton = styled.button`
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: ${(props) => props.theme.colors.error};
+  color: ${(props) => props.theme.colors.white};
+  border: none;
+  border-radius: 4px;
+`;
+
+export const TotalDetails = styled.div`
+  margin-top: 20px;
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+`;
+
+export const TotalItems = styled.h3`
+  color: ${(props) => props.theme.colors.text};
+`;
+
+export const TotalPrice = styled.h3`
+  color: ${(props) => props.theme.colors.success};
 `;
 
 export const CheckoutButton = styled.button`
-  background-color: ${(props) => props.theme.header};
-  color: ${(props) => props.theme.discountedPriceText};
-  border: none;
+  margin-top: 20px;
   padding: 10px 20px;
   cursor: pointer;
-  border-radius: 5px;
-  font-size: 1rem;
-
-  &:hover {
-    background-color: ${(props) => props.theme.viewProductButton};
-  }
-`;
-
-export const RemoveItemButton = styled.button`
-  background-color: ${(props) => props.theme.discountedPriceBackground};
-  color: ${(props) => props.theme.discountedPriceText};
+  background-color: ${(props) => props.theme.colors.success};
+  color: ${(props) => props.theme.colors.white};
   border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  margin-left: auto;
-  border-radius: 5px;
-
-  &:hover {
-    opacity: 0.8;
-  }
+  border-radius: 4px;
 `;

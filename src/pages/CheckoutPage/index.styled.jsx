@@ -47,12 +47,22 @@ export const ItemDetails = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
   gap: 10px;
 `;
 
 export const ItemDetailsHeader = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%; // Ensure it spans the entire width of the container
+  align-items: center; // Align items vertically
+`;
+
+export const QuantityAndRemoveContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; // Adjust as needed for spacing
+  flex-grow: 1; // Allows the container to grow as needed
 `;
 
 export const ItemTitle = styled.h2`
@@ -69,15 +79,23 @@ export const QuantityButton = styled.button`
   padding: 5px 10px;
   margin: 0 5px;
   cursor: pointer;
+  border-radius: 4px;
+  background-color: ${(props) => props.theme.viewProductButton};
 `;
 
 export const QuantityInput = styled.input`
   width: 50px;
+  height: 100%;
+  border-radius: 4px;
   text-align: center;
+  background-color: ${(props) => props.theme.searchResultBackground};
 `;
 
-export const PriceDetails = styled.p`
-  color: ${(props) => props.theme.colors.text};
+export const PriceDetails = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; // Use the full width to separate items to the edges
 `;
 
 export const RemoveButton = styled.button`
@@ -95,6 +113,8 @@ export const TotalDetails = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
+  background-color: #f0f0f0; // Example color, adjust as needed
+  border-radius: 4px; // Optional, for a slight rounded corner effect
 `;
 
 export const TotalItems = styled.h3`

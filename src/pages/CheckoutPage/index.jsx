@@ -44,24 +44,25 @@ function CheckoutPage() {
               </S.ItemImageContainer>
               <S.ItemDetails>
                 <S.ItemDetailsHeader>
-                <S.ItemTitle>{item.title}</S.ItemTitle>
-                <S.QuantityControl>
-                  <S.QuantityButton onClick={() => handleQuantityChange(item, item.quantity - 1)}>-</S.QuantityButton>
-                  <S.QuantityInput
-                    type="number"
-                    min="0"
-                    value={item.quantity}
-                    onChange={(e) => handleQuantityChange(item, Number(e.target.value))}
-                  />
-                  <S.QuantityButton onClick={() => handleQuantityChange(item, item.quantity + 1)}>+</S.QuantityButton>
-                  </S.QuantityControl>
-                  </S.ItemDetailsHeader>
+                  <S.ItemTitle>{item.title}</S.ItemTitle>
+                  <S.QuantityAndRemoveContainer>
+                    <S.QuantityControl>
+                      <S.QuantityButton onClick={() => handleQuantityChange(item, item.quantity - 1)}>-</S.QuantityButton>
+                      <S.QuantityInput
+                        type="text"
+                        min="0"
+                        value={item.quantity}
+                        onChange={(e) => handleQuantityChange(item, Number(e.target.value))}
+                      />
+                      <S.QuantityButton onClick={() => handleQuantityChange(item, item.quantity + 1)}>+</S.QuantityButton>
+                    </S.QuantityControl>
+                    <S.RemoveButton onClick={() => removeItem(item.id)}>Remove</S.RemoveButton>
+                  </S.QuantityAndRemoveContainer>
+                </S.ItemDetailsHeader>
                 <S.PriceDetails>
-                  Price per item: ${((item.discountedPrice || item.price) / 10).toFixed(2)}
-                  <br />
-                  Total: ${(((item.discountedPrice || item.price) * item.quantity) / 10).toFixed(2)}
+                  <span>Price per item: ${(item.discountedPrice / 10 || item.price / 10).toFixed(2)}</span>
+                  <span>Total: ${((item.discountedPrice * item.quantity) / 10 || (item.price * item.quantity) / 10).toFixed(2)}</span>
                 </S.PriceDetails>
-                <S.RemoveButton onClick={() => removeItem(item.id)}>Remove</S.RemoveButton>
               </S.ItemDetails>
             </S.ItemCard>
           ))

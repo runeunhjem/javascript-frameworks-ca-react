@@ -8,7 +8,7 @@ function CheckoutPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Checkout - Your Store";
+    document.title = "CGG | Checkout";
     // Remove items with quantity less than 1 immediately after cartItems change
     cartItems.forEach((item) => {
       if (item.quantity < 1) {

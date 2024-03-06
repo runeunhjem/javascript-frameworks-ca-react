@@ -31,7 +31,7 @@ function ProductPage() {
   }, [productId]);
 
   useEffect(() => {
-    document.title = product ? `${product.title} - Our Store` : "Product not found";
+    document.title = product ? `CGG | ${product.title}` : "Product not found";
   }, [product]);
 
   const handleAddToCart = () => {

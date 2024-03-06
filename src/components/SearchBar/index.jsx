@@ -54,7 +54,6 @@ function SearchBar() {
     };
   }, [searchBarRef]);
 
-
   const renderStars = (rating) => {
     let stars = [];
     for (let i = 1; i <= 5; i++) {
@@ -67,7 +66,7 @@ function SearchBar() {
     <S.SearchBarContainer onSubmit={handleSearchSubmit} ref={searchBarRef}>
       <S.SearchBlock>
         <VisuallyHidden>
-          <label htmlFor="productSearch">Search for products, categories, or descriptions</label>
+          <S.SearchLabel htmlFor="productSearch">Search for products, categories, or descriptions</S.SearchLabel>
         </VisuallyHidden>
         <S.Input
           id="productSearch"
@@ -93,16 +92,22 @@ function SearchBar() {
               <S.SearchResultInfo>
                 <S.SearchResultTitle>{product.title}</S.SearchResultTitle>
                 <S.SearchResultPriceInfo>
-                  {product.discountedPrice < product.price && (
-                    <S.SearchResultDiscount>
-                      -{Math.round(((product.price - product.discountedPrice) / product.price) * 100)}%
-                    </S.SearchResultDiscount>
-                  )}
-                  <S.SearchResultPrice className={product.discountedPrice < product.price ? "discounted" : ""}>
-                    ${((product.discountedPrice < product.price ? product.discountedPrice : product.price) / 100).toFixed(2)}
-                  </S.SearchResultPrice>
-                  {product.discountedPrice < product.price && (
-                    <S.SearchResultNormalPrice>${(product.price / 100).toFixed(2)}</S.SearchResultNormalPrice>
+                  <S.SearchResultNormalPriceAndDiscount>
+                    {product.discountedPrice < product.price && (
+                      <>
+                        <S.SearchResultNormalPrice>${(product.price / 10).toFixed(2)}</S.SearchResultNormalPrice>
+                        <S.SearchResultDiscount>
+                          -{Math.round(((product.price - product.discountedPrice) / product.price) * 100)}%
+                        </S.SearchResultDiscount>
+                      </>
+                    )}
+                  </S.SearchResultNormalPriceAndDiscount>
+                  {product.discountedPrice < product.price ? (
+                    <S.SearchResultPrice className="discounted">
+                      Now: ${(product.discountedPrice / 10).toFixed(2)}
+                    </S.SearchResultPrice>
+                  ) : (
+                    <S.SearchResultPrice>${(product.price / 10).toFixed(2)}</S.SearchResultPrice>
                   )}
                 </S.SearchResultPriceInfo>
                 {renderStars(Math.round(product.rating))}

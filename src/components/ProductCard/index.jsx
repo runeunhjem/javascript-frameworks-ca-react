@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext/useCart";
 import * as S from "./index.styled";
+import RenderStars from "../RenderStars";
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ function ProductCard({ product }) {
     product.price > product.discountedPrice
       ? Math.round(((product.price - product.discountedPrice) / product.price) * 100)
       : 0;
+  const hasDiscount = product.discountedPrice < product.price;
 
   const handleNavigate = () => navigate(`/product/${product.id}`);
 
@@ -23,24 +25,7 @@ function ProductCard({ product }) {
     addToCart(product);
     setTimeout(() => setIsAdded(false), 1000);
   };
-
-  const roundRating = (rating) => Math.round(rating * 2) / 2;
-
-  const renderStars = () => {
-    const roundedRating = roundRating(product.rating);
-    let stars = [];
-    for (let i = 1; i <= 5; i++) {
-      if (i <= Math.floor(roundedRating)) {
-        stars.push(<i key={i} className="bi bi-star-fill" aria-hidden="true"></i>);
-      } else if (i === Math.ceil(roundedRating) && roundedRating % 1 !== 0) {
-        stars.push(<i key={i} className="bi bi-star-half" aria-hidden="true"></i>);
-      } else {
-        stars.push(<i key={i} className="bi bi-star" aria-hidden="true"></i>);
-      }
-    }
-    return stars;
-  };
-
+  
   return (
     <S.Card aria-label={`Product card for ${product.title}`}>
       <S.ImageContainer role="img" aria-label={imageAlt}>
@@ -59,17 +44,15 @@ function ProductCard({ product }) {
         {discountPercentage > 0 && <S.DiscountTag>Save: {discountPercentage}%</S.DiscountTag>}
       </S.ImageContainer>
       <S.ProductTitle>{product.title}</S.ProductTitle>
-      <S.ProductDescription>{product.description}</S.ProductDescription>
-      <S.Price className="normal-price">Normal price: ${(product.price / 100).toFixed(2)}</S.Price>
-      <S.Price className={`discounted-price ${discountPercentage > 0 ? "" : "invisible"}`}>
-        {discountPercentage > 0 ? `Discounted Price: ${(product.discountedPrice / 100).toFixed(2)}` : ""}
-      </S.Price>
-      <S.Tags>Categories: {product.tags.map((tag) => tag.charAt(0).toUpperCase() + tag.slice(1)).join(", ")}</S.Tags>
-      <S.RatingContainer aria-label={`Rating: ${product.rating} out of 5`}>
-        <S.RatingText>Rating:</S.RatingText>
-        <S.Stars>{renderStars()}</S.Stars>
-      </S.RatingContainer>
-      <S.ViewProductButton onClick={handleNavigate} aria-label={`View ${product.title}`}>
+      <S.InfoWrapper>
+        <S.RatingContainer aria-label={`Rating: ${product.rating} out of 5`}>
+          <RenderStars rating={product.rating} />
+        </S.RatingContainer>
+        <S.Price $isDiscounted={hasDiscount}>
+          {hasDiscount ? `NOW: $${(product.discountedPrice / 10).toFixed(2)}` : `Price: $${(product.price / 10).toFixed(2)}`}
+        </S.Price>
+      </S.InfoWrapper>
+      <S.ViewProductButton className="view-product" onClick={handleNavigate} aria-label={`View ${product.title}`}>
         View Product
       </S.ViewProductButton>
     </S.Card>

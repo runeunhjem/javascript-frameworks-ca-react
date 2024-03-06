@@ -1,24 +1,25 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext/useCart";
-import "../../../src/index.css";
 import Reviews from "../../components/Reviews";
-import "./index.css";
+import * as S from "./index.styled";
+import RenderStars from "../../components/RenderStars";
 
 function ProductPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { addToCart } = useCart(); // Use addToCart from the cart context
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`https://v2.api.noroff.dev/online-shop/${productId}`); // Make sure the URL is correct
+        const response = await fetch(`https://v2.api.noroff.dev/online-shop/${productId}`);
         if (!response.ok) throw new Error("Product not found");
         const data = await response.json();
-        setProduct(data.data); // Assuming the product data is correctly located at data.data
+        setProduct(data.data);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -29,55 +30,66 @@ function ProductPage() {
     fetchProduct();
   }, [productId]);
 
+  useEffect(() => {
+    document.title = product ? `CGG | ${product.title}` : "Product not found";
+  }, [product]);
+
   const handleAddToCart = () => {
     if (product) {
-      addToCart({ ...product, quantity: 1 }); // Add the product with a quantity to the cart
+      addToCart({ ...product, quantity: 1 });
     }
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!product) return <p>Product not found</p>;
+  const handleGoToCheckout = () => {
+    navigate("/cart");
+  };
 
-  // Calculate discount if applicable
+  if (loading) return <S.MainContainer>Loading...</S.MainContainer>;
+  if (error) return <S.MainContainer>Error: {error}</S.MainContainer>;
+  if (!product) return <S.MainContainer>Product not found</S.MainContainer>;
+
   const hasDiscount = product.discountedPrice < product.price;
   const discountPercentage = hasDiscount ? ((product.price - product.discountedPrice) / product.price) * 100 : 0;
 
   return (
-    <div className="main-container" id="ProductPage">
-      <h1>{product.title}</h1>
-      <main className="product-main">
-        <div
-          className="product-details-container"
-          style={{
-            width: "100%",
-            height: "auto",
-            display: "flex",
-            alignItems: "flex-start",
-          }}>
-          <div className="product-card">
-            <img
-              src={product.image.url}
-              alt={product.image.alt || product.title}
-              style={{ width: "100%", height: "auto" }}
-            />
-            <h3>{product.title}</h3>
-            <p>{product.description}</p>
-            {hasDiscount && <p>Discount: {discountPercentage.toFixed(2)}%</p>}
-            <p>Price: ${(product.price / 100).toFixed(2)}</p>
-            <p>Discounted Price: ${(product.discountedPrice / 100).toFixed(2)}</p>
-            <p>Rating: {product.rating} stars</p>
-            <button onClick={handleAddToCart}>Add to Cart</button> {/* Updated to use handleAddToCart */}
-          </div>
-          {product.reviews && product.reviews.length > 0 && (
-            <div className="product-reviews">
-              {/* <h4>Reviews</h4> */}
-              <Reviews reviews={product.reviews} />
+    <S.MainContainer>
+      <S.ProductDetailsContainer>
+        <S.ImageContainer>
+          <S.ProductImage src={product.image.url} alt={product.image.alt || product.title} />
+        </S.ImageContainer>
+        <S.DetailsContainer>
+          <S.RatingContainer aria-label={`Rating: ${product.rating} out of 5`}>
+            <S.ProductTitle>{product.title}</S.ProductTitle>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <RenderStars rating={product.rating} />
+              <S.StarAverage>({product.rating.toFixed(1)} stars)</S.StarAverage>
             </div>
-          )}
-        </div>
-      </main>
-    </div>
+          </S.RatingContainer>
+          <S.ProductDescription>{product.description}</S.ProductDescription>
+          <S.InfoContainer>
+            {hasDiscount && <S.DiscountInfo>Discount: {discountPercentage.toFixed(2)}%</S.DiscountInfo>}
+            <S.PriceInfo $hasDiscount={hasDiscount}>Price: ${(product.price / 10).toFixed(2)}</S.PriceInfo>
+            {hasDiscount && <S.DiscountedPrice>Now: ${(product.discountedPrice / 10).toFixed(2)}</S.DiscountedPrice>}
+          </S.InfoContainer>
+          <S.ButtonContainer>
+            <S.AddToCartButton onClick={handleAddToCart}>Add to Cart</S.AddToCartButton>
+            <S.GoToCheckoutButton onClick={handleGoToCheckout}>Go to Checkout</S.GoToCheckoutButton>
+          </S.ButtonContainer>
+        </S.DetailsContainer>
+      </S.ProductDetailsContainer>
+      <S.ProductRatingsContainer>
+        {product.reviews && product.reviews.length > 0 ? (
+          <S.ProductReviews>
+            <S.RatingInfo>
+              Rating: {product.rating} stars based on {product.reviews.length} reviews
+            </S.RatingInfo>
+            <Reviews reviews={product.reviews} />
+          </S.ProductReviews>
+        ) : (
+          <S.NoReviewsMessage>No reviews yet.</S.NoReviewsMessage>
+        )}
+      </S.ProductRatingsContainer>
+    </S.MainContainer>
   );
 }
 

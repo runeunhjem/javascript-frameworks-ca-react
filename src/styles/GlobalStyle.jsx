@@ -7,21 +7,28 @@ export const GlobalStyle = createGlobalStyle`
   --color-pink-light: #ccade9;
   --color-pink-lighter: #c5bfc5;
   --color-pink-xlight: #f5e6f5;
+  --color-pink-hover: #fdc9fd;
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-success: #28a745;
+  --color-success: #22943d;
+  --color-success-darkMode: #00a67d;
   --color-gold-light: #d8c34e;
   --color-gold: #ffc107;
-  --color-gold-search: #800091;
+  --color-gold-search: #ceb009;
   --color-gray: #6c757d;
   --color-gray-light: #c5bfc5;
   --color-gray-dark: #343a40;
+  --color-gray-dark-hover: #3d454d;
   --color-red: #d30000;
-  --color-red-dark: #771313;
+  --color-red-light: #ff9191;
+  --color-red-dark: #b40101;
+  --color-price-normal: #add6e2;
 
   --font-size-icons: calc(0.6rem + 2vmin);
+  --font-size-xxsmall: calc(0.8rem);
+  --font-size-title: calc(1.2rem);
   --font-size-xsmall: calc(0.6rem + 1vmin);
-  --font-size-small: calc(0.8rem + 2vmin);
+  --font-size-small: calc(0.8rem + 1vmin);
   --font-size-medium: calc(1rem + 1vmin);
   --font-size-large: calc(1.2rem + 1vmin);
   --font-size-xlarge: calc(1.5rem + 1vmin);
@@ -104,9 +111,21 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 80vh;
   }
 
-  .view-product {
-    background-color: ${(props) => props.theme.viewProductButton};
-    color: ${(props) => props.theme.text};
+  .view-product, .submitButton {
+    width: 100%;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: calc(1rem);
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.viewProductButton};
+  border-radius: 8px;
+  border: 1px;
+  box-shadow: ${(props) => props.theme.navLinkShadow};
+
+  &:hover {
+    background-color: var(--color-pink);
+    color: var(--color-white);
+  }
   }
 
   .product-card {

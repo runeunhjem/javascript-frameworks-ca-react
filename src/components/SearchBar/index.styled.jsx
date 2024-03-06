@@ -4,52 +4,81 @@ export const SearchBarContainer = styled.form`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   text-align: left;
   width: 100%;
-  max-width: 300px;
-  margin: 15px auto;
+  max-width: 500px;
+  margin: 15px;
   color: var(--color-black);
+  height: 30px;
 
   @media (max-width: 791px) {
     position: absolute;
-    bottom: -16px;
+    bottom: -12px;
     left: 0;
-    max-width: 100vw;
+    max-width: 100%;
+    margin: 15px auto;
+    /* width: 100%; */
     z-index: 1000;
+    justify-content: center;
   }
 `;
 
 export const SearchBlock = styled.div`
   display: flex;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   flex-wrap: nowrap;
-  color: var(--color-white);
+  border-radius: 5px;
+  color: ${(props) => props.theme.input};
+  background-color: ${(props) => props.theme.input};
   position: relative;
   justify-content: center;
-  width: 100%;
-  border: 1px solid var(--color-pink-light);
+  width: 90%;
+  @media (max-width: 391px) {
+    /* margin-left: 3px; */
+    justify-content: flex-start;
+  }
+  /* border: 1px solid var(--color-pink-light); */
 `;
 
 export const SearchButton = styled.button`
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   border: 0;
   background-color: ${(props) => props.theme.input};
 `;
 
+export const SearchLabel = styled.label`
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
+`;
+
 export const Input = styled.input`
-  width: 100%;
+  display: flex;
+  text-align: left;
+  width: 90%;
   height: 30px;
   text-indent: 6px;
+  background-color: ${(props) => props.theme.input};
   border: 0;
   &:focus {
-    box-shadow: 0 0 0 0;
-    outline: 1px solid var(--color-pink-xlight);
+    outline: none;
+  }
+  @media (min-width: 791px) {
+    width: 85%;
+  }
+  @media (max-width: 391px) {
+    justify-content: flex-start;
+    width: 85%;
+    margin-left: 4px;
   }
 `;
 
 export const SearchIcon = styled.i`
   position: absolute;
-  right: 10px;
+  right: 30px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
@@ -66,6 +95,7 @@ export const SearchResults = styled.div`
   position: absolute;
   top: 40px;
   max-width: calc(100vw - 1vmin);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 1000;
   &::-webkit-scrollbar {
     width: 10px;
@@ -85,14 +115,17 @@ export const SearchResultItem = styled.div`
   padding: 10px;
   cursor: pointer;
   background-color: ${(props) => props.theme.searchResultBackground};
+  color: ${(props) => props.theme.searchResultText};
   box-shadow: ${(props) => props.theme.productCardShadow};
-  margin-bottom: 5px;
+  margin: 0 6px 5px 0;
+  font-size: var(--font-size-xsmall);
   transition: all 0.1s ease-in-out;
   &:last-child {
     border-bottom: none;
   }
   &:hover {
-    background-color: var(--color-pink-light);
+    background-color: ${(props) => props.theme.searchResultBackgroundHover};
+    /* color: ${(props) => props.theme.priceTextNormal}; */
     transform: scale(0.98);
   }
 `;
@@ -109,6 +142,7 @@ export const SearchResultImage = styled.img`
 export const SearchResultInfo = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 4px;
 `;
 
 export const SearchResultTitle = styled.span`
@@ -116,33 +150,39 @@ export const SearchResultTitle = styled.span`
   font-weight: bold;
 `;
 
-export const SearchResultDiscount = styled.span`
-  color: var(--color-red);
-  margin-right: 5px;
+export const SearchResultPriceInfo = styled.div`
+  display: flex;
+  flex-direction: column; // Change to column for vertical stacking
+  align-items: flex-start; // Align items to the start
+  gap: 4px; // Optional: adds space between lines
+`;
+
+export const SearchResultNormalPriceAndDiscount = styled.div`
+  display: flex;
+  align-items: baseline; // Keep items aligned properly
 `;
 
 export const SearchResultNormalPrice = styled.span`
-  color: var(--color-red);
-  margin-left: 10px;
+  color: ${(props) => props.theme.searchResultText};
   text-decoration: line-through;
+  margin-right: 10px; // Keep some spacing between the normal price and discount
+`;
+
+export const SearchResultDiscount = styled.span`
+  color: ${(props) => props.theme.colors.error};
+  font-weight: bold;
 `;
 
 export const SearchResultPrice = styled.span`
   &.discounted {
-    color: var(--color-black);
-    margin-left: 5px;
+    color: ${(props) => props.theme.colors.error};
+    font-weight: bold;
   }
-`;
-
-export const SearchResultPriceInfo = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2px 0;
 `;
 
 export const Star = styled.span`
   color: var(--color-gold-search);
+  padding: 0 2px;
 `;
 
 export const SearchResultRating = styled.div`

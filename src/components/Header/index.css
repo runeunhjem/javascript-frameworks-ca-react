@@ -1,16 +1,17 @@
 .bi {
   display: flex;
-  margin: 0 6px;
+  /* margin: 0 6px; */
   align-items: center;
 }
 
 .bi-moon {
-  /* font-size: var(--font-size-xsmall); */
+  font-size: var(--font-size-xsmall);
   margin: 0 0 0 8px;
 }
 
 .bi-sun {
   /* font-size: var(--font-size-small); */
+  /* font-size: var(--font-size-icons); */
   margin: 0 6px 0 0;
 }
 

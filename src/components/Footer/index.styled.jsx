@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
   max-width: 100%;
-  color: var(--color-white);
-  background-color: var(--color-pink);
+  color: ${(props) => props.theme.h2};
+  background-color: ${(props) => props.theme.header};
   font-size: var(--font-size-xsmall);
 `;
 

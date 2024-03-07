@@ -33,7 +33,7 @@ export const SearchBlock = styled.div`
   background-color: ${(props) => props.theme.input};
   position: relative;
   justify-content: center;
-  width: 90%;
+  width: 95%;
   @media (max-width: 391px) {
     /* margin-left: 3px; */
     justify-content: flex-start;

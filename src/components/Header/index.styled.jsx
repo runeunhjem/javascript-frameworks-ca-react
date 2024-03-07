@@ -77,6 +77,12 @@ export const SearchAndFilterIcons = styled.div`
   max-width: 100%;
   margin: 6px 10px 6px 25px;
   font-size: var(--font-size-xsmall);
+  
+  @media (min-width: 792px) {
+    .bi-search {
+      display: none;
+    }
+  }
 
   @media (max-width: 567px) {
     font-size: var(--font-size-icons);

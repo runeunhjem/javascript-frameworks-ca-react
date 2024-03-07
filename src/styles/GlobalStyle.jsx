@@ -42,8 +42,8 @@ export const GlobalStyle = createGlobalStyle`
   --box-shadow-light: 1px 1px 2px 0px rgba(0, 0, 0, 0.6);
   --box-shadow-dark: 1px 1px 2px 0px rgba(245, 230, 245, 0.6);
 
-  --card-shadow-light: 2px 2px 8px 0px rgba(0, 0, 0, 0.6);
-  --card-shadow-dark: 2px 2px 8px 0px rgba(245, 230, 245, 0.6);
+  --card-shadow-light: 1px 1px 4px 0px rgba(0, 0, 0, 0.6);
+  --card-shadow-dark: 1px 1px 4px 0px rgba(245, 230, 245, 0.6);
 }
 
   * {
@@ -135,5 +135,17 @@ export const GlobalStyle = createGlobalStyle`
   input, textarea {
     background-color: ${(props) => props.theme.input};
     color: ${(props) => props.theme.inputText};
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-text-fill-color: ${(props) => props.theme.inputText} !important;
+    box-shadow: 0 0 0px 1000px ${(props) => props.theme.input} inset;
+    transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
   }
 `;

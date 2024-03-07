@@ -1,4 +1,11 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const buttonStyles = css`
+  cursor: pointer;
+  border: none;
+  padding: 5px 10px;
+  transition: background-color ease-out 200ms, transform 200ms ease;
+`;
 
 export const MainContainer = styled.div`
   padding: 20px;
@@ -160,12 +167,21 @@ export const TotalPrice = styled.h3`
 `;
 
 export const CheckoutButton = styled.button`
-  margin-top: 20px;
+  ${buttonStyles}
+
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
   padding: 10px 20px;
-  cursor: pointer;
-  font-size: var(--font-size-large);
-  background-color: ${(props) => props.theme.colors.success};
-  color: ${(props) => props.theme.colors.white};
-  border: none;
+  font-size: calc(1rem);
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.viewProductButton};
   border-radius: 4px;
+  border: 1px;
+  box-shadow: ${(props) => props.theme.navLinkShadow};
+
+  &:hover {
+    background-color: var(--color-pink);
+    color: var(--color-white);
+  }
 `;

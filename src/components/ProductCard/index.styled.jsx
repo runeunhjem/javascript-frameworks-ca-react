@@ -11,7 +11,7 @@ export const Card = styled.div`
   font-size: var(--font-size-xsmall);
   background-color: ${(props) => props.theme.productCardBackground};
   box-shadow: ${(props) => props.theme.productCardShadow};
-  border-radius: 5px;
+  border-radius: 4px;
   border: 1px solid var(--color-pink-light);
 `;
 
@@ -70,7 +70,7 @@ export const ViewProductButton = styled.button`
   font-size: calc(1rem);
   color: ${(props) => props.theme.text};
   background-color: ${(props) => props.theme.viewProductButton};
-  border-radius: 8px;
+  border-radius: 4px;
   border: 1px;
   box-shadow: ${(props) => props.theme.navLinkShadow};
 
@@ -129,15 +129,13 @@ export const Price = styled.p`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin: 10px 0 20px 0; */
   height: 30px;
   width: 110px;
   font-size: var(--font-size-xxsmall);
   font-weight: bold;
   color: ${(props) => (props.$isDiscounted ? props.theme.priceTextDiscounted : props.theme.priceTextNormal)};
   background-color: ${(props) => (props.$isDiscounted ? props.theme.priceBgDiscounted : props.theme.priceBgNormal)};
-  /* padding-right: ${(props) => (props.$isDiscounted ? "5px" : "5px")}; */
-  border-radius: ${(props) => (props.$isDiscounted ? "5px" : "5px")};
+  border-radius: ${(props) => (props.$isDiscounted ? "4px" : "4px")};
 `;
 
 export const Tags = styled.p`

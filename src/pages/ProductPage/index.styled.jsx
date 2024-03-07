@@ -12,6 +12,8 @@ const buttonStyles = css`
   border-radius: 5px;
   border: 1px;
   box-shadow: ${(props) => props.theme.navLinkShadow};
+  min-width: 110px;
+  width: auto;
   &:hover {
     background-color: var(--color-pink);
     color: var(--color-white);
@@ -166,7 +168,6 @@ export const GoToCheckoutButton = styled.button`
 
 export const ProductReviews = styled.div`
   width: 100%;
-  /* margin-top: 30px; */
   display: flex;
   justify-content: flex-start;
   text-align: left;
@@ -174,9 +175,10 @@ export const ProductReviews = styled.div`
   align-items: flex-start;
   margin: 1em auto;
   @media screen and (max-width: 768px) {
-    width: 95%;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     max-width: 100%;
-    /* margin: 0 auto; */
   }
 `;
 
@@ -190,12 +192,11 @@ export const NoReviewsMessage = styled.div`
   @media screen and (max-width: 768px) {
     width: 95%;
     max-width: 100%;
-    /* margin: 0 auto; */
   }
 `;
 
 export const ProductRatingsContainer = styled.div`
-  flex: 1 1 300px; // Flex-grow, flex-shrink, flex-basis
+  flex: 1 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -204,7 +205,8 @@ export const ProductRatingsContainer = styled.div`
   max-height: 100%;
   margin-top: 30px;
   @media screen and (max-width: 768px) {
-    width: 90%;
-    margin: 0 auto;
+    width: 95%;
+    margin: 0;
+    padding: 0 1em 0 1em;
   }
 `;

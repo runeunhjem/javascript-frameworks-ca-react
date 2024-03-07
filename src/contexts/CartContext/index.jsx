@@ -2,12 +2,7 @@ import PropTypes from "prop-types"; // Corrected import for PropTypes
 import { createContext, useState, useEffect } from "react";
 import { load, save } from "../../components/StorageUtils";
 
-
-
 export const CartContext = createContext();
-
-
-// export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => load("cartItems") || []);
@@ -53,7 +48,6 @@ export const CartProvider = ({ children }) => {
   };
 
   const value = { cartItems, addToCart, updateItemQuantity, clearCart, removeItem };
-
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

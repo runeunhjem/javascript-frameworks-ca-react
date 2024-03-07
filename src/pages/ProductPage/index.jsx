@@ -73,7 +73,7 @@ function ProductPage() {
           </S.InfoContainer>
           <S.ButtonContainer>
             <S.AddToCartButton onClick={handleAddToCart}>Add to Cart</S.AddToCartButton>
-            <S.GoToCheckoutButton onClick={handleGoToCheckout}>Go to Checkout</S.GoToCheckoutButton>
+            <S.GoToCheckoutButton onClick={handleGoToCheckout}>Checkout</S.GoToCheckoutButton>
           </S.ButtonContainer>
         </S.DetailsContainer>
       </S.ProductDetailsContainer>

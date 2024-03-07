@@ -54,6 +54,9 @@ function CheckoutPage() {
                     <S.QuantityAndRemoveContainer>
                       <S.QuantityControl>
                         <S.QuantityButton onClick={() => handleQuantityChange(item, item.quantity - 1)}>-</S.QuantityButton>
+                        <S.VisuallyHiddenLabel htmlFor={`quantity-${item.id}`}>
+                          Quantity for {item.title}
+                        </S.VisuallyHiddenLabel>
                         <S.QuantityInput
                           id={`quantity-${item.id}`}
                           type="text"
@@ -63,6 +66,7 @@ function CheckoutPage() {
                         />
                         <S.QuantityButton onClick={() => handleQuantityChange(item, item.quantity + 1)}>+</S.QuantityButton>
                       </S.QuantityControl>
+
                       <S.RemoveButton onClick={() => removeItem(item.id)}>Remove</S.RemoveButton>
                     </S.QuantityAndRemoveContainer>
                   </S.ItemDetailsHeader>
@@ -78,7 +82,7 @@ function CheckoutPage() {
                     </S.PricePerItemWrapper>
                     <S.TotalPricePerItem>
                       {itemSavings > 0 && <S.Savings>Savings: ${itemSavings.toFixed(2)}</S.Savings>}
-                      Total: ${(((item.discountedPrice || item.price) * item.quantity) / 10).toFixed(2)}
+                      <S.Totals>Total: ${(((item.discountedPrice || item.price) * item.quantity) / 10).toFixed(2)}</S.Totals>
                     </S.TotalPricePerItem>
                   </S.PriceDetails>
                 </S.ItemDetails>

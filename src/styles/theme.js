@@ -30,6 +30,7 @@ export const lightTheme = {
   removeButtonText: "var(--color-white)",
   errorMessage: "var(--color-red)",
   successMessage: "var(--color-success)",
+  checkoutButton: "var(--color-gold)",
 };
 
 export const darkTheme = {
@@ -63,4 +64,5 @@ export const darkTheme = {
   removeButtonText: "var(--color-black)",
   errorMessage: "var(--color-red-light)",
   successMessage: "var(--color-success-darkMode)",
+  checkoutButton: "var(--color-gold)",
 };

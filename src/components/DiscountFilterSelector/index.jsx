@@ -3,9 +3,15 @@ import PropTypes from "prop-types";
 import * as S from "./index.styled";
 
 function DiscountFilterSelector({ selectedDiscountRange, setSelectedDiscountRange }) {
+  const resetFilter = () => setSelectedDiscountRange("");
   return (
     <S.SelectorContainer>
+      <S.LabelContainer>
       <S.Label htmlFor="discount-select">Discount: </S.Label>
+      <S.ResetLink onClick={resetFilter} role="button" tabIndex={0}>
+          Reset
+        </S.ResetLink>
+      </S.LabelContainer>
       <S.Select
         id="discount-select"
         value={selectedDiscountRange}

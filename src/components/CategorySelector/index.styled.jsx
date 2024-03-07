@@ -12,6 +12,24 @@ export const CategoriesContainer = styled.div`
   margin: 6px auto;
 `;
 
+export const LabelContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+`;
+
+export const ResetLink = styled.span`
+  margin-left: 8px;
+  color: ${(props) => props.theme.h2};
+  cursor: pointer;
+  font-size: var(--font-size-xxsmall);
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 export const TagLabel = styled.label`
   font-weight: bold;
   width: 100%;

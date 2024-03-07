@@ -110,6 +110,11 @@ export const DiscountInfo = styled.p`
   color: ${({ theme }) => theme.colors.error};
 `;
 
+export const Savings = styled.p`
+  font-size: var(--font-size-xsmall);
+  color: ${({ theme }) => theme.colors.error};
+`;
+
 export const PriceInfo = styled.span`
   font-size: var(--font-size-xsmall);
   color: ${({ theme }) => theme.colors.text};

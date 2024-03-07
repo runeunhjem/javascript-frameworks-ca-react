@@ -11,6 +11,13 @@ export const SortAndFilterWrapperStyled = styled.div`
   background-color: ${(props) => props.theme.header};
 `;
 
+export const SortAndFilterHeaderWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+`;
+
 export const SortAndFilterContainerStyled = styled.div`
   display: flex;
   max-width: 1200px;
@@ -33,4 +40,22 @@ export const SortAndFilterH2 = styled.h2`
   border-bottom: 1px solid ${(props) => props.theme.h2};
   padding: 0;
   color: ${(props) => props.theme.h2};
+`;
+
+export const SortAndFilterH2Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ResetLink = styled.button`
+  background: none;
+  border: none;
+  color: ${(props) => props.theme.h2};
+  cursor: pointer;
+  font-size: var(--font-size-xxsmall);
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;

@@ -49,6 +49,7 @@ function ProductPage() {
   if (!product) return <S.MainContainer>Product not found</S.MainContainer>;
 
   const hasDiscount = product.discountedPrice < product.price;
+  const savings = hasDiscount ? (product.price - product.discountedPrice) / 10 : 0;
   const discountPercentage = hasDiscount ? ((product.price - product.discountedPrice) / product.price) * 100 : 0;
 
   return (
@@ -70,6 +71,7 @@ function ProductPage() {
             {hasDiscount && <S.DiscountInfo>Discount: {discountPercentage.toFixed(2)}%</S.DiscountInfo>}
             <S.PriceInfo $hasDiscount={hasDiscount}>Price: ${(product.price / 10).toFixed(2)}</S.PriceInfo>
             {hasDiscount && <S.DiscountedPrice>Now: ${(product.discountedPrice / 10).toFixed(2)}</S.DiscountedPrice>}
+            {hasDiscount && <S.Savings>You save: ${savings.toFixed(2)}</S.Savings>}
           </S.InfoContainer>
           <S.ButtonContainer>
             <S.AddToCartButton onClick={handleAddToCart}>Add to Cart</S.AddToCartButton>

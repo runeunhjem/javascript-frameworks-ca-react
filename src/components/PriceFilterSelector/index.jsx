@@ -2,9 +2,15 @@ import PropTypes from "prop-types";
 import * as S from "./index.styled";
 
 function PriceFilterSelector({ selectedPriceRange, setSelectedPriceRange }) {
+  const resetFilter = () => setSelectedPriceRange("");
   return (
     <S.SelectorContainer>
-      <S.Label htmlFor="price-select">Price Range: </S.Label>
+      <S.LabelContainer>
+        <S.Label htmlFor="price-select">Price: </S.Label>
+        <S.ResetLink onClick={resetFilter} role="button" tabIndex={0}>
+          Reset
+        </S.ResetLink>
+      </S.LabelContainer>
       <S.Select id="price-select" value={selectedPriceRange} onChange={(e) => setSelectedPriceRange(e.target.value)}>
         <option value="">All Prices</option>
         <option value="under10">Under $10</option>

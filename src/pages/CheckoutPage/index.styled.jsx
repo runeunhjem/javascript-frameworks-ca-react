@@ -37,21 +37,26 @@ export const ItemCard = styled.div`
   padding: 10px;
   border: 1px solid ${(props) => props.theme.colors.inputBorderColor};
   box-shadow: ${(props) => props.theme.productCardShadow};
+  /* @media screen and (max-width: 620px) {
+    flex-direction: column;
+    align-items: center;
+  } */
 `;
 
 export const ItemImageContainer = styled.div`
   cursor: pointer;
   flex-shrink: 0;
+  height: 100%;
 `;
 
 export const ItemImage = styled.img`
   width: 100px;
-  box-shadow: ${(props) => props.theme.productCardShadow};
   height: 150px;
+  box-shadow: ${(props) => props.theme.productCardShadow};
   object-fit: cover;
   @media screen and (min-width: 620px) {
-    width: 50px;
-    height: 75px;
+    width: 300px;
+    height: 150px;
   }
 `;
 
@@ -60,7 +65,7 @@ export const ItemDetails = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  gap: 10px;
+  /* gap: 10px; */
 `;
 
 export const ItemDetailsHeader = styled.div`
@@ -73,7 +78,7 @@ export const ItemDetailsHeader = styled.div`
 
 export const QuantityAndRemoveContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   flex-wrap: wrap; // Allow the items to wrap to the next line
   gap: 10px; // Adjust as needed for spacing
   flex-grow: 1;
@@ -81,12 +86,24 @@ export const QuantityAndRemoveContainer = styled.div`
   @media screen and (max-width: 620px) {
     justify-content: flex-start;
   }
+  @media screen and (max-width: 450px) {
+    justify-content: flex-end;
+  }
 `;
 
 export const ItemTitle = styled.h2`
+  display: flex;
+  justify-content: flex-start;
   font-size: var(--font-size-small);
   color: ${(props) => props.theme.colors.text};
   margin: 6px 8px 3px 0;
+  width: 50%;
+  max-width: 100%;
+  @media screen and (max-width: 450px) {
+    text-align: right;
+    width: 100%;
+    justify-content: flex-end;
+  }
 `;
 
 export const QuantityControl = styled.div`
@@ -128,9 +145,23 @@ export const QuantityInput = styled.input`
 export const PriceDetails = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
   gap: 5px;
+  @media screen and (max-width: 620px) {
+    font-size: var(--font-size-xsmall);
+  }
+`;
+export const PricePerItemWrapper = styled.div`
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin: 15px 0 0 0;
+  gap: 5px;
+  font-size: var(--font-size-xsmall);
   @media screen and (max-width: 620px) {
     font-size: var(--font-size-xsmall);
   }
@@ -147,6 +178,7 @@ export const RemoveButton = styled.button`
 
 export const TotalDetails = styled.div`
   align-self: stretch;
+  font-size: var(--font-size-xsmall);
   width: 100%;
   max-width: 1200px;
   display: flex;
@@ -163,7 +195,38 @@ export const TotalItems = styled.h3`
 `;
 
 export const TotalPrice = styled.h3`
+  display: flex;
+  height: 100%;
   color: ${(props) => props.theme.colors.success};
+`;
+
+export const TotalPricePerItem = styled.h3`
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-xsmall);
+  height: 100%;
+  gap: 5px;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: ${(props) => props.theme.colors.success};
+`;
+
+export const TotalSavings = styled.h3`
+  color: ${(props) => props.theme.colors.error};
+`;
+export const Savings = styled.p`
+  color: ${(props) => props.theme.colors.error};
+`;
+export const DiscountPerItem = styled.p`
+  color: ${(props) => props.theme.colors.error};
+`;
+export const PricePerItem = styled.p`
+  color: ${(props) => props.theme.colors.text};
+`;
+
+export const EmptyCartMessage = styled.h3`
+  color: ${(props) => props.theme.colors.error};
 `;
 
 export const CheckoutButton = styled.button`

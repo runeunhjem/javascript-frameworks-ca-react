@@ -16,9 +16,19 @@ function SortAndFilterContainer({
   selectedDiscountRange,
   setSelectedDiscountRange,
 }) {
+  function resetFilters() {
+    setSelectedTag("");
+    setSelectedRating(0);
+    setSelectedPriceRange("");
+    setSelectedDiscountRange("");
+  }
+
   return (
     <S.SortAndFilterWrapperStyled>
-      <S.SortAndFilterH2>Sort and Filter</S.SortAndFilterH2>
+      <S.SortAndFilterHeaderWrapper>
+        <S.SortAndFilterH2>Sort and Filter</S.SortAndFilterH2>
+        <S.ResetLink onClick={resetFilters}>(Reset)</S.ResetLink>
+      </S.SortAndFilterHeaderWrapper>
       <S.SortAndFilterContainerStyled>
         <CategorySelector selectedTag={selectedTag} setSelectedTag={setSelectedTag} tags={tags} />
         <RatingSelector selectedRating={selectedRating} setSelectedRating={setSelectedRating} />

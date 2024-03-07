@@ -1,6 +1,5 @@
 .bi {
   display: flex;
-  /* margin: 0 6px; */
   align-items: center;
 }
 
@@ -10,13 +9,10 @@
 }
 
 .bi-sun {
-  /* font-size: var(--font-size-small); */
-  /* font-size: var(--font-size-icons); */
   margin: 0 6px 0 0;
 }
 
 .bi-search,
 .bi-sliders {
-  /* font-size: var(--font-size-xsmall); */
   cursor: pointer;
 }

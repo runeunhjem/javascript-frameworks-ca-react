@@ -9,6 +9,8 @@ const initialState = {
   selectedTag: "",
   searchTerm: "",
   selectedRating: 0,
+  selectedPriceRange: "",
+  selectedDiscountRange: "",
 };
 
 // Reducer function to handle state updates
@@ -26,6 +28,10 @@ function productReducer(state, action) {
       return { ...state, searchTerm: action.payload };
     case "SET_SELECTED_RATING":
       return { ...state, selectedRating: action.payload };
+    case "SET_SELECTED_PRICE_RANGE":
+      return { ...state, selectedPriceRange: action.payload };
+    case "SET_SELECTED_DISCOUNT_RANGE":
+      return { ...state, selectedDiscountRange: action.payload };
     default:
       return state;
   }
@@ -64,6 +70,8 @@ export const ProductProvider = ({ children }) => {
       setSelectedTag: (tag) => dispatch({ type: "SET_SELECTED_TAG", payload: tag }),
       setSearchTerm: (term) => dispatch({ type: "SET_SEARCH_TERM", payload: term }),
       setSelectedRating: (rating) => dispatch({ type: "SET_SELECTED_RATING", payload: rating }),
+      setSelectedPriceRange: (range) => dispatch({ type: "SET_SELECTED_PRICE_RANGE", payload: range }),
+      setSelectedDiscountRange: (range) => dispatch({ type: "SET_SELECTED_DISCOUNT_RANGE", payload: range }),
     }),
     [state]
   );

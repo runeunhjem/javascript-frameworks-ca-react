@@ -13,6 +13,7 @@ export const SortAndFilterWrapperStyled = styled.div`
 
 export const SortAndFilterContainerStyled = styled.div`
   display: flex;
+  max-width: 1200px;
   flex-wrap: wrap;
   flex-direction: row;
   width: 95%;
@@ -28,7 +29,8 @@ export const SortAndFilterContainerStyled = styled.div`
 
 export const SortAndFilterH2 = styled.h2`
   font-size: var(--font-size-medium);
-  margin: 0;
+  margin: 10px 0 10px 0;
+  border-bottom: 1px solid ${(props) => props.theme.h2};
   padding: 0;
-  color: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.h2};
 `;

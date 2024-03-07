@@ -1,15 +1,32 @@
 import PropTypes from "prop-types";
 import CategorySelector from "../CategorySelector";
-import RatingSelector from "../RatingSelector/index.jsx";
-import * as S from "./index.styled.jsx";
+import RatingSelector from "../RatingSelector";
+import PriceFilterSelector from "../PriceFilterSelector";
+import DiscountFilterSelector from "../DiscountFilterSelector";
+import * as S from "./index.styled";
 
-function SortAndFilterContainer({ selectedTag, setSelectedTag, tags, selectedRating, setSelectedRating }) {
+function SortAndFilterContainer({
+  selectedTag,
+  setSelectedTag,
+  tags,
+  selectedRating,
+  setSelectedRating,
+  selectedPriceRange,
+  setSelectedPriceRange,
+  selectedDiscountRange,
+  setSelectedDiscountRange,
+}) {
   return (
     <S.SortAndFilterWrapperStyled>
-      <h2>Sort and Filter</h2>
+      <S.SortAndFilterH2>Sort and Filter</S.SortAndFilterH2>
       <S.SortAndFilterContainerStyled>
         <CategorySelector selectedTag={selectedTag} setSelectedTag={setSelectedTag} tags={tags} />
         <RatingSelector selectedRating={selectedRating} setSelectedRating={setSelectedRating} />
+        <PriceFilterSelector selectedPriceRange={selectedPriceRange} setSelectedPriceRange={setSelectedPriceRange} />
+        <DiscountFilterSelector
+          selectedDiscountRange={selectedDiscountRange}
+          setSelectedDiscountRange={setSelectedDiscountRange}
+        />
       </S.SortAndFilterContainerStyled>
     </S.SortAndFilterWrapperStyled>
   );
@@ -21,6 +38,10 @@ SortAndFilterContainer.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   selectedRating: PropTypes.number.isRequired,
   setSelectedRating: PropTypes.func.isRequired,
+  selectedPriceRange: PropTypes.string.isRequired,
+  setSelectedPriceRange: PropTypes.func.isRequired,
+  selectedDiscountRange: PropTypes.string.isRequired,
+  setSelectedDiscountRange: PropTypes.func.isRequired,
 };
 
 export default SortAndFilterContainer;

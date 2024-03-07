@@ -37,10 +37,10 @@ export const ItemCard = styled.div`
   padding: 10px;
   border: 1px solid ${(props) => props.theme.colors.inputBorderColor};
   box-shadow: ${(props) => props.theme.productCardShadow};
-  /* @media screen and (max-width: 620px) {
-    flex-direction: column;
-    align-items: center;
-  } */
+  @media screen and (max-width: 640px) {
+    /* flex-direction: column; */
+    align-items: flex-start;
+  }
 `;
 
 export const ItemImageContainer = styled.div`
@@ -52,9 +52,9 @@ export const ItemImageContainer = styled.div`
 export const ItemImage = styled.img`
   width: 100px;
   height: 150px;
-  box-shadow: ${(props) => props.theme.productCardShadow};
+  /* box-shadow: ${(props) => props.theme.productCardShadow}; */
   object-fit: cover;
-  @media screen and (min-width: 620px) {
+  @media screen and (min-width: 655px) {
     width: 300px;
     height: 150px;
   }
@@ -64,8 +64,9 @@ export const ItemDetails = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  height: 100%;
   width: 100%;
-  /* gap: 10px; */
+  padding: 0 10px 0 0;
 `;
 
 export const ItemDetailsHeader = styled.div`
@@ -73,7 +74,8 @@ export const ItemDetailsHeader = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  align-items: center;
+  align-items: flex-start;
+  height: 100%;
 `;
 
 export const QuantityAndRemoveContainer = styled.div`
@@ -84,9 +86,9 @@ export const QuantityAndRemoveContainer = styled.div`
   flex-grow: 1;
   margin: 4px auto;
   @media screen and (max-width: 620px) {
-    justify-content: flex-start;
+    /* justify-content: flex-end; */
   }
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 390px) {
     justify-content: flex-end;
   }
 `;
@@ -96,10 +98,10 @@ export const ItemTitle = styled.h2`
   justify-content: flex-start;
   font-size: var(--font-size-small);
   color: ${(props) => props.theme.colors.text};
-  margin: 6px 8px 3px 0;
+  margin: 6px 0px 3px 0;
   width: 50%;
   max-width: 100%;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 750px) {
     text-align: right;
     width: 100%;
     justify-content: flex-end;
@@ -184,19 +186,36 @@ export const TotalDetails = styled.div`
   display: flex;
   margin: 1em auto;
   justify-content: space-between;
-  padding: 1em 20px;
+  padding: 1em 8px;
   background-color: ${(props) => props.theme.searchResultBackground};
   box-shadow: ${(props) => props.theme.navLinkShadow};
   border-radius: 4px;
 `;
 
 export const TotalItems = styled.h3`
+  height: 100%;
+  width: 33.33%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 4px;
   color: ${(props) => props.theme.colors.text};
 `;
 
-export const TotalPrice = styled.h3`
-  display: flex;
+export const TotalSavings = styled.h3`
   height: 100%;
+  width: 33.33%;
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+  color: ${(props) => props.theme.colors.error};
+`;
+
+export const TotalPrice = styled.h3`
+  height: 100%;
+  width: 33.33%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px;
   color: ${(props) => props.theme.colors.success};
 `;
 
@@ -210,17 +229,18 @@ export const TotalPricePerItem = styled.h3`
   justify-content: flex-end;
   align-items: flex-end;
   color: ${(props) => props.theme.colors.success};
+  text-align: right;
 `;
 
-export const TotalSavings = styled.h3`
-  color: ${(props) => props.theme.colors.error};
-`;
 export const Savings = styled.p`
   color: ${(props) => props.theme.colors.error};
+  text-align: right;
 `;
+
 export const DiscountPerItem = styled.p`
   color: ${(props) => props.theme.colors.error};
 `;
+
 export const PricePerItem = styled.p`
   color: ${(props) => props.theme.colors.text};
 `;

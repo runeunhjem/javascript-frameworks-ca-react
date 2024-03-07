@@ -16,9 +16,7 @@ function CategorySelector() {
 
   return (
     <S.CategoriesContainer>
-      <S.TagLabel htmlFor="tag-select" className="visually-hidden">
-        Categories:{" "}
-      </S.TagLabel>
+      <S.TagLabel htmlFor="tag-select">Categories: </S.TagLabel>
       <S.TagSelect id="tag-select" value={selectedTag} onChange={(e) => setSelectedTag(e.target.value)}>
         <option value="">Categories</option>
         {tags.map((tag) => (

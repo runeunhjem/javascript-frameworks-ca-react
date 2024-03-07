@@ -25,3 +25,7 @@ export const ProductCardsContainer = styled.div`
   margin: 1em auto;
   max-width: 100%;
 `;
+
+export const NoResults = styled.p`
+  margin: 1em auto;
+`;

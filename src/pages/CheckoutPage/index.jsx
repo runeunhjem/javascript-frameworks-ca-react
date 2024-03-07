@@ -97,8 +97,8 @@ function CheckoutPage() {
         <>
           <S.TotalDetails>
             <S.TotalItems>Total Items: {cartItems.reduce((acc, item) => acc + item.quantity, 0)}</S.TotalItems>
-            <S.TotalSavings>Total Savings: ${totalSavings.toFixed(2)}</S.TotalSavings>
-            <S.TotalPrice>Total Price: ${totalPrice.toFixed(2)}</S.TotalPrice>
+            <S.TotalSavings>Savings: ${totalSavings.toFixed(2)}</S.TotalSavings>
+            <S.TotalPrice>Price: ${totalPrice.toFixed(2)}</S.TotalPrice>
           </S.TotalDetails>
           <S.CheckoutButton onClick={handleCheckout}>Proceed to Checkout</S.CheckoutButton>
         </>

@@ -232,7 +232,7 @@ export const TotalPrice = styled.h3`
   color: ${(props) => props.theme.colors.success};
 `;
 
-export const TotalPricePerItem = styled.h3`
+export const TotalPricePerItem = styled.div`
   display: flex;
   flex-direction: column;
   font-size: var(--font-size-xsmall);

@@ -6,6 +6,7 @@ export const lightTheme = {
   colors: {
     success: "var(--color-success)",
     white: "var(--color-white)",
+    black: "var(--color-black)",
     error: "var(--color-red)",
     text: "var(--color-black)",
   },
@@ -17,7 +18,7 @@ export const lightTheme = {
   productCardBackground: "var(--color-white)",
   navLinkShadow: "var(--box-shadow-light)",
   productCardText: "var(--color-black)",
-  priceTextDiscounted: "var(--color-white)",
+  priceTextDiscounted: "var(--color-red)",
   priceBgDiscounted: "var(--color-red)",
   priceBgNormal: "var(--color-price-normal)",
   priceTextNormal: "var(--color-black)",
@@ -30,7 +31,8 @@ export const lightTheme = {
   removeButtonText: "var(--color-white)",
   errorMessage: "var(--color-red)",
   successMessage: "var(--color-success)",
-  checkoutButton: "var(--color-gold)",
+  checkoutButton: "var(--color-success)",
+  checkoutButtonText: "var(--color-white)",
 };
 
 export const darkTheme = {
@@ -41,6 +43,7 @@ export const darkTheme = {
   colors: {
     success: "var(--color-success-darkMode)",
     white: "var(--color-white)",
+    black: "var(--color-black)",
     error: "var(--color-red-light)",
     text: "var(--color-pink-lighter)",
   },
@@ -52,9 +55,9 @@ export const darkTheme = {
   navLinkShadow: "var(--box-shadow-dark)",
   productCardText: "var(--color-pink-xlight)",
   priceBgDiscounted: "var(--color-white)",
-  priceTextDiscounted: "var(--color-red)",
+  priceTextDiscounted: "var(--color-red-light)",
   priceBgNormal: "var(--color-price-normal)",
-  priceTextNormal: "var(--color-black)",
+  priceTextNormal: "var(--color-pink-lighter)",
   input: "var(--color-pink-xlight)",
   inputText: "var(--color-black)",
   inputBorderColor: "var(--color-pink-light)",
@@ -64,5 +67,6 @@ export const darkTheme = {
   removeButtonText: "var(--color-black)",
   errorMessage: "var(--color-red-light)",
   successMessage: "var(--color-success-darkMode)",
-  checkoutButton: "var(--color-gold)",
+  checkoutButton: "var(--color-success-darkMode)",
+  checkoutButtonText: "var(--color-black)",
 };

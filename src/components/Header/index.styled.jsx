@@ -1,4 +1,3 @@
-// Header/index.styled.jsx
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
@@ -16,6 +15,9 @@ export const HeaderContainer = styled.header`
   padding: 10px;
   font-size: var(--font-size-xsmall);
   /* border-bottom: 1px solid var(--color-pink-light); */
+  @media (min-width: 792px) {
+    min-height: 118px;
+  }
 `;
 
 export const Container = styled.div`

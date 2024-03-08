@@ -53,7 +53,8 @@ export const ItemImage = styled.img`
   box-shadow: ${(props) => props.theme.productCardShadow};
   width: 100px;
   flex: 1 1;
-  height: 100%;
+  height: 200px;
+  max-height: 100%;
   object-fit: cover;
   @media screen and (min-width: 655px) {
     width: 300px;
@@ -67,7 +68,7 @@ export const ItemDetails = styled.div`
   align-items: flex-start;
   height: 100%;
   width: 100%;
-  padding: 0 10px 0 0;
+  padding: 10px 10px 10px 0;
 `;
 
 export const ItemDetailsHeader = styled.div`
@@ -245,13 +246,15 @@ export const TotalPricePerItem = styled.div`
   text-align: right;
 `;
 
-export const Savings = styled.h4`
+export const Savings = styled.h3`
   color: ${(props) => props.theme.colors.error};
   text-align: right;
+  font-size: var(--font-size-xsmall);
 `;
-export const Totals = styled.h4`
+export const Totals = styled.h3`
   color: ${(props) => props.theme.colors.success};
   text-align: right;
+  font-size: var(--font-size-xsmall);
 `;
 
 export const DiscountPerItem = styled.p`
@@ -269,12 +272,12 @@ export const EmptyCartMessage = styled.h3`
 export const CheckoutButton = styled.button`
   ${buttonStyles}
 
-  width: 100%;
+  width: 250px;
   max-width: 1200px;
   text-align: center;
   padding: 10px 20px;
-  font-size: calc(1rem);
-  color: ${(props) => props.theme.text};
+  font-size: var(--font-size-small);
+  color: ${(props) => props.theme.checkoutButtonText};
   background-color: ${(props) => props.theme.checkoutButton};
   border-radius: 4px;
   border: 1px;

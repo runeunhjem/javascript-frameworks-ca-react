@@ -81,7 +81,7 @@ function CheckoutPage() {
                       <S.PricePerItem>Price: ${(item.discountedPrice / 10 || item.price / 10).toFixed(2)}</S.PricePerItem>
                     </S.PricePerItemWrapper>
                     <S.TotalPricePerItem>
-                      {itemSavings > 0 && <S.Savings>Savings: ${itemSavings.toFixed(2)}</S.Savings>}
+                      {itemSavings > 0 && <S.Savings>Saved: ${itemSavings.toFixed(2)}</S.Savings>}
                       <S.Totals>Total: ${(((item.discountedPrice || item.price) * item.quantity) / 10).toFixed(2)}</S.Totals>
                     </S.TotalPricePerItem>
                   </S.PriceDetails>
@@ -96,7 +96,7 @@ function CheckoutPage() {
       {cartItems.length > 0 && (
         <>
           <S.TotalDetails>
-            <S.TotalItems>Total Items: {cartItems.reduce((acc, item) => acc + item.quantity, 0)}</S.TotalItems>
+            <S.TotalItems>Number of Items: {cartItems.reduce((acc, item) => acc + item.quantity, 0)}</S.TotalItems>
             <S.TotalSavings>Savings: ${totalSavings.toFixed(2)}</S.TotalSavings>
             <S.TotalPrice>Price: ${totalPrice.toFixed(2)}</S.TotalPrice>
           </S.TotalDetails>

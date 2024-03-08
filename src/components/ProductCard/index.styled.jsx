@@ -112,16 +112,6 @@ export const ProductTitle = styled.h2`
   font-size: var(--font-size-title);
 `;
 
-export const ProductDescription = styled.p`
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 10px 0;
-  font-size: var(--font-size-xsmall);
-  height: 65px;
-`;
-
 export const Price = styled.p`
   position: absolute;
   top: 15px;
@@ -131,20 +121,11 @@ export const Price = styled.p`
   align-items: center;
   height: 30px;
   width: 110px;
-  font-size: var(--font-size-xxsmall);
+  font-size: var(--font-size-price);
   font-weight: bold;
   color: ${(props) => (props.$isDiscounted ? props.theme.priceTextDiscounted : props.theme.priceTextNormal)};
-  background-color: ${(props) => (props.$isDiscounted ? props.theme.priceBgDiscounted : props.theme.priceBgNormal)};
+  /* background-color: ${(props) => (props.$isDiscounted ? props.theme.priceBgDiscounted : props.theme.priceBgNormal)}; */
   border-radius: ${(props) => (props.$isDiscounted ? "4px" : "4px")};
-`;
-
-export const Tags = styled.p`
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 10px 0;
-  height: 40px;
 `;
 
 export const RatingContainer = styled.div`

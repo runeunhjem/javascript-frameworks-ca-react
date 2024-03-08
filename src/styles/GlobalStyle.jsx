@@ -4,14 +4,16 @@ export const GlobalStyle = createGlobalStyle`
 :root {
   --color-pink-dark: #440a4b;
   --color-pink: #800091;
+  --color-pink-hot: #c92bc1;
   --color-pink-light: #ccade9;
   --color-pink-lighter: #c5bfc5;
   --color-pink-xlight: #f5e6f5;
   --color-pink-hover: #fdc9fd;
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-success: #22943d;
-  --color-success-darkMode: #00a67d;
+  --color-black: #000000;
+  --color-success: #028621;
+  --color-success-darkMode: #49ffaa;
   --color-gold-light: #d8c34e;
   --color-gold: #ffc107;
   --color-gold-search: #ceb009;
@@ -26,6 +28,7 @@ export const GlobalStyle = createGlobalStyle`
 
   --font-size-icons: calc(0.6rem + 2vmin);
   --font-size-xxsmall: calc(0.8rem);
+  --font-size-price: calc(1rem);
   --font-size-title: calc(1.2rem);
   --font-size-xsmall: calc(0.6rem + 1vmin);
   --font-size-small: calc(0.8rem + 1vmin);

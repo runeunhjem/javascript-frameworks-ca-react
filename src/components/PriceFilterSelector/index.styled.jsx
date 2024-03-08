@@ -1,7 +1,6 @@
-// index.styled.jsx
 import styled from "styled-components";
 
-export const CategoriesContainer = styled.div`
+export const SelectorContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -30,14 +29,14 @@ export const ResetLink = styled.span`
   }
 `;
 
-export const TagLabel = styled.label`
+export const Label = styled.label`
   font-weight: bold;
   width: 100%;
   text-align: left;
   margin-bottom: 4px;
 `;
 
-export const TagSelect = styled.select`
+export const Select = styled.select`
   height: 30px;
   width: 100%;
   max-width: 300px;

@@ -25,7 +25,7 @@ function ProductCard({ product }) {
     addToCart(product);
     setTimeout(() => setIsAdded(false), 1000);
   };
-  
+
   return (
     <S.Card aria-label={`Product card for ${product.title}`}>
       <S.ImageContainer role="img" aria-label={imageAlt}>

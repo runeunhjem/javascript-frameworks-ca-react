@@ -38,6 +38,10 @@ export const SearchBlock = styled.div`
     /* margin-left: 3px; */
     justify-content: flex-start;
   }
+  @media (min-width: 791px) {
+    padding-left: 3px;
+    justify-content: flex-start;
+  }
   /* border: 1px solid var(--color-pink-light); */
 `;
 
@@ -104,7 +108,7 @@ export const SearchResults = styled.div`
     background-color: var(--color-pink-light);
     border-radius: 5px;
     &:hover {
-      background-color: var(--color-gold);
+      background-color: var(--color-pink-hot);
     }
   }
 `;
@@ -148,6 +152,12 @@ export const SearchResultInfo = styled.div`
 export const SearchResultTitle = styled.span`
   text-align: left;
   font-weight: bold;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  @media screen and (min-width: 400px) {
+    white-space: nowrap;
+  }
 `;
 
 export const SearchResultPriceInfo = styled.div`

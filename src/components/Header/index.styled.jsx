@@ -1,4 +1,3 @@
-// Header/index.styled.jsx
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
@@ -15,7 +14,10 @@ export const HeaderContainer = styled.header`
   margin: 0 auto;
   padding: 10px;
   font-size: var(--font-size-xsmall);
-  border-bottom: 1px solid var(--color-pink-light);
+  /* border-bottom: 1px solid var(--color-pink-light); */
+  @media (min-width: 792px) {
+    min-height: 118px;
+  }
 `;
 
 export const Container = styled.div`
@@ -77,7 +79,7 @@ export const SearchAndFilterIcons = styled.div`
   max-width: 100%;
   margin: 6px 10px 6px 25px;
   font-size: var(--font-size-xsmall);
-  
+
   @media (min-width: 792px) {
     .bi-search {
       display: none;

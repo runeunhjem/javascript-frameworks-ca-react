@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useCart } from "../../contexts/CartContext/useCart";
+import { useCart } from "../../hooks/useCart";
 import Reviews from "../../components/Reviews";
 import * as S from "./index.styled";
 import RenderStars from "../../components/RenderStars";

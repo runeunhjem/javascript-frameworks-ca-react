@@ -1,6 +1,6 @@
 // index.jsx
 import { Link } from "react-router-dom";
-import { useCart } from "../../contexts/CartContext/useCart";
+import { useCart } from "../../hooks/useCart";
 import * as S from "./index.styled"; // Import styled components with alias S
 
 function CartIcon() {

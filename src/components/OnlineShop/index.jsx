@@ -1,8 +1,8 @@
-import React, { useState } from 'react'; // Ensure useState is imported from React
+import React, { useState } from "react"; // Ensure useState is imported from React
 import ProductCard from "../ProductCard";
 import SortAndFilterContainer from "../SortAndFilterContainer";
 import SortComponent from "../SortComponent"; // Make sure this path is correct
-import { useProducts } from "../../contexts/ProductContext/useProducts";
+import { useProducts } from "../../hooks/useProducts";
 import { useFilterVisibility } from "../../contexts/FilterVisibilityContext/FilterVisibilityContext";
 import * as S from "./index.styled";
 import VisuallyHidden from "../VisuallyHidden";

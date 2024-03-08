@@ -1,6 +1,6 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useProducts } from "../../contexts/ProductContext/useProducts";
+import { useProducts } from "../../hooks/useProducts";
 import VisuallyHidden from "../VisuallyHidden";
 import * as S from "./index.styled.jsx";
 

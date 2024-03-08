@@ -1,5 +1,5 @@
 // index.jsx
-import { useProducts } from "../../contexts/ProductContext/useProducts";
+import { useProducts } from "../../hooks/useProducts";
 import * as S from "./index.styled"; // Import styled components with alias S
 
 function CategorySelector() {

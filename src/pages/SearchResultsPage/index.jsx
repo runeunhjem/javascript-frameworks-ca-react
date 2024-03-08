@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import { useProducts } from "../../contexts/ProductContext/useProducts";
+import { useProducts } from "../../hooks/useProducts";
 import ProductCard from "../../components/ProductCard";
 import * as S from "./index.styled"; // Ensure this path matches where your styled components are defined
 

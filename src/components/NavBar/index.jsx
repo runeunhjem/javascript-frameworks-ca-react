@@ -1,7 +1,7 @@
 // NavBar/index.jsx
 import PropTypes from "prop-types";
 import CartIcon from "../CartIcon";
-import { useProducts } from "../../contexts/ProductContext/useProducts";
+import { useProducts } from "../../hooks/useProducts";
 import * as S from "./index.styled"; // Import styled components with alias S
 
 function NavBar({ itemCount }) {

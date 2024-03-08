@@ -1,8 +1,9 @@
-import React, { useState } from "react"; // Ensure useState is imported from React
+import React, { useState, useContext } from "react"; // Ensure useState is imported from React
 import ProductCard from "../ProductCard";
 import SortAndFilterContainer from "../SortAndFilterContainer";
 import SortComponent from "../SortComponent"; // Make sure this path is correct
-import { useProducts } from "../../hooks/useProducts";
+import { ProductContext } from "../../contexts/ProductContext";
+// import { useProducts } from "../../hooks/useProducts";
 import { useFilterVisibility } from "../../contexts/FilterVisibilityContext/FilterVisibilityContext";
 import * as S from "./index.styled";
 import VisuallyHidden from "../VisuallyHidden";
@@ -13,6 +14,9 @@ function OnlineShop() {
     products,
     loading,
     error,
+    currentPage,
+    totalPages,
+    setPage,
     selectedTag,
     setSelectedTag,
     selectedRating,
@@ -21,7 +25,7 @@ function OnlineShop() {
     setSelectedPriceRange,
     selectedDiscountRange,
     setSelectedDiscountRange,
-  } = useProducts();
+  } = useContext(ProductContext);
 
   const { isFilterVisible } = useFilterVisibility();
   const [sortOption, setSortOption] = useState("");
@@ -140,6 +144,20 @@ function OnlineShop() {
       });
   }, [products, sortOption, selectedTag, selectedRating, selectedPriceRange, selectedDiscountRange]);
 
+  // Function to navigate to the previous page
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setPage(currentPage - 1);
+    }
+  };
+
+  // Function to navigate to the next page
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setPage(currentPage + 1);
+    }
+  };
+
   if (loading) {
     return (
       <S.LoaderContainer>
@@ -157,22 +175,31 @@ function OnlineShop() {
         <S.OnlineShopH1>Products</S.OnlineShopH1>
       </VisuallyHidden>
       {isFilterVisible && (
-        <>
-          <SortAndFilterContainer
-            selectedTag={selectedTag}
-            setSelectedTag={setSelectedTag}
-            tags={Array.from(new Set(products.flatMap((product) => product.tags))).sort()}
-            selectedRating={selectedRating}
-            setSelectedRating={setSelectedRating}
-            selectedPriceRange={selectedPriceRange}
-            setSelectedPriceRange={setSelectedPriceRange}
-            selectedDiscountRange={selectedDiscountRange}
-            setSelectedDiscountRange={setSelectedDiscountRange}
-            resetSort={() => setSortOption("")}>
-            <SortComponent key={sortOption} onSortChange={setSortOption} sortOption={sortOption} />
-          </SortAndFilterContainer>
-        </>
+        <SortAndFilterContainer
+          selectedTag={selectedTag}
+          setSelectedTag={setSelectedTag}
+          selectedRating={selectedRating}
+          setSelectedRating={setSelectedRating}
+          selectedPriceRange={selectedPriceRange}
+          setSelectedPriceRange={setSelectedPriceRange}
+          selectedDiscountRange={selectedDiscountRange}
+          setSelectedDiscountRange={setSelectedDiscountRange}
+          resetSort={() => setSortOption("")}>
+          <SortComponent key={sortOption} onSortChange={setSortOption} sortOption={sortOption} />
+        </SortAndFilterContainer>
       )}
+      {/* Move Pagination Controls above the ProductCardsContainer */}
+      <S.PaginationControls>
+        <S.PaginationButton onClick={handlePrevPage} disabled={currentPage === 1}>
+          Previous
+        </S.PaginationButton>
+        <S.CurrentPage>
+          Page {currentPage} of {totalPages}
+        </S.CurrentPage>
+        <S.PaginationButton onClick={handleNextPage} disabled={currentPage === totalPages}>
+          Next
+        </S.PaginationButton>
+      </S.PaginationControls>
       <S.ProductCardsContainer>
         {sortedAndFilteredProducts.length > 0 ? (
           sortedAndFilteredProducts.map((product) => <ProductCard key={product.id} product={product} />)

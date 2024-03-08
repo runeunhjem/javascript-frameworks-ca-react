@@ -1,15 +1,19 @@
 import propTypes from "prop-types";
 import * as S from "./index.styled";
-import VisuallyHidden from "../VisuallyHidden";
+// import VisuallyHidden from "../VisuallyHidden";
+import { ResetLink } from "../CategorySelector/index.styled";
 
-function SortComponent({ onSortChange }) {
+function SortComponent({ onSortChange, sortOption }) {
   return (
     <S.SelectorContainer>
-      <VisuallyHidden>
-      <S.Label htmlFor="sort-select">Sort By</S.Label>
-      </VisuallyHidden>
-      <S.Select id="sort-select" onChange={(e) => onSortChange(e.target.value)}>
-        <option value="">Sort</option>
+      {/* <VisuallyHidden> */}
+      <S.SortContainer>
+        <S.Label htmlFor="sort-select">Sort By</S.Label>
+        <ResetLink onClick={() => onSortChange("")}>Reset</ResetLink>
+      </S.SortContainer>
+      {/* </VisuallyHidden> */}
+      <S.Select id="sort-select" value={sortOption} onChange={(e) => onSortChange(e.target.value)}>
+        <option value="">Sort By</option>
         <option value="price_high_to_low">Price: High to Low</option>
         <option value="price_low_to_high">Price: Low to High</option>
         <option value="rating_high_to_low">Rating: High to Low</option>
@@ -20,6 +24,8 @@ function SortComponent({ onSortChange }) {
         <option value="discount_percent_low_to_high">Discount %: Low to High</option>
         <option value="discount_amount_high_to_low">Discount $: High to Low</option>
         <option value="discount_amount_low_to_high">Discount $: Low to High</option>
+        <option value="title_a_z">Title: A-Z</option>
+        <option value="title_z_a">Title: Z-A</option>
       </S.Select>
     </S.SelectorContainer>
   );
@@ -27,6 +33,7 @@ function SortComponent({ onSortChange }) {
 
 SortComponent.propTypes = {
   onSortChange: propTypes.func.isRequired,
+  sortOption: propTypes.string.isRequired,
 };
 
 export default SortComponent;

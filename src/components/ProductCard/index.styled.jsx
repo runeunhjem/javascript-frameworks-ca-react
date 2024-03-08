@@ -49,7 +49,7 @@ export const AddToCartButton = styled.button`
   bottom: 0px;
   left: 0px;
   background-color: var(--color-pink);
-  color: var(--color-white);
+  color: ${(props) => props.theme.colors.white};
 
   &.added {
     background-color: var(--color-success);
@@ -75,8 +75,8 @@ export const ViewProductButton = styled.button`
   box-shadow: ${(props) => props.theme.navLinkShadow};
 
   &:hover {
-    background-color: var(--color-pink);
-    color: var(--color-white);
+    background-color: ${(props) => props.theme.colors.pink};
+    color: ${(props) => props.theme.colors.white};
   }
 `;
 
@@ -84,8 +84,8 @@ export const DiscountTag = styled.div`
   position: absolute;
   top: 130px;
   right: -65px;
-  background-color: var(--color-red);
-  color: var(--color-white);
+  background-color: ${(props) => props.theme.colors.error};
+  color: ${(props) => props.theme.colors.white};
   transform: rotate(45deg);
   transform-origin: right bottom;
   width: 320px;

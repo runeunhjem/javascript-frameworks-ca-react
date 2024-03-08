@@ -127,7 +127,7 @@ export const GlobalStyle = createGlobalStyle`
 
   &:hover {
     background-color: var(--color-pink);
-    color: var(--color-white);
+    color: ${(props) => props.theme.colors.white};
   }
   }
 

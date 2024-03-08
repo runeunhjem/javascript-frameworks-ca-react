@@ -130,6 +130,10 @@ function OnlineShop() {
             return bDiscountAmount - aDiscountAmount;
           case "discount_amount_low_to_high":
             return aDiscountAmountLowHigh - bDiscountAmountLowHigh;
+          case "title_a_z":
+            return a.title.localeCompare(b.title);
+          case "title_z_a":
+            return b.title.localeCompare(a.title);
           default:
             return 0;
         }
@@ -164,8 +168,8 @@ function OnlineShop() {
             setSelectedPriceRange={setSelectedPriceRange}
             selectedDiscountRange={selectedDiscountRange}
             setSelectedDiscountRange={setSelectedDiscountRange}
-          >
-            <SortComponent onSortChange={ setSortOption } /> {/* Include SortComponent as a child */ }
+            resetSort={() => setSortOption("")}>
+            <SortComponent key={sortOption} onSortChange={setSortOption} sortOption={sortOption} />
           </SortAndFilterContainer>
         </>
       )}

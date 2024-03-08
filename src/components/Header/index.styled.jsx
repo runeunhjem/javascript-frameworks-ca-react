@@ -29,7 +29,7 @@ export const Container = styled.div`
   width: 100vw;
   max-width: 1200px;
   font-size: calc(10px + 2vmin);
-  color: var(--color-white);
+  color: ${(props) => props.theme.colors.white};
 `;
 
 export const LogoImage = styled.img`

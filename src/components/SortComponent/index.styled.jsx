@@ -2,16 +2,25 @@ import styled from "styled-components";
 
 export const SelectorContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-  color: var(--color-white);
+  color: ${(props) => props.theme.input};
   position: relative;
   align-items: center;
+  justify-content: center;
   width: 516px;
   max-width: 100%;
   margin: 0 0 15px 0;
-  height: 40px;
+  /* height: 40px; */
   background-color: ${(props) => props.theme.header};
+`;
+export const SortContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 88%;
 `;
 
 export const Label = styled.label`

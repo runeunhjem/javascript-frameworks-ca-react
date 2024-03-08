@@ -302,7 +302,7 @@ export const CheckoutButton = styled.button`
 
   &:hover {
     background-color: var(--color-pink);
-    color: var(--color-white);
+    color: ${(props) => props.theme.colors.white};
   }
 `;
 

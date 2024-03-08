@@ -15,8 +15,8 @@ const buttonStyles = css`
   min-width: 110px;
   width: auto;
   &:hover {
-    background-color: var(--color-pink);
-    color: var(--color-white);
+    background-color: ${(props) => props.theme.colors.pink};
+    color: ${(props) => props.theme.colors.white};
   }
 `;
 

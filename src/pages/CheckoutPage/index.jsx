@@ -39,6 +39,7 @@ function CheckoutPage() {
   return (
     <S.MainContainer>
       <S.Title>Checkout</S.Title>
+      {cartItems.length > 0 && <S.ClearCartButton onClick={clearCart}>( Clear Cart )</S.ClearCartButton>}
       <S.ItemsContainer>
         {cartItems.length > 0 ? (
           cartItems.map((item) => {
@@ -90,7 +91,10 @@ function CheckoutPage() {
             );
           })
         ) : (
-          <S.EmptyCartMessage>Your cart is empty.</S.EmptyCartMessage>
+          <>
+            <S.EmptyCartMessage>Your cart is empty.</S.EmptyCartMessage>
+            <S.ReturnLink to="/">Return to Store</S.ReturnLink>
+          </>
         )}
       </S.ItemsContainer>
       {cartItems.length > 0 && (

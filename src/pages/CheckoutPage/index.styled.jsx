@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link as RouterLink } from "react-router-dom";
 
 const buttonStyles = css`
   cursor: pointer;
@@ -16,9 +17,25 @@ export const MainContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   font-size: var(--font-size-xxlarge);
   color: ${(props) => props.theme.colors.text};
+`;
+
+export const ClearCartButton = styled.button`
+  ${buttonStyles}
+
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: var(--font-size-price);
+  font-weight: var(--font-weight-bold);
+  color: ${(props) => props.theme.errorMessage};
+  background-color: transparent;
+  border-radius: 4px;
+  &:hover {
+    background-color: var(--color-pink);
+    color: ${(props) => props.theme.colors.white};
+  }
 `;
 
 export const ItemsContainer = styled.div`
@@ -286,5 +303,18 @@ export const CheckoutButton = styled.button`
   &:hover {
     background-color: var(--color-pink);
     color: var(--color-white);
+  }
+`;
+
+export const ReturnLink = styled(RouterLink)`
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: ${(props) => props.theme.viewProductButtonHover}; // Use theme color for consistency
+  color: ${(props) => props.theme.h2};
+  text-decoration: none;
+  border-radius: 5px;
+  &:hover {
+    background-color: ${(props) => props.theme.viewProductButtonHoverDark}; // Use theme color for consistency
   }
 `;

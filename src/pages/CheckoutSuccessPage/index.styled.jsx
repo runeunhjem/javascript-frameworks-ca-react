@@ -23,7 +23,7 @@ export const ReturnLink = styled(RouterLink)`
   margin-top: 20px;
   padding: 10px 20px;
   background-color: ${(props) => props.theme.viewProductButtonHover}; // Use theme color for consistency
-  color: ${(props) => props.theme.h2}; // Use theme color for consistency
+  color: ${(props) => props.theme.h2};
   text-decoration: none;
   border-radius: 5px;
   &:hover {

@@ -1,5 +1,6 @@
 import { createContext, useReducer, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
+import { API_PRODUCTS } from "../../shared/apis";
 
 // Initial state for the context's data
 const initialState = {
@@ -48,7 +49,7 @@ export const ProductProvider = ({ children }) => {
     dispatch({ type: "FETCH_START" });
     const fetchData = async () => {
       try {
-        const response = await fetch("https://v2.api.noroff.dev/online-shop/");
+        const response = await fetch(API_PRODUCTS);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -67,8 +68,8 @@ export const ProductProvider = ({ children }) => {
     () => ({
       ...state,
       setProducts: (products) => dispatch({ type: "FETCH_SUCCESS", payload: products }),
-      setSelectedTag: (tag) => dispatch({ type: "SET_SELECTED_TAG", payload: tag }),
       setSearchTerm: (term) => dispatch({ type: "SET_SEARCH_TERM", payload: term }),
+      setSelectedTag: (tag) => dispatch({ type: "SET_SELECTED_TAG", payload: tag }),
       setSelectedRating: (rating) => dispatch({ type: "SET_SELECTED_RATING", payload: rating }),
       setSelectedPriceRange: (range) => dispatch({ type: "SET_SELECTED_PRICE_RANGE", payload: range }),
       setSelectedDiscountRange: (range) => dispatch({ type: "SET_SELECTED_DISCOUNT_RANGE", payload: range }),

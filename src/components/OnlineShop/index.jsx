@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"; // Ensure useState is imported from React
+import React, { useState, useContext, useMemo } from "react"; // Ensure useState is imported from React
 import ProductCard from "../ProductCard";
 import SortAndFilterContainer from "../SortAndFilterContainer";
 import SortComponent from "../SortComponent"; // Make sure this path is correct
@@ -167,6 +167,12 @@ function OnlineShop() {
     setPage(1); // Optionally reset to the first page
   };
 
+  // Calculate unique tags from the current list of products
+  const uniqueTags = useMemo(() => {
+    const allTags = products.flatMap((product) => product.tags || []);
+    return [...new Set(allTags)];
+  }, [products]);
+
   if (loading) {
     return (
       <S.LoaderContainer>
@@ -187,6 +193,7 @@ function OnlineShop() {
         <SortAndFilterContainer
           selectedTag={selectedTag}
           setSelectedTag={setSelectedTag}
+          tags={uniqueTags}
           selectedRating={selectedRating}
           setSelectedRating={setSelectedRating}
           selectedPriceRange={selectedPriceRange}

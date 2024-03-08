@@ -14,6 +14,7 @@ export const SortAndFilterWrapperStyled = styled.div`
 export const SortAndFilterHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  max-width: 1200px;
   align-items: center;
   gap: 6px;
 `;

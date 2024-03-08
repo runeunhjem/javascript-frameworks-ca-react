@@ -15,6 +15,7 @@ function SortAndFilterContainer({
   setSelectedPriceRange,
   selectedDiscountRange,
   setSelectedDiscountRange,
+  children,
 }) {
   function resetFilters() {
     setSelectedTag("");
@@ -38,6 +39,7 @@ function SortAndFilterContainer({
           setSelectedDiscountRange={setSelectedDiscountRange}
         />
       </S.SortAndFilterContainerStyled>
+      {children /* Render SortComponent here */}
     </S.SortAndFilterWrapperStyled>
   );
 }
@@ -52,6 +54,7 @@ SortAndFilterContainer.propTypes = {
   setSelectedPriceRange: PropTypes.func.isRequired,
   selectedDiscountRange: PropTypes.string.isRequired,
   setSelectedDiscountRange: PropTypes.func.isRequired,
+  children: PropTypes.node,
 };
 
 export default SortAndFilterContainer;

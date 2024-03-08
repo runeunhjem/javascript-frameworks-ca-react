@@ -94,6 +94,7 @@ export const CurrentPageWrapper = styled.div`
 
 export const PageSizeSelect = styled.select`
   margin: 1em auto;
+  text-align: center;
   width: 100%;
   // Additional styles
 `;

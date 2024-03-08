@@ -17,6 +17,7 @@ function OnlineShop() {
     currentPage,
     totalPages,
     setPage,
+    pageSize,
     setPageSize,
     selectedTag,
     setSelectedTag,
@@ -206,7 +207,7 @@ function OnlineShop() {
         <S.CurrentPageWrapper>
           {/* Label for the select dropdown */}
           <S.Label htmlFor="pageSizeSelect">Items Per Page:</S.Label>
-          <S.PageSizeSelect id="pageSizeSelect" onChange={handlePageSizeChange} defaultValue="">
+          <S.PageSizeSelect id="pageSizeSelect" onChange={handlePageSizeChange} value={pageSize}>
             {[1, 5, 10, 20, 50].map((size) => (
               <option key={size} value={size}>
                 {size}

@@ -30,29 +30,76 @@ export const NoResults = styled.p`
   margin: 1em auto;
 `;
 
-export const PaginationControls = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin: 1em auto;
-`;
+// export const PaginationControls = styled.div`
+//   align-items: center;
+//   display: flex;
+//   justify-content: center;
+//   margin: 1em auto;
+// `;
 
 export const PaginationButton = styled.button`
-  background-color: #f0f0f0;
+  background-color: ${(props) => props.theme.viewProductButton};
+  box-shadow: ${(props) => props.theme.navLinkShadow};
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
+  font-size: var(--font-size-xxsmall);
   margin: 0 0.5em;
-  padding: 0.5em 1em;
+  /* padding: 0.5em 1em; */
+  width: 80px;
+  height: 30px;
 
+  &:hover {
+    background-color: ${(props) => props.theme.viewProductButtonHover};
+    color: ${(props) => props.theme.colors.white};
+  }
   &:disabled {
     background-color: #d0d0d0;
     cursor: not-allowed;
   }
 `;
 
-export const CurrentPage = styled.p`
-  font-size: 1.2em;
+export const CurrentPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-xxsmall);
   margin: 0 1em;
+  gap: 6px;
+`;
+
+// export const CurrentPageWrapper = styled.span`
+//   margin-right: 1em;
+// `;
+
+// export const PageSizeSelect = styled.select`
+//   font-size: var(--font-size-xxsmall);
+//   padding: 4px;
+// `;
+export const PaginationControls = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xxsmall);
+  margin: 1em auto;
+`;
+
+export const CurrentPageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1em;
+  width: 120px;
+  // Additional styles
+`;
+
+export const PageSizeSelect = styled.select`
+  margin: 1em auto;
+  width: 100%;
+  // Additional styles
+`;
+
+export const Label = styled.label`
+  margin-right: 8px; // Adjust spacing as needed
+  width: 100%;
+  // Add other styles as necessary
 `;

@@ -17,6 +17,7 @@ function OnlineShop() {
     currentPage,
     totalPages,
     setPage,
+    setPageSize,
     selectedTag,
     setSelectedTag,
     selectedRating,
@@ -158,6 +159,13 @@ function OnlineShop() {
     }
   };
 
+  // Handler for changing page size
+  const handlePageSizeChange = (event) => {
+    const newSize = parseInt(event.target.value, 10);
+    setPageSize(newSize);
+    setPage(1); // Optionally reset to the first page
+  };
+
   if (loading) {
     return (
       <S.LoaderContainer>
@@ -193,13 +201,28 @@ function OnlineShop() {
         <S.PaginationButton onClick={handlePrevPage} disabled={currentPage === 1}>
           Previous
         </S.PaginationButton>
-        <S.CurrentPage>
-          Page {currentPage} of {totalPages}
-        </S.CurrentPage>
+
+        {/* Pagination Info and Select Dropdown */}
+        <S.CurrentPageWrapper>
+          {/* Label for the select dropdown */}
+          <S.Label htmlFor="pageSizeSelect">Items Per Page:</S.Label>
+          <S.PageSizeSelect id="pageSizeSelect" onChange={handlePageSizeChange} defaultValue="">
+            {[1, 5, 10, 20, 50].map((size) => (
+              <option key={size} value={size}>
+                {size}
+              </option>
+            ))}
+          </S.PageSizeSelect>
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+        </S.CurrentPageWrapper>
+
         <S.PaginationButton onClick={handleNextPage} disabled={currentPage === totalPages}>
           Next
         </S.PaginationButton>
       </S.PaginationControls>
+
       <S.ProductCardsContainer>
         {sortedAndFilteredProducts.length > 0 ? (
           sortedAndFilteredProducts.map((product) => <ProductCard key={product.id} product={product} />)

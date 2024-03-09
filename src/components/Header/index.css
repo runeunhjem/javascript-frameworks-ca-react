@@ -16,3 +16,7 @@
 .bi-sliders {
   cursor: pointer;
 }
+
+.header-expanded {
+  min-height: 110px;
+}

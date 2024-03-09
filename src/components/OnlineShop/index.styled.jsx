@@ -45,7 +45,7 @@ export const PaginationButton = styled.button`
   cursor: pointer;
   font-size: var(--font-size-xxsmall);
   margin: 0 0.5em;
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.text};
   width: 80px;
   height: 30px;
 
@@ -55,6 +55,7 @@ export const PaginationButton = styled.button`
   }
   &:disabled {
     background-color: #d0d0d0;
+    color: ${(props) => props.theme.disabledButtonBgColor};
     cursor: not-allowed;
   }
 `;

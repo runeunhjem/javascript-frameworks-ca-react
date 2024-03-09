@@ -5,7 +5,6 @@ export const HeaderContainer = styled.header`
   color: ${(props) => props.theme.text};
   background-color: ${(props) => props.theme.header};
   flex-wrap: nowrap;
-  min-height: 140px;
   width: 100%;
   display: inline-flex;
   flex-direction: row;
@@ -14,9 +13,9 @@ export const HeaderContainer = styled.header`
   margin: 0 auto;
   padding: 10px;
   font-size: var(--font-size-xsmall);
-  /* border-bottom: 1px solid var(--color-pink-light); */
+  min-height: ${(props) => (props.expanded ? "140px" : "110px")}; // Use the prop to control the height
   @media (min-width: 792px) {
-    min-height: 118px;
+    min-height: ${(props) => (props.expanded ? "110px" : "118px")}; // Adjust for larger screens if necessary
   }
 `;
 

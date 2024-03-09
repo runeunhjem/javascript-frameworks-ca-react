@@ -36,6 +36,7 @@ export const lightTheme = {
   successMessage: "var(--color-success)",
   checkoutButton: "var(--color-success)",
   checkoutButtonText: "var(--color-white)",
+  disabledButtonBgColor: "var(--color-gray)",
 };
 
 export const darkTheme = {
@@ -75,4 +76,5 @@ export const darkTheme = {
   successMessage: "var(--color-success-darkMode)",
   checkoutButton: "var(--color-success-darkMode)",
   checkoutButtonText: "var(--color-black)",
+  disabledButtonBgColor: "var(--color-gray)",
 };

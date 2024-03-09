@@ -1,9 +1,8 @@
-import React, { useState, useContext, useMemo } from "react"; // Ensure useState is imported from React
+import React, { useState, useContext, useMemo } from "react";
 import ProductCard from "../ProductCard";
 import SortAndFilterContainer from "../SortAndFilterContainer";
-import SortComponent from "../SortComponent"; // Make sure this path is correct
+import SortComponent from "../SortComponent";
 import { ProductContext } from "../../contexts/ProductContext";
-// import { useProducts } from "../../hooks/useProducts";
 import { useFilterVisibility } from "../../contexts/FilterVisibilityContext/FilterVisibilityContext";
 import * as S from "./index.styled";
 import VisuallyHidden from "../VisuallyHidden";
@@ -32,7 +31,6 @@ function OnlineShop() {
   const { isFilterVisible } = useFilterVisibility();
   const [sortOption, setSortOption] = useState("");
 
-  // Corrected: Moved the sorting logic inside the useMemo hook for optimization
   const sortedAndFilteredProducts = React.useMemo(() => {
     return products
       .filter((product) => {
@@ -42,8 +40,8 @@ function OnlineShop() {
           product.rating === selectedRating ||
           (selectedRating === -1 && product.reviews.length === 0);
 
-        let priceMatches = true; // Default to true (no filter)
-        const normalizedPrice = (product.discountedPrice || product.price) / 10; // Normalize the price by dividing by 10 due to API data
+        let priceMatches = true;
+        const normalizedPrice = (product.discountedPrice || product.price) / 10;
         if (selectedPriceRange) {
           switch (selectedPriceRange) {
             case "under10":
@@ -59,14 +57,14 @@ function OnlineShop() {
               priceMatches = normalizedPrice > 100;
               break;
             default:
-              break; // No filter or unknown filter
+              break;
           }
         }
 
-        let discountMatches = true; // Default to true as a fallback, especially for "Show all" scenario
+        let discountMatches = true;
         if (selectedDiscountRange) {
           const hasDiscount = product.discountedPrice && product.discountedPrice < product.price;
-          const normalizedDiscountedPrice = hasDiscount ? product.discountedPrice / 10 : normalizedPrice; // Use normalizedPrice if no discount
+          const normalizedDiscountedPrice = hasDiscount ? product.discountedPrice / 10 : normalizedPrice;
           const discountPercentage = hasDiscount
             ? ((normalizedPrice - normalizedDiscountedPrice) / normalizedPrice) * 100
             : 0;
@@ -98,7 +96,7 @@ function OnlineShop() {
               discountMatches = !hasDiscount;
               break;
             default:
-              // This could be an error state or log for debugging since all cases should be covered
+              // Error state or log for debugging since all cases should be covered
               console.warn("Unexpected selectedDiscountRange value:", selectedDiscountRange);
               break;
           }
@@ -164,7 +162,7 @@ function OnlineShop() {
   const handlePageSizeChange = (event) => {
     const newSize = parseInt(event.target.value, 10);
     setPageSize(newSize);
-    setPage(1); // Optionally reset to the first page
+    setPage(1); // Reset to the first page when changing page size
   };
 
   // Calculate unique tags from the current list of products
@@ -204,15 +202,11 @@ function OnlineShop() {
           <SortComponent key={sortOption} onSortChange={setSortOption} sortOption={sortOption} />
         </SortAndFilterContainer>
       )}
-      {/* Move Pagination Controls above the ProductCardsContainer */}
       <S.PaginationControls>
         <S.PaginationButton onClick={handlePrevPage} disabled={currentPage === 1}>
           Previous
         </S.PaginationButton>
-
-        {/* Pagination Info and Select Dropdown */}
         <S.CurrentPageWrapper>
-          {/* Label for the select dropdown */}
           <S.Label htmlFor="pageSizeSelect">Items Per Page:</S.Label>
           <S.PageSizeSelect id="pageSizeSelect" onChange={handlePageSizeChange} value={pageSize}>
             {[1, 5, 10, 20, 50].map((size) => (
@@ -225,12 +219,10 @@ function OnlineShop() {
             Page {currentPage} of {totalPages}
           </span>
         </S.CurrentPageWrapper>
-
         <S.PaginationButton onClick={handleNextPage} disabled={currentPage === totalPages}>
           Next
         </S.PaginationButton>
       </S.PaginationControls>
-
       <S.ProductCardsContainer>
         {sortedAndFilteredProducts.length > 0 ? (
           sortedAndFilteredProducts.map((product) => <ProductCard key={product.id} product={product} />)

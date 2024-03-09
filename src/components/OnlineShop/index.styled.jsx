@@ -30,13 +30,6 @@ export const NoResults = styled.p`
   margin: 1em auto;
 `;
 
-// export const PaginationControls = styled.div`
-//   align-items: center;
-//   display: flex;
-//   justify-content: center;
-//   margin: 1em auto;
-// `;
-
 export const PaginationButton = styled.button`
   background-color: ${(props) => props.theme.viewProductButton};
   box-shadow: ${(props) => props.theme.navLinkShadow};

@@ -28,7 +28,6 @@ function App() {
       <Router>
         <ProductProvider>
           <CartProvider>
-            {/* Pass toggleTheme function to Layout or other components if needed */}
             <Layout toggleTheme={toggleTheme}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
@@ -48,39 +47,3 @@ function App() {
 }
 
 export default App;
-
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import HomePage from "./pages/HomePage";
-// import ProductPage from "./pages/ProductPage";
-// import ContactPage from "./pages/ContactPage";
-// import CheckoutPage from "./pages/CheckoutPage";
-// import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
-// import NotFoundPage from "./pages/NotFoundPage";
-// import Layout from "./components/Layout";
-// import SearchResultsPage from "./pages/SearchResultsPage";
-// import { CartProvider } from "./contexts/CartContext";
-// import { ProductProvider } from "./contexts/ProductContext";
-
-// function App() {
-//   return (
-//     <Router>
-//       <ProductProvider>
-//         <CartProvider>
-//           <Layout>
-//             <Routes>
-//               <Route path="/" element={<HomePage />} />
-//               <Route path="/product/:productId" element={<ProductPage />} />
-//               <Route path="/cart" element={<CheckoutPage />} />
-//               <Route path="/contact" element={<ContactPage />} />
-//               <Route path="/success" element={<CheckoutSuccessPage />} />
-//               <Route path="/search" element={<SearchResultsPage />} />
-//               <Route path="*" element={<NotFoundPage />} />
-//             </Routes>
-//           </Layout>
-//         </CartProvider>
-//       </ProductProvider>
-//     </Router>
-//   );
-// }
-
-// export default App;

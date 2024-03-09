@@ -17,6 +17,6 @@
   cursor: pointer;
 }
 
-.header-expanded {
-  min-height: 110px;
+.search-bar-visible {
+  min-height: 110px !important;
 }

@@ -16,7 +16,6 @@ function Header({ toggleTheme }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { toggleFilterVisibility } = useFilterVisibility();
-  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleLogoClick = () => {
     setSelectedTag("");
@@ -25,7 +24,6 @@ function Header({ toggleTheme }) {
 
   const toggleSearchBar = () => {
     setShowSearchBar(!showSearchBar);
-    setIsExpanded(!isExpanded); // Also toggle the header height
   };
   const toggleFilterContainer = () => toggleFilterVisibility();
 
@@ -47,9 +45,7 @@ function Header({ toggleTheme }) {
   const isHomePage = location.pathname === "/";
 
   return (
-    <S.HeaderContainer
-      className={`${showSearchBar ? "search-bar-visible" : ""} ${isExpanded ? "header-expanded" : ""}`}
-      expanded={showSearchBar}>
+    <S.HeaderContainer $showSearchBar={showSearchBar ? 1 : 0}>
       <S.Container>
         <S.Logo onClick={handleLogoClick}>
           <S.LogoImage src="/header-logo-cgg.svg" alt="Illustration of the CGG logo" />

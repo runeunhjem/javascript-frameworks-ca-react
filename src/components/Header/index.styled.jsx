@@ -13,11 +13,14 @@ export const HeaderContainer = styled.header`
   margin: 0 auto;
   padding: 10px;
   font-size: var(--font-size-xsmall);
-  min-height: ${(props) => (props.expanded ? "140px" : "110px")}; // Use the prop to control the height
+  min-height: ${(props) => (props.$showSearchBar ? "140px" : "110px")}; // Use $showSearchBar here
   @media (min-width: 792px) {
-    min-height: ${(props) => (props.expanded ? "110px" : "118px")}; // Adjust for larger screens if necessary
+    min-height: ${(props) => (props.$showSearchBar ? "110px" : "118px")}; // And here
   }
 `;
+
+
+
 
 export const Container = styled.div`
   display: flex;

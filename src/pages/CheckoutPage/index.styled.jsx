@@ -85,7 +85,7 @@ export const ItemDetails = styled.div`
   align-items: flex-start;
   height: 100%;
   width: 100%;
-  padding: 0 10px 10px 0;
+  padding: 0 10px 0 0;
 `;
 
 export const ItemDetailsHeader = styled.div`

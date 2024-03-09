@@ -45,7 +45,7 @@ export const PaginationButton = styled.button`
   cursor: pointer;
   font-size: var(--font-size-xxsmall);
   margin: 0 0.5em;
-  /* padding: 0.5em 1em; */
+  color: ${(props) => props.theme.colors.white};
   width: 80px;
   height: 30px;
 

@@ -84,7 +84,7 @@ export const DiscountTag = styled.div`
   position: absolute;
   top: 130px;
   right: -65px;
-  background-color: ${(props) => props.theme.colors.error};
+  background-color: ${(props) => props.theme.colors.red};
   color: ${(props) => props.theme.colors.white};
   transform: rotate(45deg);
   transform-origin: right bottom;

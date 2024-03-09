@@ -11,6 +11,7 @@ export const lightTheme = {
     text: "var(--color-black)",
     active: "var(--color-pink-light)",
     pink: "var(--color-pink)",
+    red: "var(--color-red)",
   },
   // Buttons, links, and other UI elements
   viewProductButton: "var(--color-pink-light)",
@@ -50,6 +51,7 @@ export const darkTheme = {
     text: "var(--color-pink-lighter)",
     active: "var(--color-pink-light)",
     pink: "var(--color-pink)",
+    red: "var(--color-red)",
   },
   // Buttons, links, and other UI elements
   viewProductButton: "var(--color-pink-dark)",

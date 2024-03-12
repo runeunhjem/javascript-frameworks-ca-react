@@ -22,11 +22,11 @@ export const ReturnLink = styled(RouterLink)`
   display: inline-block;
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: ${(props) => props.theme.viewProductButtonHover}; // Use theme color for consistency
+  background-color: ${(props) => props.theme.viewProductButtonHover};
   color: ${(props) => props.theme.h2};
   text-decoration: none;
   border-radius: 5px;
   &:hover {
-    background-color: ${(props) => props.theme.viewProductButtonHoverDark}; // Use theme color for consistency
+    background-color: ${(props) => props.theme.viewProductButtonHoverDark};
   }
 `;

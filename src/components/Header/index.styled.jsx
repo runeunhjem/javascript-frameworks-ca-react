@@ -13,9 +13,9 @@ export const HeaderContainer = styled.header`
   margin: 0 auto;
   padding: 10px;
   font-size: var(--font-size-xsmall);
-  min-height: ${(props) => (props.$showSearchBar ? "140px" : "110px")}; // Use $showSearchBar here
+  min-height: ${(props) => (props.$showSearchBar ? "140px" : "110px")};
   @media (min-width: 792px) {
-    min-height: ${(props) => (props.$showSearchBar ? "110px" : "118px")}; // And here
+    min-height: ${(props) => (props.$showSearchBar ? "110px" : "118px")};
   }
 `;
 

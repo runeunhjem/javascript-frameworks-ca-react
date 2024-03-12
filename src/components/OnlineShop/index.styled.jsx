@@ -61,14 +61,6 @@ export const CurrentPage = styled.div`
   gap: 6px;
 `;
 
-// export const CurrentPageWrapper = styled.span`
-//   margin-right: 1em;
-// `;
-
-// export const PageSizeSelect = styled.select`
-//   font-size: var(--font-size-xxsmall);
-//   padding: 4px;
-// `;
 export const PaginationControls = styled.div`
   display: flex;
   align-items: center;
@@ -83,18 +75,17 @@ export const CurrentPageWrapper = styled.div`
   align-items: center;
   margin: 0 1em;
   width: 120px;
-  // Additional styles
 `;
 
 export const PageSizeSelect = styled.select`
-  margin: 1em auto;
+  margin: 0.5em auto;
   text-align: center;
   width: 100%;
-  // Additional styles
+  height: 30px;
+  border-radius: 5px;
 `;
 
 export const Label = styled.label`
-  margin-right: 8px; // Adjust spacing as needed
+  margin-right: 8px;
   width: 100%;
-  // Add other styles as necessary
 `;

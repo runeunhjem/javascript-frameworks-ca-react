@@ -1,11 +1,10 @@
 import PropTypes from "prop-types";
-import * as S from "./index.styled.jsx"; // Adjust the path as needed
+import * as S from "./index.styled.jsx";
 
 function VisuallyHidden({ children }) {
   return <S.VisuallyHiddenContainer>{children}</S.VisuallyHiddenContainer>;
 }
 
-// Define prop types
 VisuallyHidden.propTypes = {
   children: PropTypes.node.isRequired,
 };

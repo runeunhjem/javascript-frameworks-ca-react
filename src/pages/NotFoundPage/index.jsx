@@ -1,10 +1,9 @@
-// NotFoundPage/index.jsx
 import { useEffect } from "react";
-import * as S from "./index.styled"; // Make sure to adjust the path as necessary
+import * as S from "./index.styled";
 
 function NotFoundPage() {
   useEffect(() => {
-    document.title = "Not found | 404";
+    document.title = "Page Not found | 404";
   }, []);
   return (
     <S.NotFoundContainer>

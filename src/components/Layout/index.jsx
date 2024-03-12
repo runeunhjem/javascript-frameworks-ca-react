@@ -20,7 +20,6 @@ function Layout({ children, toggleTheme }) {
   );
 }
 
-// Define prop types
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   toggleTheme: PropTypes.func.isRequired,

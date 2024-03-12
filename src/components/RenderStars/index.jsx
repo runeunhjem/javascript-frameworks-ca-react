@@ -2,11 +2,10 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import * as S from "../ProductCard/index.styled";
 
-// Define styled components for the star icons here, ensuring they use the appropriate icon classes and styles
 const FilledStar = styled.i.attrs({
   className: "bi bi-star-fill",
 })`
-  color: var(--color-gold); // Assuming you have a CSS variable --color-gold defined
+  color: var(--color-gold);
   margin-right: 3px;
 `;
 

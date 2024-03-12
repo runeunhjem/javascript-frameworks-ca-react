@@ -67,7 +67,6 @@ function CheckoutPage() {
                         />
                         <S.QuantityButton onClick={() => handleQuantityChange(item, item.quantity + 1)}>+</S.QuantityButton>
                       </S.QuantityControl>
-
                       <S.RemoveButton onClick={() => removeItem(item.id)}>Remove</S.RemoveButton>
                     </S.QuantityAndRemoveContainer>
                   </S.ItemDetailsHeader>

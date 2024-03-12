@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { useProducts } from "../../hooks/useProducts";
 import ProductCard from "../../components/ProductCard";
-import * as S from "./index.styled"; // Ensure this path matches where your styled components are defined
+import * as S from "./index.styled";
 
 function SearchResultsPage() {
   useEffect(() => {

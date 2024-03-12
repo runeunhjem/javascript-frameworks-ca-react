@@ -49,7 +49,7 @@ export const ProductDetailsContainer = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  flex: 1 1; // Flex-grow, flex-shrink, flex-basis
+  flex: 1 1;
   max-width: 50%;
   display: flex;
   justify-content: center;
@@ -73,7 +73,7 @@ export const ProductImage = styled.img`
 `;
 
 export const DetailsContainer = styled.div`
-  flex: 1 1 300px; // Flex-grow, flex-shrink, flex-basis
+  flex: 1 1 300px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -138,7 +138,6 @@ export const RatingContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  /* margin-bottom: 10px; */
   font-size: var(--font-size-xsmall);
   margin: 0 0 8px;
   width: 100%;

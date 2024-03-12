@@ -11,7 +11,6 @@ export const SelectorContainer = styled.div`
   width: 516px;
   max-width: 100%;
   margin: 0 0 15px 0;
-  /* height: 40px; */
   background-color: ${(props) => props.theme.header};
 `;
 export const SortContainer = styled.div`
@@ -28,6 +27,7 @@ export const Label = styled.label`
   width: 100%;
   text-align: left;
   margin-bottom: 4px;
+  font-size: var(--font-size-xsmall);
 `;
 
 export const Select = styled.select`

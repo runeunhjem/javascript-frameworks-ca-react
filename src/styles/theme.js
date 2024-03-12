@@ -13,7 +13,7 @@ export const lightTheme = {
     pink: "var(--color-pink)",
     red: "var(--color-red)",
   },
-  // Buttons, links, and other UI elements
+
   viewProductButton: "var(--color-pink-light)",
   viewProductButtonHover: "var(--color-pink)",
   viewProductButtonHoverDark: "var(--color-pink-dark)",
@@ -54,7 +54,7 @@ export const darkTheme = {
     pink: "var(--color-pink)",
     red: "var(--color-red)",
   },
-  // Buttons, links, and other UI elements
+  
   viewProductButton: "var(--color-pink-dark)",
   viewProductButtonHover: "var(--color-pink)",
   viewProductButtonHoverDark: "var(--color-pink-dark)",

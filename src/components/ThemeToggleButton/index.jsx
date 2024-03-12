@@ -13,9 +13,8 @@ const ThemeSwitch = ({ toggleTheme }) => (
   </Switch>
 );
 
-// Define propTypes for ThemeSwitch component
 ThemeSwitch.propTypes = {
-  toggleTheme: PropTypes.func.isRequired, // Ensures toggleTheme is a function and is required
+  toggleTheme: PropTypes.func.isRequired,
 };
 
 export default ThemeSwitch;

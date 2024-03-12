@@ -17,7 +17,6 @@ export const MainContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  /* margin-bottom: 2rem; */
   font-size: var(--font-size-xxlarge);
   color: ${(props) => props.theme.colors.text};
 `;
@@ -51,11 +50,9 @@ export const ItemCard = styled.div`
   display: flex;
   gap: 20px;
   width: 100%;
-  /* padding: 10px; */
   border: 1px solid ${(props) => props.theme.colors.inputBorderColor};
   box-shadow: ${(props) => props.theme.productCardShadow};
   @media screen and (max-width: 640px) {
-    /* flex-direction: column; */
     align-items: flex-start;
   }
 `;
@@ -64,6 +61,9 @@ export const ItemImageContainer = styled.div`
   cursor: pointer;
   flex: 1 1;
   height: 150px;
+  @media screen and (max-width: 368px) {
+    height: 180px;
+  }
 `;
 
 export const ItemImage = styled.img`
@@ -106,18 +106,17 @@ export const VisuallyHiddenLabel = styled.label`
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-  white-space: nowrap; // added for completeness
+  white-space: nowrap;
 `;
 
 export const QuantityAndRemoveContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap; // Allow the items to wrap to the next line
-  gap: 10px; // Adjust as needed for spacing
+  flex-wrap: wrap;
+  gap: 10px;
   flex-grow: 1;
   margin: 4px auto;
   @media screen and (max-width: 620px) {
-    /* justify-content: flex-end; */
   }
   @media screen and (max-width: 390px) {
     justify-content: flex-end;
@@ -153,7 +152,6 @@ export const QuantityControl = styled.div`
 
 export const QuantityButton = styled.button`
   padding: 5px 10px;
-  /* margin: 0 5px; */
   cursor: pointer;
   border-radius: 4px;
   border: none;
@@ -310,11 +308,11 @@ export const ReturnLink = styled(RouterLink)`
   display: inline-block;
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: ${(props) => props.theme.viewProductButtonHover}; // Use theme color for consistency
+  background-color: ${(props) => props.theme.viewProductButtonHover};
   color: ${(props) => props.theme.h2};
   text-decoration: none;
   border-radius: 5px;
   &:hover {
-    background-color: ${(props) => props.theme.viewProductButtonHoverDark}; // Use theme color for consistency
+    background-color: ${(props) => props.theme.viewProductButtonHoverDark};
   }
 `;

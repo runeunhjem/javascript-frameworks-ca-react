@@ -92,12 +92,9 @@ function OnlineShop() {
               discountMatches = discountPercentage >= 50;
               break;
             case "notOnSale":
-              // Items that don't have a discountedPrice at all or if discountedPrice is zero
               discountMatches = !hasDiscount;
               break;
             default:
-              // Error state or log for debugging since all cases should be covered
-              console.warn("Unexpected selectedDiscountRange value:", selectedDiscountRange);
               break;
           }
         }
@@ -144,28 +141,24 @@ function OnlineShop() {
       });
   }, [products, sortOption, selectedTag, selectedRating, selectedPriceRange, selectedDiscountRange]);
 
-  // Function to navigate to the previous page
   const handlePrevPage = () => {
     if (currentPage > 1) {
       setPage(currentPage - 1);
     }
   };
 
-  // Function to navigate to the next page
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setPage(currentPage + 1);
     }
   };
 
-  // Handler for changing page size
-  const handlePageSizeChange = (event) => {
+    const handlePageSizeChange = (event) => {
     const newSize = parseInt(event.target.value, 10);
     setPageSize(newSize);
-    setPage(1); // Reset to the first page when changing page size
+    setPage(1);
   };
 
-  // Calculate unique tags from the current list of products
   const uniqueTags = useMemo(() => {
     const allTags = products.flatMap((product) => product.tags || []);
     return [...new Set(allTags)];

@@ -17,7 +17,6 @@ import { ProductProvider } from "./contexts/ProductContext";
 function App() {
   const [theme, setTheme] = useState("light");
 
-  // Function to toggle theme, could be passed down to components that need it
   const toggleTheme = () => {
     setTheme((currentTheme) => (currentTheme === "light" ? "dark" : "light"));
   };

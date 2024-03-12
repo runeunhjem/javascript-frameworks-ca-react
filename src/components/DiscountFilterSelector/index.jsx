@@ -1,4 +1,3 @@
-// DiscountFilterSelector.jsx
 import PropTypes from "prop-types";
 import * as S from "./index.styled";
 

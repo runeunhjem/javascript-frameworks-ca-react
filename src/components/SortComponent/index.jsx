@@ -1,17 +1,14 @@
 import propTypes from "prop-types";
 import * as S from "./index.styled";
-// import VisuallyHidden from "../VisuallyHidden";
 import { ResetLink } from "../CategorySelector/index.styled";
 
 function SortComponent({ onSortChange, sortOption }) {
   return (
     <S.SelectorContainer>
-      {/* <VisuallyHidden> */}
       <S.SortContainer>
         <S.Label htmlFor="sort-select">Sort By</S.Label>
         <ResetLink onClick={() => onSortChange("")}>Reset</ResetLink>
       </S.SortContainer>
-      {/* </VisuallyHidden> */}
       <S.Select id="sort-select" value={sortOption} onChange={(e) => onSortChange(e.target.value)}>
         <option value="">Sort By</option>
         <option value="price_high_to_low">Price: High to Low</option>

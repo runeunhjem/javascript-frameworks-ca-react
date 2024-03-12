@@ -1,6 +1,5 @@
-// index.jsx
 import { useProducts } from "../../hooks/useProducts";
-import * as S from "./index.styled"; // Import styled components with alias S
+import * as S from "./index.styled";
 
 function CategorySelector() {
   const { selectedTag, setSelectedTag, products } = useProducts();

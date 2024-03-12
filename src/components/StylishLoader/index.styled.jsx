@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-// Animation for the spinner
 const rotate = keyframes`
   0% {
     transform: rotate(0deg);
@@ -10,7 +9,6 @@ const rotate = keyframes`
   }
 `;
 
-// Styled component for the loader
 const LoaderContainer = styled.div`
   display: block;
   width: 80px;

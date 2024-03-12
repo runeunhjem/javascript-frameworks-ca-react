@@ -2,7 +2,6 @@ import { createContext, useReducer, useEffect, useMemo, useCallback } from "reac
 import PropTypes from "prop-types";
 import { API_PRODUCTS } from "../../shared/apis";
 
-// Initial state for the context's data
 const initialState = {
   products: [],
   loading: true,
@@ -12,14 +11,12 @@ const initialState = {
   selectedRating: 0,
   selectedPriceRange: "",
   selectedDiscountRange: "",
-  // Pagination-related
   currentPage: 1,
   totalPages: 0,
   totalCount: 0,
   pageSize: 10,
 };
 
-// Reducer function to handle state updates
 function productReducer(state, action) {
   switch (action.type) {
     case "FETCH_START":
@@ -54,14 +51,11 @@ function productReducer(state, action) {
   }
 }
 
-// Create a context
 export const ProductContext = createContext();
 
-// Context Provider component
 export const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
   const setPageSize = (pageSize) => dispatch({ type: "SET_PAGE_SIZE", payload: pageSize });
-
 
   const fetchData = useCallback(
     async (page) => {
@@ -84,10 +78,8 @@ export const ProductProvider = ({ children }) => {
     fetchData(state.currentPage);
   }, [state.currentPage, fetchData]);
 
-  // Function to change pages
   const setPage = (page) => dispatch({ type: "SET_PAGE", payload: page });
 
-  // Memoize the context value to prevent unnecessary re-renders
   const value = useMemo(
     () => ({
       ...state,
@@ -106,7 +98,6 @@ export const ProductProvider = ({ children }) => {
   return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>;
 };
 
-// Prop validation for the provider
 ProductProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };

@@ -147,3 +147,8 @@ export const Stars = styled.div`
 export const RatingText = styled.span`
   margin-right: 5px;
 `;
+
+export const NumberOfReviews = styled.span`
+  font-size: var(--font-size-xxsmall);
+  margin-left: 5px;
+`;

@@ -4,9 +4,17 @@ import { useProducts } from "../../hooks/useProducts";
 import * as S from "./index.styled";
 
 function NavBar({ itemCount }) {
-  const { setSelectedTag } = useProducts();
+  const { setSelectedTag, setSelectedRating, setSelectedPriceRange, setSelectedDiscountRange } = useProducts();
 
-  const handleHomeClick = () => setSelectedTag("");
+  // const { setSelectedTag } = useProducts();
+
+  const handleHomeClick = () => {
+    setSelectedTag("");
+    setSelectedRating(0);
+    setSelectedPriceRange("");
+    setSelectedDiscountRange("");
+  };
+  // const handleHomeClick = () => setSelectedTag("");
 
   return (
     <S.Navbar id="navbar">

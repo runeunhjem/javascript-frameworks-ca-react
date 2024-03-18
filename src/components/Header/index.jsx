@@ -11,13 +11,17 @@ import "./index.css";
 
 function Header({ toggleTheme }) {
   const [showSearchBar, setShowSearchBar] = useState(true);
-  const { setSelectedTag } = useProducts();
+  const { setSelectedTag, setSelectedRating, setSelectedPriceRange, setSelectedDiscountRange } = useProducts();
+
   const navigate = useNavigate();
   const location = useLocation();
   const { toggleFilterVisibility } = useFilterVisibility();
 
   const handleLogoClick = () => {
     setSelectedTag("");
+    setSelectedRating(0);
+    setSelectedPriceRange("");
+    setSelectedDiscountRange("");
     navigate("/");
   };
 

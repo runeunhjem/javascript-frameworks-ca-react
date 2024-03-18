@@ -114,6 +114,10 @@ export const Savings = styled.p`
   font-size: var(--font-size-xsmall);
   color: ${({ theme }) => theme.colors.error};
 `;
+export const Tags = styled.p`
+  font-size: var(--font-size-xsmall);
+  color: ${({ theme }) => theme.colors.text};
+`;
 
 export const PriceInfo = styled.span`
   font-size: var(--font-size-xsmall);

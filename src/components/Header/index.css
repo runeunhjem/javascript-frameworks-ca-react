@@ -16,3 +16,7 @@
 .bi-sliders {
   cursor: pointer;
 }
+
+.search-bar-visible {
+  min-height: 110px !important;
+}

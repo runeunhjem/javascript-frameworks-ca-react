@@ -12,3 +12,13 @@ export const CopyrightText = styled.p`
   text-align: center;
   font-size: var(--font-size-xsmall);
 `;
+
+export const Link = styled.a`
+  color: ${(props) => props.theme.h2};
+  text-decoration: none;
+  font-style: italic;
+  &:hover {
+    text-decoration: underline;
+  }
+  /* font-weight: var(--font-weight-bold); */
+`;

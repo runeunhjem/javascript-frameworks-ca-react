@@ -2,31 +2,24 @@ import styled from "styled-components";
 
 export const SelectorContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   color: ${(props) => props.theme.input};
   position: relative;
-  width: 150px;
-  max-width: 100%;
-  margin: 6px auto;
-`;
-
-export const LabelContainer = styled.div`
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 4px;
+  justify-content: center;
+  width: 516px;
+  max-width: 100%;
+  margin: 0 0 15px 0;
+  background-color: ${(props) => props.theme.header};
 `;
-
-export const ResetLink = styled.span`
-  margin-left: 8px;
-  color: ${(props) => props.theme.h2};
-  cursor: pointer;
-  font-size: var(--font-size-xxsmall);
-
-  &:hover {
-    text-decoration: underline;
-  }
+export const SortContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 88%;
 `;
 
 export const Label = styled.label`
@@ -34,14 +27,15 @@ export const Label = styled.label`
   width: 100%;
   text-align: left;
   margin-bottom: 4px;
+  font-size: var(--font-size-xsmall);
 `;
 
 export const Select = styled.select`
   height: 30px;
   width: 100%;
-  max-width: 300px;
+  max-width: 88%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   background-color: ${(props) => props.theme.input};
   font-size: var(--font-size-xsmall);
   border-radius: 5px;

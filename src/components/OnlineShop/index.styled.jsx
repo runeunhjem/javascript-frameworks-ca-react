@@ -29,3 +29,63 @@ export const ProductCardsContainer = styled.div`
 export const NoResults = styled.p`
   margin: 1em auto;
 `;
+
+export const PaginationButton = styled.button`
+  background-color: ${(props) => props.theme.viewProductButton};
+  box-shadow: ${(props) => props.theme.navLinkShadow};
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: var(--font-size-xxsmall);
+  margin: 0 0.5em;
+  color: ${(props) => props.theme.colors.text};
+  width: 80px;
+  height: 30px;
+
+  &:hover {
+    background-color: ${(props) => props.theme.viewProductButtonHover};
+    color: ${(props) => props.theme.colors.white};
+  }
+  &:disabled {
+    background-color: #d0d0d0;
+    color: ${(props) => props.theme.disabledButtonBgColor};
+    cursor: not-allowed;
+  }
+`;
+
+export const CurrentPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-xxsmall);
+  margin: 0 1em;
+  gap: 6px;
+`;
+
+export const PaginationControls = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xxsmall);
+  margin: 1em auto;
+`;
+
+export const CurrentPageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1em;
+  width: 120px;
+`;
+
+export const PageSizeSelect = styled.select`
+  margin: 0.5em auto;
+  text-align: center;
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+`;
+
+export const Label = styled.label`
+  margin-right: 8px;
+  width: 100%;
+`;

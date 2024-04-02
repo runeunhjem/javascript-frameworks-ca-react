@@ -1,7 +1,7 @@
-import { createContext, useReducer, useEffect, useMemo } from "react";
+import { createContext, useReducer, useEffect, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
+import { API_PRODUCTS } from "../../shared/apis";
 
-// Initial state for the context's data
 const initialState = {
   products: [],
   loading: true,
@@ -11,17 +11,31 @@ const initialState = {
   selectedRating: 0,
   selectedPriceRange: "",
   selectedDiscountRange: "",
+  currentPage: 1,
+  totalPages: 0,
+  totalCount: 0,
+  pageSize: 10,
 };
 
-// Reducer function to handle state updates
 function productReducer(state, action) {
   switch (action.type) {
     case "FETCH_START":
       return { ...state, loading: true };
     case "FETCH_SUCCESS":
-      return { ...state, loading: false, products: action.payload };
+      return {
+        ...state,
+        loading: false,
+        products: action.payload.data,
+        currentPage: action.payload.meta.currentPage,
+        totalPages: action.payload.meta.pageCount,
+        totalCount: action.payload.meta.totalCount,
+      };
     case "FETCH_ERROR":
       return { ...state, loading: false, error: action.payload };
+    case "SET_PAGE":
+      return { ...state, currentPage: action.payload };
+    case "SET_PAGE_SIZE":
+      return { ...state, pageSize: action.payload };
     case "SET_SELECTED_TAG":
       return { ...state, selectedTag: action.payload };
     case "SET_SEARCH_TERM":
@@ -37,38 +51,43 @@ function productReducer(state, action) {
   }
 }
 
-// Create a context
 export const ProductContext = createContext();
 
-// Context Provider component
 export const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
+  const setPageSize = (pageSize) => dispatch({ type: "SET_PAGE_SIZE", payload: pageSize });
 
-  useEffect(() => {
-    dispatch({ type: "FETCH_START" });
-    const fetchData = async () => {
+  const fetchData = useCallback(
+    async (page) => {
+      dispatch({ type: "FETCH_START" });
       try {
-        const response = await fetch("https://v2.api.noroff.dev/online-shop/");
+        const response = await fetch(`${API_PRODUCTS}?page=${page}&limit=${state.pageSize}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        dispatch({ type: "FETCH_SUCCESS", payload: data.data });
+        dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (error) {
         dispatch({ type: "FETCH_ERROR", payload: error.message });
       }
-    };
+    },
+    [state.pageSize]
+  );
 
-    fetchData();
-  }, []);
+  useEffect(() => {
+    fetchData(state.currentPage);
+  }, [state.currentPage, fetchData]);
 
-  // Memoize the context value to prevent unnecessary re-renders
+  const setPage = (page) => dispatch({ type: "SET_PAGE", payload: page });
+
   const value = useMemo(
     () => ({
       ...state,
+      setPage,
+      setPageSize,
       setProducts: (products) => dispatch({ type: "FETCH_SUCCESS", payload: products }),
-      setSelectedTag: (tag) => dispatch({ type: "SET_SELECTED_TAG", payload: tag }),
       setSearchTerm: (term) => dispatch({ type: "SET_SEARCH_TERM", payload: term }),
+      setSelectedTag: (tag) => dispatch({ type: "SET_SELECTED_TAG", payload: tag }),
       setSelectedRating: (rating) => dispatch({ type: "SET_SELECTED_RATING", payload: rating }),
       setSelectedPriceRange: (range) => dispatch({ type: "SET_SELECTED_PRICE_RANGE", payload: range }),
       setSelectedDiscountRange: (range) => dispatch({ type: "SET_SELECTED_DISCOUNT_RANGE", payload: range }),
@@ -79,7 +98,6 @@ export const ProductProvider = ({ children }) => {
   return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>;
 };
 
-// Prop validation for the provider
 ProductProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };

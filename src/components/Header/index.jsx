@@ -1,28 +1,33 @@
 import PropTypes from "prop-types";
 import { useNavigate, useLocation } from "react-router-dom";
 import NavBar from "../NavBar";
-import ThemeSwitch from "../ThemeToggleButton"; // Ensure this component is adjusted to use the prop
+import ThemeSwitch from "../ThemeToggleButton";
 import { useEffect, useState } from "react";
-import { useProducts } from "../../contexts/ProductContext/useProducts";
+import { useProducts } from "../../hooks/useProducts";
 import SearchBar from "../SearchBar";
 import { useFilterVisibility } from "../../contexts/FilterVisibilityContext/FilterVisibilityContext";
 import * as S from "./index.styled";
 import "./index.css";
 
 function Header({ toggleTheme }) {
-  // Accept toggleTheme as a prop
   const [showSearchBar, setShowSearchBar] = useState(true);
-  const { setSelectedTag } = useProducts();
+  const { setSelectedTag, setSelectedRating, setSelectedPriceRange, setSelectedDiscountRange } = useProducts();
+
   const navigate = useNavigate();
   const location = useLocation();
   const { toggleFilterVisibility } = useFilterVisibility();
 
   const handleLogoClick = () => {
     setSelectedTag("");
+    setSelectedRating(0);
+    setSelectedPriceRange("");
+    setSelectedDiscountRange("");
     navigate("/");
   };
 
-  const toggleSearchBar = () => setShowSearchBar(!showSearchBar);
+  const toggleSearchBar = () => {
+    setShowSearchBar(!showSearchBar);
+  };
   const toggleFilterContainer = () => toggleFilterVisibility();
 
   useEffect(() => {
@@ -43,7 +48,7 @@ function Header({ toggleTheme }) {
   const isHomePage = location.pathname === "/";
 
   return (
-    <S.HeaderContainer className={`${showSearchBar ? "search-bar-visible" : ""}`}>
+    <S.HeaderContainer $showSearchBar={showSearchBar ? 1 : 0}>
       <S.Container>
         <S.Logo onClick={handleLogoClick}>
           <S.LogoImage src="/header-logo-cgg.svg" alt="Illustration of the CGG logo" />
@@ -58,7 +63,6 @@ function Header({ toggleTheme }) {
             </S.SearchAndFilterIcons>
             <div className="mode-switch">
               <i className="bi bi-sun"></i>
-              {/* Ensure ThemeSwitch uses the toggleTheme prop effectively */}
               <ThemeSwitch toggleTheme={toggleTheme} />
               <i className="bi bi-moon"></i>
             </div>

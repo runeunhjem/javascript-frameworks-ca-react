@@ -1,11 +1,10 @@
-// index.styled.jsx
 import styled from "styled-components";
 
 export const CategoriesContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  color: var(--color-white);
+  color: ${(props) => props.theme.input};
   position: relative;
   width: 150px;
   max-width: 100%;

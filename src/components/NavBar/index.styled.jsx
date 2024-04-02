@@ -1,4 +1,3 @@
-// NavBar/index.styled.jsx
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
@@ -23,13 +22,13 @@ export const NavLinks = styled.ul`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  color: var(--color-white);
+  color: ${(props) => props.theme.colors.white};
   text-decoration: none;
   padding: 2px 0;
   font-size: var(--font-size-xsmall);
 
   &.active {
-    color: var(--color-pink-light);
+    color: ${(props) => props.theme.colors.active};
     text-decoration: underline;
     cursor: default;
   }

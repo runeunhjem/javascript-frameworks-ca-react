@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"; // Corrected import for PropTypes
+import PropTypes from "prop-types";
 import { createContext, useState, useEffect } from "react";
 import { load, save } from "../../components/StorageUtils";
 
@@ -30,7 +30,7 @@ export const CartProvider = ({ children }) => {
         if (item.id === productId) {
           if (quantity > 0) {
             acc.push({ ...item, quantity });
-          } // If quantity is 0, item is removed from cart
+          }
         } else {
           acc.push(item);
         }
@@ -52,7 +52,6 @@ export const CartProvider = ({ children }) => {
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 
-// Adding PropTypes for validation
 CartProvider.propTypes = {
-  children: PropTypes.node.isRequired, // Defines children as required prop of any node (element)
+  children: PropTypes.node.isRequired,
 };

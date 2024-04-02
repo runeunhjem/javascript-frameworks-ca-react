@@ -1,12 +1,10 @@
-// index.jsx
 import { Link } from "react-router-dom";
-import { useCart } from "../../contexts/CartContext/useCart";
-import * as S from "./index.styled"; // Import styled components with alias S
+import { useCart } from "../../hooks/useCart";
+import * as S from "./index.styled";
 
 function CartIcon() {
   const { cartItems } = useCart();
 
-  // Calculate the total number of items in the cart
   const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (

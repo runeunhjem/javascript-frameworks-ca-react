@@ -9,8 +9,11 @@ export const lightTheme = {
     black: "var(--color-black)",
     error: "var(--color-red)",
     text: "var(--color-black)",
+    active: "var(--color-pink-light)",
+    pink: "var(--color-pink)",
+    red: "var(--color-red)",
   },
-  // Buttons, links, and other UI elements
+
   viewProductButton: "var(--color-pink-light)",
   viewProductButtonHover: "var(--color-pink)",
   viewProductButtonHoverDark: "var(--color-pink-dark)",
@@ -18,7 +21,7 @@ export const lightTheme = {
   productCardBackground: "var(--color-white)",
   navLinkShadow: "var(--box-shadow-light)",
   productCardText: "var(--color-black)",
-  priceTextDiscounted: "var(--color-red)",
+  priceTextDiscounted: "var(--color-success)",
   priceBgDiscounted: "var(--color-red)",
   priceBgNormal: "var(--color-price-normal)",
   priceTextNormal: "var(--color-black)",
@@ -33,6 +36,7 @@ export const lightTheme = {
   successMessage: "var(--color-success)",
   checkoutButton: "var(--color-success)",
   checkoutButtonText: "var(--color-white)",
+  disabledButtonBgColor: "var(--color-gray)",
 };
 
 export const darkTheme = {
@@ -46,8 +50,11 @@ export const darkTheme = {
     black: "var(--color-black)",
     error: "var(--color-red-light)",
     text: "var(--color-pink-lighter)",
+    active: "var(--color-pink-light)",
+    pink: "var(--color-pink)",
+    red: "var(--color-red)",
   },
-  // Buttons, links, and other UI elements
+
   viewProductButton: "var(--color-pink-dark)",
   viewProductButtonHover: "var(--color-pink)",
   viewProductButtonHoverDark: "var(--color-pink-dark)",
@@ -55,7 +62,7 @@ export const darkTheme = {
   navLinkShadow: "var(--box-shadow-dark)",
   productCardText: "var(--color-pink-xlight)",
   priceBgDiscounted: "var(--color-white)",
-  priceTextDiscounted: "var(--color-red-light)",
+  priceTextDiscounted: "var(--color-success-darkMode)",
   priceBgNormal: "var(--color-price-normal)",
   priceTextNormal: "var(--color-pink-lighter)",
   input: "var(--color-pink-xlight)",
@@ -69,4 +76,5 @@ export const darkTheme = {
   successMessage: "var(--color-success-darkMode)",
   checkoutButton: "var(--color-success-darkMode)",
   checkoutButtonText: "var(--color-black)",
+  disabledButtonBgColor: "var(--color-gray)",
 };

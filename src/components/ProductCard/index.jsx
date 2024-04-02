@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../contexts/CartContext/useCart";
+import { useCart } from "../../hooks/useCart";
 import * as S from "./index.styled";
 import RenderStars from "../RenderStars";
 
@@ -47,6 +47,7 @@ function ProductCard({ product }) {
       <S.InfoWrapper>
         <S.RatingContainer aria-label={`Rating: ${product.rating} out of 5`}>
           <RenderStars rating={product.rating} />
+          <S.NumberOfReviews>({product.reviews.length})</S.NumberOfReviews>
         </S.RatingContainer>
         <S.Price $isDiscounted={hasDiscount}>
           {hasDiscount ? `NOW: $${(product.discountedPrice / 10).toFixed(2)}` : `Price: $${(product.price / 10).toFixed(2)}`}
@@ -72,6 +73,17 @@ ProductCard.propTypes = {
     description: PropTypes.string,
     rating: PropTypes.number,
     tags: PropTypes.arrayOf(PropTypes.string),
+    reviews: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+        rating: PropTypes.number.isRequired,
+        comment: PropTypes.string,
+        user: PropTypes.shape({
+          id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+          username: PropTypes.string.isRequired,
+        }),
+      })
+    ),
   }).isRequired,
 };
 

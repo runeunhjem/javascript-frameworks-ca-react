@@ -3,8 +3,8 @@ export const save = (key, data) => {
   try {
     const serializedData = JSON.stringify(data);
     localStorage.setItem(key, serializedData);
-  } catch (err) {
-    console.error("Could not save to localStorage", err);
+  } catch (error) {
+    console.error("Could not save to localStorage", error);
   }
 };
 
@@ -13,8 +13,8 @@ export const load = (key) => {
   try {
     const serializedData = localStorage.getItem(key);
     return serializedData ? JSON.parse(serializedData) : null;
-  } catch (err) {
-    console.error("Could not load from localStorage", err);
+  } catch (error) {
+    console.error("Could not load from localStorage", error);
     return null;
   }
 };

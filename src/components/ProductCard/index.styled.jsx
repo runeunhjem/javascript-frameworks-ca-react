@@ -1,4 +1,3 @@
-// index.styled.jsx
 import styled, { css } from "styled-components";
 
 export const Card = styled.div`
@@ -6,7 +5,6 @@ export const Card = styled.div`
   padding: 20px;
   margin: 10px;
   width: 300px;
-  /* height: 640px; */
   display: inline-block;
   font-size: var(--font-size-xsmall);
   background-color: ${(props) => props.theme.productCardBackground};
@@ -49,7 +47,7 @@ export const AddToCartButton = styled.button`
   bottom: 0px;
   left: 0px;
   background-color: var(--color-pink);
-  color: var(--color-white);
+  color: ${(props) => props.theme.colors.white};
 
   &.added {
     background-color: var(--color-success);
@@ -75,8 +73,8 @@ export const ViewProductButton = styled.button`
   box-shadow: ${(props) => props.theme.navLinkShadow};
 
   &:hover {
-    background-color: var(--color-pink);
-    color: var(--color-white);
+    background-color: ${(props) => props.theme.colors.pink};
+    color: ${(props) => props.theme.colors.white};
   }
 `;
 
@@ -84,8 +82,8 @@ export const DiscountTag = styled.div`
   position: absolute;
   top: 130px;
   right: -65px;
-  background-color: var(--color-red);
-  color: var(--color-white);
+  background-color: ${(props) => props.theme.colors.red};
+  color: ${(props) => props.theme.colors.white};
   transform: rotate(45deg);
   transform-origin: right bottom;
   width: 320px;
@@ -124,7 +122,6 @@ export const Price = styled.p`
   font-size: var(--font-size-price);
   font-weight: bold;
   color: ${(props) => (props.$isDiscounted ? props.theme.priceTextDiscounted : props.theme.priceTextNormal)};
-  /* background-color: ${(props) => (props.$isDiscounted ? props.theme.priceBgDiscounted : props.theme.priceBgNormal)}; */
   border-radius: ${(props) => (props.$isDiscounted ? "4px" : "4px")};
 `;
 
@@ -133,7 +130,6 @@ export const RatingContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  /* margin-bottom: 1em; */
   height: 100%;
 `;
 
@@ -150,4 +146,9 @@ export const Stars = styled.div`
 
 export const RatingText = styled.span`
   margin-right: 5px;
+`;
+
+export const NumberOfReviews = styled.span`
+  font-size: var(--font-size-xxsmall);
+  margin-left: 5px;
 `;

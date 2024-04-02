@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link as RouterLink } from "react-router-dom";
 
 const buttonStyles = css`
   cursor: pointer;
@@ -16,9 +17,24 @@ export const MainContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin-bottom: 2rem;
   font-size: var(--font-size-xxlarge);
   color: ${(props) => props.theme.colors.text};
+`;
+
+export const ClearCartButton = styled.button`
+  ${buttonStyles}
+
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: var(--font-size-price);
+  font-weight: var(--font-weight-bold);
+  color: ${(props) => props.theme.errorMessage};
+  background-color: transparent;
+  border-radius: 4px;
+  &:hover {
+    background-color: var(--color-pink);
+    color: ${(props) => props.theme.colors.white};
+  }
 `;
 
 export const ItemsContainer = styled.div`
@@ -34,11 +50,9 @@ export const ItemCard = styled.div`
   display: flex;
   gap: 20px;
   width: 100%;
-  /* padding: 10px; */
   border: 1px solid ${(props) => props.theme.colors.inputBorderColor};
   box-shadow: ${(props) => props.theme.productCardShadow};
   @media screen and (max-width: 640px) {
-    /* flex-direction: column; */
     align-items: flex-start;
   }
 `;
@@ -47,6 +61,9 @@ export const ItemImageContainer = styled.div`
   cursor: pointer;
   flex: 1 1;
   height: 150px;
+  @media screen and (max-width: 368px) {
+    height: 180px;
+  }
 `;
 
 export const ItemImage = styled.img`
@@ -68,7 +85,7 @@ export const ItemDetails = styled.div`
   align-items: flex-start;
   height: 100%;
   width: 100%;
-  padding: 10px 10px 10px 0;
+  padding: 0 10px 0 0;
 `;
 
 export const ItemDetailsHeader = styled.div`
@@ -89,18 +106,17 @@ export const VisuallyHiddenLabel = styled.label`
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-  white-space: nowrap; // added for completeness
+  white-space: nowrap;
 `;
 
 export const QuantityAndRemoveContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap; // Allow the items to wrap to the next line
-  gap: 10px; // Adjust as needed for spacing
+  flex-wrap: wrap;
+  gap: 10px;
   flex-grow: 1;
   margin: 4px auto;
   @media screen and (max-width: 620px) {
-    /* justify-content: flex-end; */
   }
   @media screen and (max-width: 390px) {
     justify-content: flex-end;
@@ -128,6 +144,7 @@ export const QuantityControl = styled.div`
   justify-content: space-between;
   gap: 8px;
   margin-right: 3em;
+  margin-top: 6px;
   @media screen and (max-width: 620px) {
     margin-right: 0em;
     justify-content: flex-start;
@@ -135,14 +152,18 @@ export const QuantityControl = styled.div`
 `;
 
 export const QuantityButton = styled.button`
-  padding: 5px 10px;
-  /* margin: 0 5px; */
+  padding: 4px 10px;
+  align-items: center;
   cursor: pointer;
   border-radius: 4px;
   border: none;
   background-color: ${(props) => props.theme.viewProductButton};
   color: ${(props) => props.theme.colors.text};
   box-shadow: ${(props) => props.theme.navLinkShadow};
+  &:hover {
+    background-color: ${(props) => props.theme.viewProductButtonHover};
+    color: ${(props) => props.theme.colors.white};
+  }
 `;
 
 export const QuantityInputLabel = styled.input`
@@ -153,9 +174,12 @@ export const QuantityInput = styled.input`
   width: 50px;
   height: 100%;
   border-radius: 4px;
+  margin-top: 1px;
+  border: 1px solid ${(props) => props.theme.colors.inputBorderColor};
   text-align: center;
   background-color: ${(props) => props.theme.searchResultBackground};
   color: ${(props) => props.theme.colors.text};
+  align-items: center;
 `;
 
 export const PriceDetails = styled.div`
@@ -185,6 +209,7 @@ export const PricePerItemWrapper = styled.div`
 
 export const RemoveButton = styled.button`
   padding: 5px 10px;
+  margin-top: 6px;
   cursor: pointer;
   background-color: ${(props) => props.theme.colors.error};
   color: ${(props) => props.theme.removeButtonText};
@@ -221,7 +246,7 @@ export const TotalSavings = styled.h3`
   display: flex;
   justify-content: center;
   padding: 4px;
-  color: ${(props) => props.theme.colors.error};
+  color: ${(props) => props.theme.colors.success};
 `;
 
 export const TotalPrice = styled.h3`
@@ -230,7 +255,7 @@ export const TotalPrice = styled.h3`
   display: flex;
   justify-content: flex-end;
   padding: 4px;
-  color: ${(props) => props.theme.colors.success};
+  color: ${(props) => props.theme.colors.text};
 `;
 
 export const TotalPricePerItem = styled.div`
@@ -247,12 +272,12 @@ export const TotalPricePerItem = styled.div`
 `;
 
 export const Savings = styled.h3`
-  color: ${(props) => props.theme.colors.error};
+  color: ${(props) => props.theme.colors.success};
   text-align: right;
   font-size: var(--font-size-xsmall);
 `;
 export const Totals = styled.h3`
-  color: ${(props) => props.theme.colors.success};
+  color: ${(props) => props.theme.colors.text};
   text-align: right;
   font-size: var(--font-size-xsmall);
 `;
@@ -285,6 +310,19 @@ export const CheckoutButton = styled.button`
 
   &:hover {
     background-color: var(--color-pink);
-    color: var(--color-white);
+    color: ${(props) => props.theme.colors.white};
+  }
+`;
+
+export const ReturnLink = styled(RouterLink)`
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: ${(props) => props.theme.viewProductButtonHover};
+  color: ${(props) => props.theme.h2};
+  text-decoration: none;
+  border-radius: 5px;
+  &:hover {
+    background-color: ${(props) => props.theme.viewProductButtonHoverDark};
   }
 `;

@@ -1,6 +1,5 @@
-// RatingSelector.jsx
-import { useProducts } from "../../contexts/ProductContext/useProducts";
-import * as S from "./index.styled"; // Adjust the import path as necessary
+import { useProducts } from "../../hooks/useProducts";
+import * as S from "./index.styled";
 
 function RatingSelector() {
   const { selectedRating, setSelectedRating } = useProducts();

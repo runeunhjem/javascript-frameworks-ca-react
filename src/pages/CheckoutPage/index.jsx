@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useCart } from "../../contexts/CartContext/useCart";
+import { useCart } from "../../hooks/useCart";
 import { useNavigate } from "react-router-dom";
 import * as S from "./index.styled";
 
@@ -39,6 +39,7 @@ function CheckoutPage() {
   return (
     <S.MainContainer>
       <S.Title>Checkout</S.Title>
+      {cartItems.length > 0 && <S.ClearCartButton onClick={clearCart}>( Clear Cart )</S.ClearCartButton>}
       <S.ItemsContainer>
         {cartItems.length > 0 ? (
           cartItems.map((item) => {
@@ -66,7 +67,6 @@ function CheckoutPage() {
                         />
                         <S.QuantityButton onClick={() => handleQuantityChange(item, item.quantity + 1)}>+</S.QuantityButton>
                       </S.QuantityControl>
-
                       <S.RemoveButton onClick={() => removeItem(item.id)}>Remove</S.RemoveButton>
                     </S.QuantityAndRemoveContainer>
                   </S.ItemDetailsHeader>
@@ -90,7 +90,10 @@ function CheckoutPage() {
             );
           })
         ) : (
-          <S.EmptyCartMessage>Your cart is empty.</S.EmptyCartMessage>
+          <>
+            <S.EmptyCartMessage>Your cart is empty.</S.EmptyCartMessage>
+            <S.ReturnLink to="/">Return to Store</S.ReturnLink>
+          </>
         )}
       </S.ItemsContainer>
       {cartItems.length > 0 && (

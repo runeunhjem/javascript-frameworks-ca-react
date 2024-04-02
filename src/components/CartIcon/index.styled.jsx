@@ -12,7 +12,7 @@ export const ItemCountBadge = styled.span`
   right: -20px;
   height: 22px;
   width: 22px;
-  background-color: var(--color-white);
+  background-color: ${(props) => props.theme.colors.white};
   color: var(--color-pink-hot);
   border-radius: 50%;
   padding: 2px 6px;
@@ -31,6 +31,6 @@ export const IconContainer = styled.div`
   transition: all 0.3s ease-in-out;
   &:hover ${ItemCountBadge} {
     background-color: var(--color-pink-hot);
-    color: var(--color-white);
+    color: ${(props) => props.theme.colors.white};
   }
 `;

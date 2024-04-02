@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useCart } from "../../contexts/CartContext/useCart";
+import { useCart } from "../../hooks/useCart";
 import Reviews from "../../components/Reviews";
 import * as S from "./index.styled";
 import RenderStars from "../../components/RenderStars";
@@ -44,6 +44,9 @@ function ProductPage() {
     navigate("/cart");
   };
 
+  const capitalizeTags = (tags) => tags.map((tag) => tag.charAt(0).toUpperCase() + tag.slice(1)).join(", ");
+
+
   if (loading) return <S.MainContainer>Loading...</S.MainContainer>;
   if (error) return <S.MainContainer>Error: {error}</S.MainContainer>;
   if (!product) return <S.MainContainer>Product not found</S.MainContainer>;
@@ -72,6 +75,7 @@ function ProductPage() {
             <S.PriceInfo $hasDiscount={hasDiscount}>Price: ${(product.price / 10).toFixed(2)}</S.PriceInfo>
             {hasDiscount && <S.DiscountedPrice>Now: ${(product.discountedPrice / 10).toFixed(2)}</S.DiscountedPrice>}
             {hasDiscount && <S.Savings>You save: ${savings.toFixed(2)}</S.Savings>}
+            <S.Tags>Categories: {capitalizeTags(product.tags)}</S.Tags>
           </S.InfoContainer>
           <S.ButtonContainer>
             <S.AddToCartButton onClick={handleAddToCart}>Add to Cart</S.AddToCartButton>

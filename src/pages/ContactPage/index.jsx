@@ -103,16 +103,12 @@ function ContactPage() {
     if (isFormValid) {
       console.log("Form is valid, submitting data:", formData);
 
-      // Indicate form submission success
       setIsSubmitted(true);
 
-      // Revert the submission status after 2 seconds
       setTimeout(() => {
         setIsSubmitted(false);
-        // Reset the form here if necessary
       }, 2000);
 
-      // Reset the form
       setFormData({ fullName: "", subject: "", email: "", message: "" });
       setInputStyles({});
       setTouchedFields({});

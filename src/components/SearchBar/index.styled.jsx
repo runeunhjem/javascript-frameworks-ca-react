@@ -18,7 +18,6 @@ export const SearchBarContainer = styled.form`
     left: 0;
     max-width: 100%;
     margin: 15px auto;
-    /* width: 100%; */
     z-index: 1000;
     justify-content: center;
   }
@@ -26,23 +25,20 @@ export const SearchBarContainer = styled.form`
 
 export const SearchBlock = styled.div`
   display: flex;
-  /* border-radius: 5px; */
   flex-wrap: nowrap;
   border-radius: 5px;
   color: ${(props) => props.theme.input};
   background-color: ${(props) => props.theme.input};
   position: relative;
   justify-content: center;
-  width: 95%;
+  width: 90%;
   @media (max-width: 391px) {
-    /* margin-left: 3px; */
     justify-content: flex-start;
   }
   @media (min-width: 791px) {
     padding-left: 3px;
     justify-content: flex-start;
   }
-  /* border: 1px solid var(--color-pink-light); */
 `;
 
 export const SearchButton = styled.button`
@@ -129,7 +125,6 @@ export const SearchResultItem = styled.div`
   }
   &:hover {
     background-color: ${(props) => props.theme.searchResultBackgroundHover};
-    /* color: ${(props) => props.theme.priceTextNormal}; */
     transform: scale(0.98);
   }
 `;
@@ -162,20 +157,20 @@ export const SearchResultTitle = styled.span`
 
 export const SearchResultPriceInfo = styled.div`
   display: flex;
-  flex-direction: column; // Change to column for vertical stacking
-  align-items: flex-start; // Align items to the start
-  gap: 4px; // Optional: adds space between lines
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 `;
 
 export const SearchResultNormalPriceAndDiscount = styled.div`
   display: flex;
-  align-items: baseline; // Keep items aligned properly
+  align-items: baseline;
 `;
 
 export const SearchResultNormalPrice = styled.span`
   color: ${(props) => props.theme.searchResultText};
   text-decoration: line-through;
-  margin-right: 10px; // Keep some spacing between the normal price and discount
+  margin-right: 10px;
 `;
 
 export const SearchResultDiscount = styled.span`

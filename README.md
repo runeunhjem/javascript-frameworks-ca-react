@@ -1,25 +1,6 @@
 # JS Frameworks CA - React with Vite
 
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-
 <a name="readme-top"></a>
-
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -44,7 +25,7 @@
       * Checkout success page
     The Homepage should have a list of all the products. There should be a look-ahead search bar that filters products when typing in a product name. Clicking on a product should take a user to an individual product page.
 
-    You pages should use a <Layout> component that contains a header and footer. The header should contain a nav bar as well as a Cart icon component that acts as a button as well as displays the current number of items in the cart.
+    Your pages should use a <Layout> component that contains a header and footer. The header should contain a nav bar as well as a Cart icon component that acts as a button as well as displays the current number of items in the cart.
 
   </p>
 
@@ -140,11 +121,11 @@ In order to edit and work with the site locally, you need a code editor.
 3. Install NPM packages
    ```sh
     npm install
-    ```
+   ```
 4. Run the script to go live locally
-    ```sh
-    npm run dev
-    ```
+   ```sh
+   npm run dev
+   ```
 5. Open your browser and follow the link to the local server
 
 6. Start working
@@ -202,14 +183,19 @@ Don't forget to give the project a star! Thanks again!
 Project Link: [https://github.com/runeunhjem/javascript-frameworks-ca-react](https://github.com/runeunhjem/javascript-frameworks-ca-react)
 
 Call me - [+47 93 26 76 11](tel:+4793267611)
+
 Email - [runeunhjem@gmail.com](mailto:runeunhjem@gmail.com)
+
 Web (Portfolio) - [Rune Unhjem](https://runeunhjem.com)
 
 ##### Social media
 
 LinkedIn - [Rune Unhjem](https://www.linkedin.com/in/runeunhjem/)
+
 Facebook - [Rune Unhjem](https://www.facebook.com/runeunhjem/)
+
 Instagram - [@runeunhjem](https://www.instagram.com/runeunhjem/)
+
 GitHub - [runeunhjem](https://github.com/runeunhjem)
 
 ##### Other projects
@@ -227,6 +213,9 @@ My music project on Spotify - [Rune Unhjem | -=ThE rUnIcOrN=-](https://open.spot
 - [Othneil Drew | README.md template](https://github.com/othneildrew)
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
 - [Lorem Picsum](https://picsum.photos/)
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Styled Components](https://styled-components.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -246,4 +235,3 @@ My music project on Spotify - [Rune Unhjem | -=ThE rUnIcOrN=-](https://open.spot
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/runeunhjem
 [product-screenshot]: ./public/javascript-frameworks-ca-react.png
-

@@ -4,7 +4,7 @@ export const Button = styled.button`
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: ${(props) => props.theme.header};
+  background-color: ${(props) => props.theme.viewProductButton};
   color: white;
   border: none;
   border-radius: 50%;
@@ -14,12 +14,13 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.7;
   font-size: var(--font-size-medium);
   box-shadow: var(--box-shadow-light);
+  opacity: ${({ $show }) => ($show ? 0.7 : 0)};
+  transition: opacity 0.3s ease-in-out;
+  visibility: ${({ $show }) => ($show ? "visible" : "hidden")};
   &:hover {
     opacity: 1;
+    background-color: ${(props) => props.theme.viewProductButtonHover};
   }
-  visibility: ${({ $show }) => ($show ? "visible" : "hidden")};
-  transition: visibility 0.3s, opacity 0.3s ease;
 `;

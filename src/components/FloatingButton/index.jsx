@@ -4,13 +4,18 @@ import * as S from "./index.styled";
 const FloatingButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 200) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
+  useEffect(() => {
+    const checkIfShouldBeVisible = () => {
+      const shouldShow = window.pageYOffset > 200;
+      setIsVisible(shouldShow);
+    };
+
+    // Initialize visibility based on the current scroll position
+    checkIfShouldBeVisible();
+
+    window.addEventListener("scroll", checkIfShouldBeVisible);
+    return () => window.removeEventListener("scroll", checkIfShouldBeVisible);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -18,11 +23,6 @@ const FloatingButton = () => {
       behavior: "smooth",
     });
   };
-
-  useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
 
   return (
     <S.Button onClick={scrollToTop} $show={isVisible}>

@@ -21,7 +21,7 @@ export const lightTheme = {
   productCardBackground: "var(--color-white)",
   navLinkShadow: "var(--box-shadow-light)",
   productCardText: "var(--color-black)",
-  priceTextDiscounted: "var(--color-red)",
+  priceTextDiscounted: "var(--color-success)",
   priceBgDiscounted: "var(--color-red)",
   priceBgNormal: "var(--color-price-normal)",
   priceTextNormal: "var(--color-black)",
@@ -54,7 +54,7 @@ export const darkTheme = {
     pink: "var(--color-pink)",
     red: "var(--color-red)",
   },
-  
+
   viewProductButton: "var(--color-pink-dark)",
   viewProductButtonHover: "var(--color-pink)",
   viewProductButtonHoverDark: "var(--color-pink-dark)",
@@ -62,7 +62,7 @@ export const darkTheme = {
   navLinkShadow: "var(--box-shadow-dark)",
   productCardText: "var(--color-pink-xlight)",
   priceBgDiscounted: "var(--color-white)",
-  priceTextDiscounted: "var(--color-red-light)",
+  priceTextDiscounted: "var(--color-success-darkMode)",
   priceBgNormal: "var(--color-price-normal)",
   priceTextNormal: "var(--color-pink-lighter)",
   input: "var(--color-pink-xlight)",

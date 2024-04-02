@@ -10,6 +10,7 @@ export const ProductCards = styled.div`
 export const Heading = styled.h1`
   text-align: center;
   margin-top: 20px;
+  font-size: var(--font-size-small);
 `;
 
 export const SearchResultInfo = styled.div`

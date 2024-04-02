@@ -112,7 +112,7 @@ export const DiscountInfo = styled.p`
 
 export const Savings = styled.p`
   font-size: var(--font-size-xsmall);
-  color: ${({ theme }) => theme.colors.error};
+  color: ${({ theme }) => theme.colors.success};
 `;
 export const Tags = styled.p`
   font-size: var(--font-size-xsmall);

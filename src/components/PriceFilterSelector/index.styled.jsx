@@ -6,9 +6,12 @@ export const SelectorContainer = styled.div`
   flex-wrap: wrap;
   color: ${(props) => props.theme.input};
   position: relative;
-  width: 150px;
+  min-width: 100px;
   max-width: 100%;
   margin: 6px auto;
+  @media (min-width: 768px) {
+    width: 150px;
+  }
 `;
 
 export const LabelContainer = styled.div`
@@ -38,7 +41,7 @@ export const Label = styled.label`
 
 export const Select = styled.select`
   height: 30px;
-  width: 100%;
+  min-width: 100%;
   max-width: 300px;
   display: flex;
   justify-content: flex-start;

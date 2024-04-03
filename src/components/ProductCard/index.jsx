@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
 import * as S from "./index.styled";
 import RenderStars from "../RenderStars";
+import Checkmark from "../Checkmark";
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
   const [isAdded, setIsAdded] = useState(false);
+  const [showCheckmark, setShowCheckmark] = useState(false);
   const imageAlt = product.image && product.title ? product.title : "";
 
   const discountPercentage =
@@ -23,11 +25,16 @@ function ProductCard({ product }) {
     event.stopPropagation();
     setIsAdded(true);
     addToCart(product);
-    setTimeout(() => setIsAdded(false), 1000);
+    setShowCheckmark(true);
+    setTimeout(() => {
+      setIsAdded(false);
+      setShowCheckmark(false);
+    }, 2000);
   };
 
   return (
     <S.Card aria-label={`Product card for ${product.title}`}>
+      {showCheckmark && <Checkmark visible={showCheckmark} />}
       <S.ImageContainer role="img" aria-label={imageAlt}>
         <S.ProductImage
           onClick={handleNavigate}

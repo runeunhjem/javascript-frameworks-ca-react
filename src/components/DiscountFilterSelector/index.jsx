@@ -6,8 +6,8 @@ function DiscountFilterSelector({ selectedDiscountRange, setSelectedDiscountRang
   return (
     <S.SelectorContainer>
       <S.LabelContainer>
-      <S.Label htmlFor="discount-select">Discount: </S.Label>
-      <S.ResetLink onClick={resetFilter} role="button" tabIndex={0}>
+        <S.Label htmlFor="discount-select">Discount: </S.Label>
+        <S.ResetLink onClick={resetFilter} role="button" tabIndex={0}>
           Reset
         </S.ResetLink>
       </S.LabelContainer>
@@ -16,6 +16,7 @@ function DiscountFilterSelector({ selectedDiscountRange, setSelectedDiscountRang
         value={selectedDiscountRange}
         onChange={(e) => setSelectedDiscountRange(e.target.value)}>
         <option value="showAll">Show all</option>
+        <option value="allDiscounted">All discounted</option>
         <option value="notOnSale">Not on sale</option>
         <option value="under10">Under 10%</option>
         <option value="10to20">10% - 20%</option>

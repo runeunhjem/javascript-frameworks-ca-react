@@ -73,6 +73,10 @@ export const ItemImage = styled.img`
   height: 200px;
   max-height: 100%;
   object-fit: cover;
+  transition: transform 200ms ease;
+  &:hover {
+    transform: scale(1.02);
+  }
   @media screen and (min-width: 655px) {
     width: 300px;
     height: 150px;

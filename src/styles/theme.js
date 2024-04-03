@@ -14,6 +14,8 @@ export const lightTheme = {
     red: "var(--color-red)",
   },
 
+  categoryButtonActive: "var(--color-pink-dark)",
+  categoryButtonActiveText: "var(--color-white)",
   viewProductButton: "var(--color-pink-light)",
   viewProductButtonHover: "var(--color-pink)",
   viewProductButtonHoverDark: "var(--color-pink-dark)",
@@ -55,6 +57,8 @@ export const darkTheme = {
     red: "var(--color-red)",
   },
 
+  categoryButtonActive: "var(--color-pink-light)",
+  categoryButtonActiveText: "var(--color-black)",
   viewProductButton: "var(--color-pink-dark)",
   viewProductButtonHover: "var(--color-pink)",
   viewProductButtonHoverDark: "var(--color-pink-dark)",

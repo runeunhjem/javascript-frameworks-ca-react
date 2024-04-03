@@ -4,13 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
 import * as S from "./index.styled";
 import RenderStars from "../RenderStars";
-import Checkmark from "../Checkmark";
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
   const [isAdded, setIsAdded] = useState(false);
-  const [showCheckmark, setShowCheckmark] = useState(false);
   const imageAlt = product.image && product.title ? product.title : "";
 
   const discountPercentage =
@@ -25,16 +23,11 @@ function ProductCard({ product }) {
     event.stopPropagation();
     setIsAdded(true);
     addToCart(product);
-    setShowCheckmark(true);
-    setTimeout(() => {
-      setIsAdded(false);
-      setShowCheckmark(false);
-    }, 2000);
+    setTimeout(() => setIsAdded(false), 2000);
   };
 
   return (
     <S.Card aria-label={`Product card for ${product.title}`}>
-      {showCheckmark && <Checkmark visible={showCheckmark} />}
       <S.ImageContainer role="img" aria-label={imageAlt}>
         <S.ProductImage
           onClick={handleNavigate}
@@ -45,8 +38,9 @@ function ProductCard({ product }) {
         <S.AddToCartButton
           onClick={handleAddToCart}
           className={isAdded ? "added" : ""}
-          aria-label={`Add ${product.title} to cart`}>
-          Add to Cart
+          aria-label={`Add ${product.title} to cart`}
+        >
+          {isAdded ? "Added ✔️" : "Add to Cart"}
         </S.AddToCartButton>
         {discountPercentage > 0 && <S.DiscountTag>Save: {discountPercentage}%</S.DiscountTag>}
       </S.ImageContainer>

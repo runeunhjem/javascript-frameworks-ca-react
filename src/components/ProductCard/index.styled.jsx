@@ -44,19 +44,21 @@ const buttonStyles = css`
 export const AddToCartButton = styled.button`
   ${buttonStyles}
   position: absolute;
+  width: 100px;
+  height: 30px;
   bottom: 0px;
   left: 0px;
   background-color: var(--color-pink);
   color: ${(props) => props.theme.colors.white};
-
-  &.added {
-    background-color: var(--color-success);
-  }
-
   &:hover {
     transform: scale(1.05);
     background-color: var(--color-success);
   }
+  &.added {
+    background-color: var(--color-gold);
+    color: ${(props) => props.theme.colors.black};
+  }
+
 `;
 
 export const ViewProductButton = styled.button`

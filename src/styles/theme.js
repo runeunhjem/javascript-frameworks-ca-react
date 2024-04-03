@@ -12,6 +12,7 @@ export const lightTheme = {
     active: "var(--color-pink-light)",
     pink: "var(--color-pink)",
     red: "var(--color-red)",
+    gold: "var(--color-gold)",
   },
 
   categoryButtonActive: "var(--color-pink-dark)",
@@ -55,6 +56,7 @@ export const darkTheme = {
     active: "var(--color-pink-light)",
     pink: "var(--color-pink)",
     red: "var(--color-red)",
+    gold: "var(--color-gold)",
   },
 
   categoryButtonActive: "var(--color-pink-light)",

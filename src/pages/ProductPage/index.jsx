@@ -59,7 +59,7 @@ function ProductPage() {
     <S.MainContainer>
       <S.ProductDetailsContainer>
         <S.ImageContainer>
-          <S.ProductImage src={product.image.url} alt={product.image.alt || product.title} />
+          <S.ProductImage src={product.image.url} alt={`Illustration of ${product.image.alt || product.title}`} />
         </S.ImageContainer>
         <S.DetailsContainer>
           <S.RatingContainer aria-label={`Rating: ${product.rating} out of 5`}>

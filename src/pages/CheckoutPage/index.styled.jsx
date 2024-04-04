@@ -17,7 +17,7 @@ export const MainContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: var(--font-size-xxlarge);
+  font-size: var(--font-size-xlarge);
   color: ${(props) => props.theme.colors.text};
 `;
 

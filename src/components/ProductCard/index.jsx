@@ -28,9 +28,8 @@ function ProductCard({ product }) {
 
   return (
     <S.Card aria-label={`Product card for ${product.title}`}>
-      <S.ImageContainer role="img" aria-label={imageAlt}>
+      <S.ImageContainer onClick={handleNavigate} role="img" aria-label={imageAlt}>
         <S.ProductImage
-          onClick={handleNavigate}
           aria-label={`View ${product.title}`}
           src={product.image ? product.image.url : "https://via.placeholder.com/300"}
           alt={imageAlt}
@@ -38,8 +37,7 @@ function ProductCard({ product }) {
         <S.AddToCartButton
           onClick={handleAddToCart}
           className={isAdded ? "added" : ""}
-          aria-label={`Add ${product.title} to cart`}
-        >
+          aria-label={`Add ${product.title} to cart`}>
           {isAdded ? "Added ✔️" : "Add to Cart"}
         </S.AddToCartButton>
         {discountPercentage > 0 && <S.DiscountTag>Save: {discountPercentage}%</S.DiscountTag>}

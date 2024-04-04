@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /private/
 Disallow: /tmp/
+Disallow: /node_modules/

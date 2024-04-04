@@ -32,6 +32,21 @@ function ProductPage() {
 
   useEffect(() => {
     document.title = product ? `CGG | ${product.title}` : "Product not found";
+
+    let metaDescription = document.querySelector("meta[name='description']");
+
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.getElementsByTagName("head")[0].appendChild(metaDescription);
+    }
+
+    metaDescription.setAttribute(
+      "content",
+      product && product.description
+        ? product.description
+        : "Come check out our awesome giftstore with great prices."
+    );
   }, [product]);
 
   const handleAddToCart = () => {

@@ -4,8 +4,23 @@ import * as S from "./index.styled";
 
 function ContactPage() {
   useEffect(() => {
-    document.title = "Contact Page";
+    document.title = "CGG | Contact Page";
+
+    let metaDescription = document.querySelector("meta[name='description']");
+
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.getElementsByTagName("head")[0].appendChild(metaDescription);
+    }
+
+    metaDescription.setAttribute(
+      "content",
+      "Get in touch with us for any questions, feedback, or inquiries. Our team is ready to help you with whatever you need."
+    );
   }, []);
+
+
   const theme = useContext(ThemeContext);
   const [formData, setFormData] = useState({
     fullName: "",

@@ -14,7 +14,21 @@ function CheckoutPage() {
         removeItem(item.id);
       }
     });
+
+    let metaDescription = document.querySelector("meta[name='description']");
+
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.getElementsByTagName("head")[0].appendChild(metaDescription);
+    }
+
+    metaDescription.setAttribute(
+      "content",
+      "Review your cart and proceed to checkout. Securely complete your purchase and get ready to enjoy your new items!"
+    );
   }, [cartItems, removeItem]);
+
 
   const handleQuantityChange = (item, quantity) => {
     if (quantity < 1) {

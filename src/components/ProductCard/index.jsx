@@ -36,7 +36,7 @@ function ProductCard({ product }) {
         />
         <S.AddToCartButton
           onClick={handleAddToCart}
-          className={isAdded ? "added" : ""}
+          className={`${isAdded ? "added" : ""}`}
           aria-label={`Add ${product.title} to cart`}>
           {isAdded ? "Added ✔️" : "Add to Cart"}
         </S.AddToCartButton>

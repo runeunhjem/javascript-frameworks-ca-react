@@ -161,8 +161,8 @@ export const QuantityButton = styled.button`
   cursor: pointer;
   border-radius: 4px;
   border: none;
-  background-color: ${(props) => props.theme.viewProductButton};
-  color: ${(props) => props.theme.colors.text};
+  background-color: ${(props) => props.theme.quantityButtonCart};
+  color: ${(props) => props.theme.colors.black};
   box-shadow: ${(props) => props.theme.navLinkShadow};
   &:hover {
     background-color: ${(props) => props.theme.viewProductButtonHover};

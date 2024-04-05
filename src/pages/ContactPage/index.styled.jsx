@@ -66,7 +66,7 @@ export const SubmitButton = styled.button`
 
   &:hover {
     background-color: ${(props) => (props.$isSubmitted ? props.theme.successMessage : props.theme.viewProductButtonHover)};
-    color: ${(props) => (props.$isSubmitted ? props.theme.colors.white : props.theme.text)};
+    color: ${(props) => (props.$isSubmitted ? props.theme.colors.white : props.theme.h2)};
   }
 
   &::after {
